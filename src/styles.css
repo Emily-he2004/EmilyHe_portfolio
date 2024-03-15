@@ -1,0 +1,9 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*# sourceMappingURL=styles.css.map */

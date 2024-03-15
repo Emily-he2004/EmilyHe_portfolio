@@ -1,0 +1,11 @@
+@import "./components/components";
+@import "./pages-and-posts/pages-and-posts";
+@import "./variables";
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
