@@ -5,7 +5,7 @@ import { MdOutlineHealthAndSafety } from "react-icons/md";
 
 function Navigation() {
   return (
-    <div className="navigation-container">
+    <div className="thumb-nav-container">
       <nav className="thumb-nav">
         <ul className="nav-menu">
           <li>

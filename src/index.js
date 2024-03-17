@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import AppRouter from "./router/AppRouter";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
+import './styles.css';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

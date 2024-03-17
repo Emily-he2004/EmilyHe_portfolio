@@ -3,8 +3,8 @@ import React from "react";
 function RightNav() {
 
     return (
-        <div>
-            Right Navigation component here.
+        <div className="right-nav">
+            Right Nav
         </div>
     )
 }

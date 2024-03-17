@@ -1,9 +1,144 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media screen and (min-width: 700px) {
+  .header-container {
+    margin-bottom: 1rem;
+  }
+  .header-container .left-nav,
+  .header-container .right-nav {
+    display: block;
+  }
+}
+
+nav.header-nav {
+  border-bottom: 0.08rem white solid;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+nav.header-nav ul.home-menu,
+nav.header-nav ul.nav-menu {
+  margin: 0 0 1.8rem 0;
+}
+nav.header-nav ul {
+  display: flex;
+  justify-content: flex-end;
+}
+nav.header-nav ul li {
+  margin: 0 2rem;
+}
+
+.left-nav {
+  position: absolute;
+  z-index: 999;
+  bottom: 3vh;
+  left: 0;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  color: black;
+  background-color: whitesmoke;
+}
+
+.right-nav {
+  position: absolute;
+  z-index: 999;
+  bottom: 3vh;
+  right: 0;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  color: black;
+  background-color: whitesmoke;
+}
+
+.nav-menu {
+  display: none;
+}
+
+.left-nav,
+.right-nav {
+  display: none;
+}
+
+@media screen and (min-width: 700px) {
+  .nav-menu,
+  .left-nav,
+  .right-nav {
+    display: block;
+  }
+}
+.thumb-nav-container {
+  display: block;
+  background-color: wheat;
+  padding: 0 2rem 0.5rem 0;
+}
+.thumb-nav-container a {
+  color: black;
+}
+.thumb-nav-container ul.nav-menu {
+  display: flex;
+  justify-content: space-evenly;
+}
+.thumb-nav-container li {
+  margin: 0 1.3rem;
+}
+
+.thumb-nav-container {
+  position: sticky;
+  z-index: 99;
+  bottom: 0;
+}
+
+@media screen and (min-width: 700px) {
+  .thumb-nav-container {
+    display: none;
+  }
+}
+.bottom-nav-container {
+  margin: 1.5rem 0 0 0;
+}
+
+.footer-container {
+  border-top: 0.08rem white solid;
+  text-align: center;
+  padding: 1rem 0 0 0;
+  width: 100%;
+}
+
+.thumb-nav-parent {
+  position: relative;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
 
 html {
   scroll-behavior: smooth;
+  position: relative;
+  min-height: 100vh;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-size: 1.18rem;
+  margin: 8rem 0 0 0;
+  padding: 0;
+}
+body li {
+  list-style: none;
+}
+body a {
+  color: white;
+  text-decoration: none;
+  list-style: none;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,8 +1,12 @@
 import { NavLink } from "react-router-dom";
+import LeftNav from "../components/LeftNav";
+import RightNav from "./RightNav";
 
 function Header() {
   return (
     <div className="header-container">
+      <LeftNav />
+
       <nav className="header-nav">
         <ul className="home-menu">
           <li>
@@ -33,6 +37,8 @@ function Header() {
           </li>
         </ul>
       </nav>
+      
+      <RightNav />
     </div>
   );
 }
