@@ -1,52 +1,11 @@
 .bottom-nav-container {
-    // display: flex;
-    // align-items: center;
-    // justify-content: space-between;
     margin: 1.5rem 0 0 0;
-    
-    // @media screen and (min-width: 700px) {
-    //   margin-bottom: 1rem;
-    
-    //   .left-nav,
-    //   .right-nav {
-    //     display: block;
-    //   }
-    // }
-
-    // position: fixed;
-    // bottom: 0;
-    // width: 100%;
-    // z-index: 999;
 }
-
-// .left-nav{
-//     position: absolute;
-//     z-index: 999;
-//     bottom: 3vh;
-//     left: 0;
-    
-//     writing-mode: vertical-lr;
-//     // text-orientation: upright;
-//     color: black;
-//     background-color: whitesmoke;
-// }
-
-// .right-nav {
-//   position: absolute;
-//   z-index: 999;
-//   bottom: 3vh;
-//   right: 0;
-  
-//   writing-mode: vertical-lr;
-// //   text-orientation: upright;
-//   color: black;
-//   background-color: whitesmoke;
-// }
 
 .footer-container {
   border-top: 0.08rem white solid;
   text-align: center;
-  padding: 1rem 0 0 0;
+  padding: 1rem 0;
   width: 100%;
 
 }

@@ -1,52 +1,50 @@
 .header-container {
-    
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
-    @media screen and (min-width: 700px) {
-        margin-bottom: 1rem;
-        
-        .left-nav,
-        .right-nav {
-            display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (min-width: 700px) {
+    margin-bottom: 1rem;
+
+    .left-nav,
+    .right-nav {
+      display: block;
     }
   }
-
 }
 
+nav.header-nav {
+  border-bottom: 0.08rem white solid;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 
-nav.header-nav{
-    border-bottom: 0.08rem white solid;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+
+  ul.home-menu,
+  ul.nav-menu {
+    margin: 0 0 1.8rem 0;
+  }
+
+  ul {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
+    justify-content: flex-end;
 
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 999;
-
-    ul.home-menu,
-    ul.nav-menu{
-        margin: 0 0 1.8rem 0;
+    li {
+      margin: 0 2rem;
     }
-
-    ul{
-        display: flex;
-        justify-content: flex-end;
-        
-        li{
-            margin: 0 2rem;
-        }
-    }
+  }
 }
 
 .left-nav {
-  position: absolute;
+  position: fixed;
   z-index: 999;
   bottom: 3vh;
   left: 0;
+  margin: 0 .8rem;
 
   writing-mode: vertical-lr;
   text-orientation: upright;
@@ -55,15 +53,17 @@ nav.header-nav{
 }
 
 .right-nav {
-  position: absolute;
+  position: fixed;
   z-index: 999;
   bottom: 3vh;
   right: 0;
+  margin: 0 .8rem;
 
   writing-mode: vertical-lr;
   text-orientation: upright;
   color: black;
   background-color: whitesmoke;
+  
 }
 
 .nav-menu {

@@ -36,10 +36,11 @@ nav.header-nav ul li {
 }
 
 .left-nav {
-  position: absolute;
+  position: fixed;
   z-index: 999;
   bottom: 3vh;
   left: 0;
+  margin: 0 0.8rem;
   writing-mode: vertical-lr;
   text-orientation: upright;
   color: black;
@@ -47,10 +48,11 @@ nav.header-nav ul li {
 }
 
 .right-nav {
-  position: absolute;
+  position: fixed;
   z-index: 999;
   bottom: 3vh;
   right: 0;
+  margin: 0 0.8rem;
   writing-mode: vertical-lr;
   text-orientation: upright;
   color: black;
@@ -107,7 +109,7 @@ nav.header-nav ul li {
 .footer-container {
   border-top: 0.08rem white solid;
   text-align: center;
-  padding: 1rem 0 0 0;
+  padding: 1rem 0;
   width: 100%;
 }
 
@@ -129,7 +131,7 @@ body {
   background-color: black;
   color: white;
   font-size: 1.18rem;
-  margin: 8rem 0 0 0;
+  margin: 7rem 0 0 0;
   padding: 0;
 }
 body li {
