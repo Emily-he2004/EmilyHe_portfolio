@@ -13,11 +13,12 @@
   }
 }
 
-nav.header-nav {
+.header-nav {
   border-bottom: 0.08rem white solid;
   display: flex;
   justify-content: space-between;
   width: 100%;
+  background-color: black;
 
   position: fixed;
   top: 0;
@@ -37,6 +38,14 @@ nav.header-nav {
       margin: 0 2rem;
     }
   }
+
+  .visible {
+    display: flex;
+  }
+
+  .hidden {
+    display: none;
+  }
 }
 
 .left-nav {
@@ -44,7 +53,7 @@ nav.header-nav {
   z-index: 999;
   bottom: 3vh;
   left: 0;
-  margin: 0 .8rem;
+  margin: 0 0.8rem;
 
   writing-mode: vertical-lr;
   text-orientation: upright;
@@ -57,13 +66,12 @@ nav.header-nav {
   z-index: 999;
   bottom: 3vh;
   right: 0;
-  margin: 0 .8rem;
+  margin: 0 0.8rem;
 
   writing-mode: vertical-lr;
   text-orientation: upright;
   color: black;
   background-color: whitesmoke;
-  
 }
 
 .nav-menu {
