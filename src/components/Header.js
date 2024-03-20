@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import LeftNav from "../components/LeftNav";
 import RightNav from "../components/RightNav";
+import { MdDeveloperMode } from "react-icons/md";
 
 function Header() {
-  const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY || window.pageYOffset);
+  const [prevScrollPos, setPrevScrollPos] = useState(
+    window.scrollY || window.pageYOffset
+  );
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -18,6 +21,13 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos, visible]);
 
+  const handleNavLinkClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="header-container">
       <LeftNav />
@@ -25,27 +35,29 @@ function Header() {
       <nav className={`header-nav ${visible ? "visible" : "hidden"}`}>
         <ul className="home-menu">
           <li>
-            <NavLink to="/">
-              <br />
-              Emily.Dev
+            <NavLink to="/" onClick={handleNavLinkClick}>
+              <h4>
+                {/* <MdDeveloperMode /> */}
+                Emily.Dev
+              </h4>
             </NavLink>
           </li>
         </ul>
         <ul className="nav-menu">
           <li>
-            <NavLink to="/about">
+            <NavLink to="/about" onClick={handleNavLinkClick}>
               <br />
               About
             </NavLink>
           </li>
           <li>
-            <NavLink to="/projects">
+            <NavLink to="/projects" onClick={handleNavLinkClick}>
               <br />
               Projects
             </NavLink>
           </li>
           <li>
-            <NavLink to="/contact">
+            <NavLink to="/contact" onClick={handleNavLinkClick}>
               <br />
               Contact
             </NavLink>
