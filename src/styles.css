@@ -89,6 +89,9 @@
   padding: 0 2rem 0.1rem 0;
   border-top: 0.1rem solid white;
   font-size: 0.85rem;
+  position: sticky;
+  z-index: 99;
+  bottom: 0vh;
 }
 .thumb-nav-container a {
   color: white;
@@ -107,24 +110,18 @@
   height: 1.7rem;
 }
 
-.thumb-nav-container {
-  position: sticky;
-  z-index: 99;
-  bottom: 0;
-}
-
 @media screen and (min-width: 600px) {
   .thumb-nav-container {
     display: none;
   }
 }
 .footer-container {
-  margin: 1.5rem 0 0 0;
+  margin: 5rem 0 0 0;
   border-top: 0.08rem white solid;
   text-align: center;
   padding: 1rem 0;
   width: 100%;
-  bottom: 0;
+  bottom: 0vh;
 }
 
 .thumb-nav-parent {
@@ -132,7 +129,103 @@
 }
 
 .home-page {
-  margin: 0 1.5rem 2.5rem 1.5rem;
+  margin: 0 0 2.5rem 0;
+}
+.home-page .profile-section {
+  display: grid;
+  margin: 0 1rem;
+  grid-template-areas: "profile    ." "CTA        .";
+}
+.home-page .profile-section .profile-content {
+  grid-area: profile;
+  margin: 1rem auto;
+}
+.home-page .profile-section .home-cta {
+  display: flex;
+  justify-content: flex-start;
+  grid-area: CTA;
+}
+.home-page .profile-section .site-color-toggler {
+  display: none;
+}
+@media screen and (min-width: 600px) {
+  .home-page .profile-section .site-color-toggler {
+    display: block;
+    font-size: 0.9rem;
+    margin: 1rem auto;
+    text-align: center;
+    border: solid 0.1rem white;
+    border-radius: 0.5rem;
+    padding-inline-start: 0;
+  }
+  .home-page .profile-section .site-color-toggler ul {
+    display: flex;
+    margin: 0 auto;
+  }
+  .home-page .profile-section .site-color-toggler ul li {
+    font-weight: 500;
+    padding: 0 0.2rem;
+  }
+}
+.home-page .featured-project-section {
+  margin: 2rem 1rem;
+}
+.home-page .featured-project-intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.home-page a {
+  font-weight: 550;
+  text-decoration: none;
+}
+.home-page .home-project-cta {
+  border-radius: 0.3rem;
+  border: white solid 0.08rem;
+  padding: 0.3rem 0.8rem;
+  margin: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+.home-page .home-project-cta.home-project-cta, .home-page .home-project-cta.linkedin-cta {
+  background-color: white;
+  color: black;
+}
+.home-page .home-project-cta.home-project-cta:hover, .home-page .home-project-cta.home-project-cta:active, .home-page .home-project-cta.linkedin-cta:hover, .home-page .home-project-cta.linkedin-cta:active {
+  background-color: black;
+  color: white;
+}
+.home-page .home-about-cta {
+  border-radius: 0.3rem;
+  border: white solid 0.08rem;
+  padding: 0.3rem 0.8rem;
+  margin: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+.home-page .home-about-cta.home-project-cta, .home-page .home-about-cta.linkedin-cta {
+  background-color: white;
+  color: black;
+}
+.home-page .home-about-cta.home-project-cta:hover, .home-page .home-about-cta.home-project-cta:active, .home-page .home-about-cta.linkedin-cta:hover, .home-page .home-about-cta.linkedin-cta:active {
+  background-color: black;
+  color: white;
+}
+.home-page .home-about-cta.home-about-cta, .home-page .home-about-cta.github-cta, .home-page .home-about-cta.copy-email-btn {
+  color: white;
+  background-color: black;
+}
+.home-page .home-about-cta.home-about-cta:hover, .home-page .home-about-cta.home-about-cta:active, .home-page .home-about-cta.github-cta:hover, .home-page .home-about-cta.github-cta:active, .home-page .home-about-cta.copy-email-btn:hover, .home-page .home-about-cta.copy-email-btn:active {
+  background-color: white;
+  color: black;
+}
+.home-page .featured-projects-cta {
+  transition: transform 0.3s ease;
+  text-align: end;
+  color: white;
+  margin-right: 0.5rem;
+}
+.home-page .featured-projects-cta:hover, .home-page .featured-projects-cta:active {
+  transform: translateX(10px);
+  background-color: black;
 }
 
 .about-page {
@@ -144,7 +237,121 @@
 }
 
 .contact-page {
-  margin: 0 1.5rem 2.5rem 1.5rem;
+  margin: 0 0 2.5rem 0;
+  position: relative;
+}
+.contact-page .email-copy-message {
+  position: sticky;
+  z-index: 999;
+}
+.contact-page .contact-container {
+  border-radius: 0.3rem;
+  border: white solid 0.08rem;
+  padding: 1rem 2rem 4.5rem 2rem;
+  margin: 2rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  max-width: 900px;
+}
+.contact-page .contact-container .clipboard-decor {
+  display: block;
+  background-color: white;
+  height: 0.8rem;
+  width: 40%;
+  border-radius: 0.3rem;
+  margin-top: 1rem;
+}
+@media screen and (min-width: 800px) {
+  .contact-page .clipboard-decor {
+    width: 30%;
+  }
+  .contact-page .contact-container {
+    margin: 2rem auto;
+  }
+}
+.contact-page a {
+  font-weight: 550;
+  text-decoration: none;
+}
+.contact-page .email-cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0.5rem auto;
+}
+.contact-page .copy-email-btn {
+  border-radius: 0.3rem;
+  border: white solid 0.08rem;
+  padding: 0.3rem 0.8rem;
+  margin: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+.contact-page .copy-email-btn.home-project-cta, .contact-page .copy-email-btn.linkedin-cta {
+  background-color: white;
+  color: black;
+}
+.contact-page .copy-email-btn.home-project-cta:hover, .contact-page .copy-email-btn.home-project-cta:active, .contact-page .copy-email-btn.linkedin-cta:hover, .contact-page .copy-email-btn.linkedin-cta:active {
+  background-color: black;
+  color: white;
+}
+.contact-page .copy-email-btn.home-about-cta, .contact-page .copy-email-btn.github-cta, .contact-page .copy-email-btn.copy-email-btn {
+  color: white;
+  background-color: black;
+}
+.contact-page .copy-email-btn.home-about-cta:hover, .contact-page .copy-email-btn.home-about-cta:active, .contact-page .copy-email-btn.github-cta:hover, .contact-page .copy-email-btn.github-cta:active, .contact-page .copy-email-btn.copy-email-btn:hover, .contact-page .copy-email-btn.copy-email-btn:active {
+  background-color: white;
+  color: black;
+}
+.contact-page .copy-email-btn svg {
+  margin-left: 0.5rem;
+}
+.contact-page .copy-email-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.contact-page .network-cta {
+  margin: 1.5rem 0 0 0;
+}
+.contact-page .linkedin-cta {
+  border-radius: 0.3rem;
+  border: white solid 0.08rem;
+  padding: 0.3rem 0.8rem;
+  margin: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+.contact-page .linkedin-cta.home-project-cta, .contact-page .linkedin-cta.linkedin-cta {
+  background-color: white;
+  color: black;
+}
+.contact-page .linkedin-cta.home-project-cta:hover, .contact-page .linkedin-cta.home-project-cta:active, .contact-page .linkedin-cta.linkedin-cta:hover, .contact-page .linkedin-cta.linkedin-cta:active {
+  background-color: black;
+  color: white;
+}
+.contact-page .github-cta {
+  border-radius: 0.3rem;
+  border: white solid 0.08rem;
+  padding: 0.3rem 0.8rem;
+  margin: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+.contact-page .github-cta.home-project-cta, .contact-page .github-cta.linkedin-cta {
+  background-color: white;
+  color: black;
+}
+.contact-page .github-cta.home-project-cta:hover, .contact-page .github-cta.home-project-cta:active, .contact-page .github-cta.linkedin-cta:hover, .contact-page .github-cta.linkedin-cta:active {
+  background-color: black;
+  color: white;
+}
+.contact-page .github-cta.home-about-cta, .contact-page .github-cta.github-cta, .contact-page .github-cta.copy-email-btn {
+  color: white;
+  background-color: black;
+}
+.contact-page .github-cta.home-about-cta:hover, .contact-page .github-cta.home-about-cta:active, .contact-page .github-cta.github-cta:hover, .contact-page .github-cta.github-cta:active, .contact-page .github-cta.copy-email-btn:hover, .contact-page .github-cta.copy-email-btn:active {
+  background-color: white;
+  color: black;
 }
 
 ::-webkit-scrollbar {
@@ -161,8 +368,9 @@ body {
   background-color: black;
   color: white;
   font-size: 1.1rem;
-  margin: 7rem 0 0 0;
+  margin: 6.2rem 0 0 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body li {
   list-style: none;

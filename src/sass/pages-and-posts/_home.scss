@@ -1,3 +1,86 @@
-.home-page{
-    margin: 0 1.5rem 2.5rem 1.5rem;
+.home-page {
+  margin: 0 0 2.5rem 0;
+
+  .profile-section {
+    display: grid;
+    margin: 0 1rem;
+    grid-template-areas:
+      "profile    ."
+      "CTA        .";
+
+    .profile-content {
+      grid-area: profile;
+      margin: 1rem auto;
+    }
+
+    .home-cta {
+      display: flex;
+      justify-content: flex-start;
+      grid-area: CTA;
+    }
+
+    .site-color-toggler {
+      display: none;
+    }
+
+    @media screen and (min-width: 600px) {
+      .site-color-toggler {
+        display: block;
+        font-size: 0.9rem;
+        margin: 1rem auto;
+        text-align: center;
+        border: solid 0.1rem white;
+        border-radius: 0.5rem;
+        padding-inline-start: 0;
+
+        ul {
+          display: flex;
+          margin: 0 auto;
+
+          li {
+            font-weight: 500;
+            padding: 0 0.2rem;
+          }
+        }
+      }
+    }
+  }
+
+  // _______Featured Project Section_______________________________
+
+  .featured-project-section {
+    margin: 2rem 1rem;
+  }
+  .featured-project-intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  // ______CTAs & Links___________________________________________
+
+  a {
+    font-weight: 550;
+    text-decoration: none;
+  }
+
+  .home-project-cta {
+    @include lightToDark;
+  }
+
+  .home-about-cta {
+    @include darkToLight;
+  }
+
+  .featured-projects-cta {
+    transition: transform 0.3s ease;
+    text-align: end;
+    color: white;
+    margin-right: 0.5rem;
+    &:hover,
+    &:active {
+      transform: translateX(10px);
+      background-color: black;
+    }
+  }
 }

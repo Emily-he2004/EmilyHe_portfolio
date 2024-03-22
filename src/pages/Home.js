@@ -1,4 +1,6 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+
 import { useState, useEffect } from "react";
 import Loading from "../components/Loading";
 
@@ -22,53 +24,75 @@ function Home({ restBase }) {
     fetchData();
   }, [restPath]);
 
+  const handleNavLinkClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       {isLoaded ? (
         <div className="home-page">
-          <p>home page here.</p>
-          lorem ipsum dolor sit amet, consectetur adipiscing elit. sed tempor,
-          eros a dapibus accumsan, tortor turpis molestie ex, at aliquet turpis
-          quam a mauris. nulla vel sapien aliquet, tempus metus eget, cursus
-          mauris. sed consequat, justo sit amet consequat scelerisque, felis
-          elit scelerisque neque, sit amet luctus nunc lorem ut libero. sed
-          consequat id eros eu posuere. ut ut pulvinar magna. sed venenatis
-          vehicula diam, non consequat velit posuere quis. vivamus vitae felis
-          consectetur, fermentum arcu et, ultrices nulla. donec posuere urna id
-          dui gravida, id congue mauris tempor. vestibulum sit amet eros quis
-          mauris tincidunt lacinia. nulla nec odio at lectus iaculis laoreet.
-          nulla facilisi. nam fringilla scelerisque neque, sit amet consequat
-          nisi interdum id. maecenas vel risus lectus. in hac habitasse platea
-          dictumst. pellentesque auctor dui eu sapien auctor varius. integer
-          feugiat eros eget tortor varius condimentum. vivamus viverra, justo id
-          venenatis aliquet, libero magna convallis libero, id finibus urna sem
-          eget enim. sed tincidunt consequat ligula, eget varius justo. integer
-          at lorem nec nisl placerat pulvinar. vivamus viverra, turpis at
-          consequat ultricies, nibh leo fermentum elit, at dictum nisi libero
-          eget justo. sed quis neque quis mi vulputate efficitur. vivamus
-          placerat condimentum elit eget mattis. curabitur id lectus sit amet
-          diam malesuada posuere eu et velit.<br></br>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor,
-          eros a dapibus accumsan, tortor turpis molestie ex, at aliquet turpis
-          quam a mauris. Nulla vel sapien aliquet, tempus metus eget, cursus
-          mauris. Sed consequat, justo sit amet consequat scelerisque, felis
-          elit scelerisque neque, sit amet luctus nunc lorem ut libero. Sed
-          consequat id eros eu posuere. Ut ut pulvinar magna. Sed venenatis
-          vehicula diam, non consequat velit posuere quis. Vivamus vitae felis
-          consectetur, fermentum arcu et, ultrices nulla. Donec posuere urna id
-          dui gravida, id congue mauris tempor. Vestibulum sit amet eros quis
-          mauris tincidunt lacinia. Nulla nec odio at lectus iaculis laoreet.
-          Nulla facilisi. Nam fringilla scelerisque neque, sit amet consequat
-          nisi interdum id. Maecenas vel risus lectus. In hac habitasse platea
-          dictumst. Pellentesque auctor dui eu sapien auctor varius. Integer
-          feugiat eros eget tortor varius condimentum. Vivamus viverra, justo id
-          venenatis aliquet, libero magna convallis libero, id finibus urna sem
-          eget enim. Sed tincidunt consequat ligula, eget varius justo. Integer
-          at lorem nec nisl placerat pulvinar. Vivamus viverra, turpis at
-          consequat ultricies, nibh leo fermentum elit, at dictum nisi libero
-          eget justo. Sed quis neque quis mi vulputate efficitur. Vivamus
-          placerat condimentum elit eget mattis. Curabitur id lectus sit amet
-          diam malesuada posuere eu et velit.
+          {/* <p>HOME PAGE HERE.</p> */}
+          <section className="profile-section">
+            <div className="profile-content">
+              <p>{restData.acf.home_page[0].eyebrow_greeting}</p>
+              <h1>{restData.acf.home_page[0].my_name}</h1>
+              <h3>{restData.acf.home_page[0].occupation}</h3>
+              <p>{restData.acf.home_page[0].in_depth_greeting}</p>
+            <div className="home-cta">
+              <NavLink
+                to="/projects"
+                onClick={handleNavLinkClick}
+                className="home-project-cta"
+              >
+                My Projects
+              </NavLink>
+              <NavLink
+                to="/about"
+                onClick={handleNavLinkClick}
+                className="home-about-cta"
+              >
+                About Me
+              </NavLink>
+            </div>
+            </div>
+            {/* MOOD PICKER for NAV name idea! */}
+            <div className="site-color-toggler">
+              <h3>Got A Mood to share?</h3>
+              <p>We'll feel the same!</p>
+              <p>Right now, I'm...</p>
+              <div className="color-toggle-nav">
+                <ul>
+                  <li>Angry</li>
+                  <li>Sad</li>
+                  <li>Tired</li>
+                  <li>Excited</li>
+                  {/* <li>Worried</li> */}
+                  {/* <li>Amused</li> */}
+                </ul>
+              </div>
+              <p>
+                When you're feeling peckish, swing by to switch up another mood.
+              </p>
+            </div>
+          </section>
+          <section className="featured-project-section">
+            <div className="featured-project-intro">
+              <h2>
+                {restData.acf.home_page[1].featured_project_section_title}
+              </h2>
+              <NavLink
+                to="/projects"
+                onClick={handleNavLinkClick}
+                className="featured-projects-cta"
+              >
+                See All Projects &#8594;
+              </NavLink>
+            </div>
+          </section>
         </div>
       ) : (
         <Loading />

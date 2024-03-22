@@ -1,36 +1,35 @@
 .thumb-nav-container {
   display: block;
   background-color: black;
-  padding: 0 2rem .1rem 0;
-  border-top: .1rem solid white;
+  padding: 0 2rem 0.1rem 0;
+  border-top: 0.1rem solid white;
   // box-shadow: inset 0 -1rem 1rem rgba(255, 255, 255, 0.3);
-  font-size: .85rem;
+  font-size: 0.85rem;
 
   a {
-      color: white;
+    color: white;
   }
 
-  ul.nav-menu{
+  ul.nav-menu {
     display: flex;
     justify-content: space-evenly;
-    margin: .8rem 0;
+    margin: 0.8rem 0;
   }
 
-  li{
+  li {
     margin: 0 1.3rem;
     text-align: center;
 
-    svg{
+    svg {
       width: 1.7rem;
       height: 1.7rem;
     }
   }
-}
 
-.thumb-nav-container {
   position: sticky;
   z-index: 99;
-  bottom: 0;
+  bottom: 0vh;
+  
 }
 
 @media screen and (min-width: 600px) {

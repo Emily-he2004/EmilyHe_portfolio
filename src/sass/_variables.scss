@@ -1,0 +1,36 @@
+@mixin lightToDark {
+  border-radius: 0.3rem;
+  border: white solid 0.08rem;
+  padding: 0.3rem 0.8rem;
+  margin: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+
+  &.home-project-cta,
+  &.linkedin-cta {
+    background-color: white;
+    color: black;
+
+    &:hover,
+    &:active {
+      background-color: black;
+      color: white;
+    }
+  }
+}
+
+@mixin darkToLight {
+  @include lightToDark;
+
+  &.home-about-cta,
+  &.github-cta,
+  &.copy-email-btn {
+    color: white;
+    background-color: black;
+
+    &:hover,
+    &:active {
+      background-color: white;
+      color: black;
+    }
+  }
+}

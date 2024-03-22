@@ -1,74 +1,75 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Loading from "../components/Loading";
+import { FaCopy } from "react-icons/fa6";
 
 function Contact({ restBase }) {
-  const ContactID = "";
+  const ContactID = "13";
   const restPath = `${restBase}pages/${ContactID}`;
   const [restData, setData] = useState([]);
-  const [isLoaded, setLoadStatus] = useState(false);
+  const [isLoaded, setLoaded] = useState(false);
+  const [isCopied, setCopied] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(restPath);
-      if (response.ok) {
-        const data = await response.json();
-        setData(data);
-        setLoadStatus(true);
-      } else {
-        setLoadStatus(false);
+      try {
+        const response = await fetch(restPath);
+        if (response.ok) {
+          const data = await response.json();
+          setData(data);
+          setLoaded(true);
+        } else {
+          setLoaded(false);
+        }
+      } catch (error) {
+        console.error("Error fetching contact data:", error);
+        setLoaded(false);
       }
     };
     fetchData();
   }, [restPath]);
 
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(restData.acf.contact_page[0].contact_email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1200);
+  };
+
   return (
     <>
       {isLoaded ? (
         <div className="contact-page">
-          <p>CONTACT PAGE HERE.</p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor,
-          eros a dapibus accumsan, tortor turpis molestie ex, at aliquet turpis
-          quam a mauris. Nulla vel sapien aliquet, tempus metus eget, cursus
-          mauris. Sed consequat, justo sit amet consequat scelerisque, felis
-          elit scelerisque neque, sit amet luctus nunc lorem ut libero. Sed
-          consequat id eros eu posuere. Ut ut pulvinar magna. Sed venenatis
-          vehicula diam, non consequat velit posuere quis. Vivamus vitae felis
-          consectetur, fermentum arcu et, ultrices nulla. Donec posuere urna id
-          dui gravida, id congue mauris tempor. Vestibulum sit amet eros quis
-          mauris tincidunt lacinia. Nulla nec odio at lectus iaculis laoreet.
-          Nulla facilisi. Nam fringilla scelerisque neque, sit amet consequat
-          nisi interdum id. Maecenas vel risus lectus. In hac habitasse platea
-          dictumst. Pellentesque auctor dui eu sapien auctor varius. Integer
-          feugiat eros eget tortor varius condimentum. Vivamus viverra, justo id
-          venenatis aliquet, libero magna convallis libero, id finibus urna sem
-          eget enim. Sed tincidunt consequat ligula, eget varius justo. Integer
-          at lorem nec nisl placerat pulvinar. Vivamus viverra, turpis at
-          consequat ultricies, nibh leo fermentum elit, at dictum nisi libero
-          eget justo. Sed quis neque quis mi vulputate efficitur. Vivamus
-          placerat condimentum elit eget mattis. Curabitur id lectus sit amet
-          diam malesuada posuere eu et velit.<br></br>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor,
-          eros a dapibus accumsan, tortor turpis molestie ex, at aliquet turpis
-          quam a mauris. Nulla vel sapien aliquet, tempus metus eget, cursus
-          mauris. Sed consequat, justo sit amet consequat scelerisque, felis
-          elit scelerisque neque, sit amet luctus nunc lorem ut libero. Sed
-          consequat id eros eu posuere. Ut ut pulvinar magna. Sed venenatis
-          vehicula diam, non consequat velit posuere quis. Vivamus vitae felis
-          consectetur, fermentum arcu et, ultrices nulla. Donec posuere urna id
-          dui gravida, id congue mauris tempor. Vestibulum sit amet eros quis
-          mauris tincidunt lacinia. Nulla nec odio at lectus iaculis laoreet.
-          Nulla facilisi. Nam fringilla scelerisque neque, sit amet consequat
-          nisi interdum id. Maecenas vel risus lectus. In hac habitasse platea
-          dictumst. Pellentesque auctor dui eu sapien auctor varius. Integer
-          feugiat eros eget tortor varius condimentum. Vivamus viverra, justo id
-          venenatis aliquet, libero magna convallis libero, id finibus urna sem
-          eget enim. Sed tincidunt consequat ligula, eget varius justo. Integer
-          at lorem nec nisl placerat pulvinar. Vivamus viverra, turpis at
-          consequat ultricies, nibh leo fermentum elit, at dictum nisi libero
-          eget justo. Sed quis neque quis mi vulputate efficitur. Vivamus
-          placerat condimentum elit eget mattis. Curabitur id lectus sit amet
-          diam malesuada posuere eu et velit.
+          {isCopied && (
+            <div className="email-copy-message">Email copied successfully!</div>
+          )}
+          <div className="contact-container">
+            <span className="clipboard-decor"></span>
+            <h1>{restData.acf.contact_page[0].contact_me_title}</h1>
+            <p>{restData.acf.contact_page[0].contact_message}</p>
+            <p className="email-cta">
+              Email:
+              <a href={`mailto:${restData.acf.contact_page[0].contact_email}`}>
+                {restData.acf.contact_page[0].contact_email}
+              </a>
+              <button className="copy-email-btn" onClick={handleCopyEmail}>
+                Copy Email
+                <FaCopy className="copy-icon" />
+              </button>
+            </p>
+            <div className="network-cta">
+              <a
+                href={restData.acf.contact_page[0].contact_linkedin}
+                className="linkedin-cta"
+              >
+                LinkedIn
+              </a>
+              <a
+                href={restData.acf.contact_page[0].contact_github}
+                className="github-cta"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
         </div>
       ) : (
         <Loading />

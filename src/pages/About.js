@@ -1,21 +1,25 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Loading from "../components/Loading";
 
 function About({ restBase }) {
-  const AboutID = "";
+  const AboutID = "11";
   const restPath = `${restBase}pages/${AboutID}`;
-  const [restData, setData] = useState([]);
+  const [restData, setData] = useState({});
   const [isLoaded, setLoadStatus] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(restPath);
-      if (response.ok) {
-        const data = await response.json();
-        setData(data);
-        setLoadStatus(true);
-      } else {
+      try {
+        const response = await fetch(restPath);
+        if (response.ok) {
+          const data = await response.json();
+          setData(data);
+          setLoadStatus(true);
+        } else {
+          setLoadStatus(false);
+        }
+      } catch (error) {
+        console.error("Error fetching about data:", error);
         setLoadStatus(false);
       }
     };
@@ -26,49 +30,44 @@ function About({ restBase }) {
     <>
       {isLoaded ? (
         <div className="about-page">
-          <p>ABOUT PAGE HERE.</p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor,
-          eros a dapibus accumsan, tortor turpis molestie ex, at aliquet turpis
-          quam a mauris. Nulla vel sapien aliquet, tempus metus eget, cursus
-          mauris. Sed consequat, justo sit amet consequat scelerisque, felis
-          elit scelerisque neque, sit amet luctus nunc lorem ut libero. Sed
-          consequat id eros eu posuere. Ut ut pulvinar magna. Sed venenatis
-          vehicula diam, non consequat velit posuere quis. Vivamus vitae felis
-          consectetur, fermentum arcu et, ultrices nulla. Donec posuere urna id
-          dui gravida, id congue mauris tempor. Vestibulum sit amet eros quis
-          mauris tincidunt lacinia. Nulla nec odio at lectus iaculis laoreet.
-          Nulla facilisi. Nam fringilla scelerisque neque, sit amet consequat
-          nisi interdum id. Maecenas vel risus lectus. In hac habitasse platea
-          dictumst. Pellentesque auctor dui eu sapien auctor varius. Integer
-          feugiat eros eget tortor varius condimentum. Vivamus viverra, justo id
-          venenatis aliquet, libero magna convallis libero, id finibus urna sem
-          eget enim. Sed tincidunt consequat ligula, eget varius justo. Integer
-          at lorem nec nisl placerat pulvinar. Vivamus viverra, turpis at
-          consequat ultricies, nibh leo fermentum elit, at dictum nisi libero
-          eget justo. Sed quis neque quis mi vulputate efficitur. Vivamus
-          placerat condimentum elit eget mattis. Curabitur id lectus sit amet
-          diam malesuada posuere eu et velit.<br></br>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor,
-          eros a dapibus accumsan, tortor turpis molestie ex, at aliquet turpis
-          quam a mauris. Nulla vel sapien aliquet, tempus metus eget, cursus
-          mauris. Sed consequat, justo sit amet consequat scelerisque, felis
-          elit scelerisque neque, sit amet luctus nunc lorem ut libero. Sed
-          consequat id eros eu posuere. Ut ut pulvinar magna. Sed venenatis
-          vehicula diam, non consequat velit posuere quis. Vivamus vitae felis
-          consectetur, fermentum arcu et, ultrices nulla. Donec posuere urna id
-          dui gravida, id congue mauris tempor. Vestibulum sit amet eros quis
-          mauris tincidunt lacinia. Nulla nec odio at lectus iaculis laoreet.
-          Nulla facilisi. Nam fringilla scelerisque neque, sit amet consequat
-          nisi interdum id. Maecenas vel risus lectus. In hac habitasse platea
-          dictumst. Pellentesque auctor dui eu sapien auctor varius. Integer
-          feugiat eros eget tortor varius condimentum. Vivamus viverra, justo id
-          venenatis aliquet, libero magna convallis libero, id finibus urna sem
-          eget enim. Sed tincidunt consequat ligula, eget varius justo. Integer
-          at lorem nec nisl placerat pulvinar. Vivamus viverra, turpis at
-          consequat ultricies, nibh leo fermentum elit, at dictum nisi libero
-          eget justo. Sed quis neque quis mi vulputate efficitur. Vivamus
-          placerat condimentum elit eget mattis. Curabitur id lectus sit amet
-          diam malesuada posuere eu et velit.
+          <div className="about-me-section">
+            <div>{restData.acf.about_page[0].profile_picture}</div>
+            <h1>{restData.acf.about_page[0].about_me_title}</h1>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: restData.acf.about_page[0].about_me_content,
+              }}
+            ></div>
+            <h2>{restData.acf.about_page[0].interests_and_hobbies_title}</h2>
+            <p>{restData.acf.about_page[0].interests_and_hobbies_content}</p>
+          </div>
+
+          {restData.acf.about_page[1] && (
+            <div className="tech-stack">
+              <h2>{restData.acf.about_page[1].tech_stack_title}</h2>
+              <div className="development-stack">
+                <p>{restData.acf.about_page[1].all_development_stack_title}</p>
+                <p></p>
+              </div>
+              <div className="design-stack">
+                <p>{restData.acf.about_page[1].all_design_stack_title}</p>
+                <p></p>
+              </div>
+            </div>
+          )}
+
+          {restData.acf.about_page[2] && (
+            <>
+              <h2>
+                {restData.acf.about_page[2].upcoming_projects_section_title}
+              </h2>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: restData.acf.about_page[2].upcoming_projects_content,
+                }}
+              ></div>
+            </>
+          )}
         </div>
       ) : (
         <Loading />
