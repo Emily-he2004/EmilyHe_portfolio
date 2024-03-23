@@ -33,18 +33,13 @@ function Navigation() {
           <li>
             <NavLink to="/projects" onClick={handleNavLinkClick}>
               <FaCode />
-              {/* <VscGitPullRequestCreate /> */}
-              {/* <FaLaptopCode /> */}
               <br></br>
               Projects
             </NavLink>
           </li>
           <li>
             <NavLink to="/contact" onClick={handleNavLinkClick}>
-              {/* <AiFillMessage /> */}
-              {/* <LuContact2 /> */}
               <BsPersonBadge />
-              {/* <BsPersonBadgeFill /> */}
               <br></br>
               Contact
             </NavLink>

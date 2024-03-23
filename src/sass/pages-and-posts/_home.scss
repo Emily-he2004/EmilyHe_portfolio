@@ -1,5 +1,6 @@
 .home-page {
-  margin: 0 0 2.5rem 0;
+  margin: auto auto 2.5rem auto;
+  max-width: 1200px;
 
   .profile-section {
     display: grid;
@@ -11,6 +12,10 @@
     .profile-content {
       grid-area: profile;
       margin: 1rem auto;
+
+      .in-depth-greet{
+        margin: 0 1rem 0 0;
+      }
     }
 
     .home-cta {
@@ -19,31 +24,7 @@
       grid-area: CTA;
     }
 
-    .site-color-toggler {
-      display: none;
-    }
-
-    @media screen and (min-width: 600px) {
-      .site-color-toggler {
-        display: block;
-        font-size: 0.9rem;
-        margin: 1rem auto;
-        text-align: center;
-        border: solid 0.1rem white;
-        border-radius: 0.5rem;
-        padding-inline-start: 0;
-
-        ul {
-          display: flex;
-          margin: 0 auto;
-
-          li {
-            font-weight: 500;
-            padding: 0 0.2rem;
-          }
-        }
-      }
-    }
+   
   }
 
   // _______Featured Project Section_______________________________
@@ -74,6 +55,7 @@
 
   .featured-projects-cta {
     transition: transform 0.3s ease;
+    // width: fit-content;
     text-align: end;
     color: white;
     margin-right: 0.5rem;

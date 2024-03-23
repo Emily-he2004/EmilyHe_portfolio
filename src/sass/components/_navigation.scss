@@ -5,6 +5,10 @@
   border-top: 0.1rem solid white;
   // box-shadow: inset 0 -1rem 1rem rgba(255, 255, 255, 0.3);
   font-size: 0.85rem;
+  position: fixed;
+  bottom: 0vh;
+  width: 100%;
+  z-index: 99;
 
   a {
     color: white;

@@ -89,6 +89,10 @@
   padding: 0 2rem 0.1rem 0;
   border-top: 0.1rem solid white;
   font-size: 0.85rem;
+  position: fixed;
+  bottom: 0vh;
+  width: 100%;
+  z-index: 99;
   position: sticky;
   z-index: 99;
   bottom: 0vh;
@@ -115,6 +119,83 @@
     display: none;
   }
 }
+.site-color-toggler {
+  display: none;
+}
+.site-color-toggler h3 {
+  margin: 0.5rem 0 0 0;
+}
+.site-color-toggler .comment {
+  margin: 0.5rem 1rem;
+  max-width: 300px;
+}
+@media screen and (min-width: 600px) {
+  .site-color-toggler {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    margin: 1rem auto;
+    text-align: center;
+    border: solid 0.1rem white;
+    border-radius: 0.5rem;
+    padding-inline-start: 0;
+    max-width: 400px;
+  }
+  .site-color-toggler .color-toggle-nav {
+    display: grid;
+    grid-template-areas: "Happy Rich" "Sad Angry";
+    padding: 0 1rem;
+    width: 60%;
+    justify-content: center;
+  }
+  .site-color-toggler .color-toggle-nav svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .site-color-toggler .color-toggle-nav .mood-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    margin: 0.3rem;
+  }
+  .site-color-toggler .color-toggle-nav .mood-button:nth-child(1) {
+    grid-area: Happy;
+    color: white;
+    background-color: rgb(204, 173, 36);
+    border: solid 0.1rem white;
+    border-radius: 0.3rem;
+    padding: 0.2rem;
+  }
+  .site-color-toggler .color-toggle-nav .mood-button:nth-child(2) {
+    grid-area: Rich;
+    color: white;
+    background-color: rgb(0, 141, 42);
+    border: solid 0.1rem white;
+    border-radius: 0.3rem;
+    padding: 0.2rem;
+  }
+  .site-color-toggler .color-toggle-nav .mood-button:nth-child(3) {
+    grid-area: Sad;
+    color: white;
+    background-color: rgb(33, 50, 236);
+    border: solid 0.1rem white;
+    border-radius: 0.3rem;
+    padding: 0.2rem;
+  }
+  .site-color-toggler .color-toggle-nav .mood-button:nth-child(4) {
+    grid-area: Angry;
+    color: white;
+    background-color: rgb(208, 17, 17);
+    border: solid 0.1rem white;
+    border-radius: 0.3rem;
+    padding: 0.2rem;
+  }
+}
+
 .footer-container {
   margin: 5rem 0 0 0;
   border-top: 0.08rem white solid;
@@ -129,7 +210,8 @@
 }
 
 .home-page {
-  margin: 0 0 2.5rem 0;
+  margin: auto auto 2.5rem auto;
+  max-width: 1200px;
 }
 .home-page .profile-section {
   display: grid;
@@ -140,32 +222,13 @@
   grid-area: profile;
   margin: 1rem auto;
 }
+.home-page .profile-section .profile-content .in-depth-greet {
+  margin: 0 1rem 0 0;
+}
 .home-page .profile-section .home-cta {
   display: flex;
   justify-content: flex-start;
   grid-area: CTA;
-}
-.home-page .profile-section .site-color-toggler {
-  display: none;
-}
-@media screen and (min-width: 600px) {
-  .home-page .profile-section .site-color-toggler {
-    display: block;
-    font-size: 0.9rem;
-    margin: 1rem auto;
-    text-align: center;
-    border: solid 0.1rem white;
-    border-radius: 0.5rem;
-    padding-inline-start: 0;
-  }
-  .home-page .profile-section .site-color-toggler ul {
-    display: flex;
-    margin: 0 auto;
-  }
-  .home-page .profile-section .site-color-toggler ul li {
-    font-weight: 500;
-    padding: 0 0.2rem;
-  }
 }
 .home-page .featured-project-section {
   margin: 2rem 1rem;

@@ -1,0 +1,82 @@
+.site-color-toggler {
+  display: none;
+
+  h3 {
+    margin: 0.5rem 0 0 0;
+  }
+
+  .comment {
+    margin: 0.5rem 1rem;
+    max-width: 300px;
+  }
+
+  @media screen and (min-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    margin: 1rem auto;
+    text-align: center;
+    border: solid 0.1rem white;
+    border-radius: 0.5rem;
+    padding-inline-start: 0;
+    max-width: 400px;
+    .color-toggle-nav {
+      display: grid;
+      grid-template-areas:
+        "Happy Rich"
+        "Sad Angry";
+      padding: 0 1rem;
+      width: 60%;
+      justify-content: center;
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      .mood-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        margin: 0.3rem;
+
+        &:nth-child(1) {
+          grid-area: Happy;
+          color: white;
+          background-color: rgb(204, 173, 36);
+          border: solid 0.1rem white;
+          border-radius: 0.3rem;
+          padding: 0.2rem;
+        }
+        &:nth-child(2) {
+          grid-area: Rich;
+          color: white;
+          background-color: rgb(0, 141, 42);
+          border: solid 0.1rem white;
+          border-radius: 0.3rem;
+          padding: 0.2rem;
+        }
+        &:nth-child(3) {
+          grid-area: Sad;
+          color: white;
+          background-color: rgb(33, 50, 236);
+          border: solid 0.1rem white;
+          border-radius: 0.3rem;
+          padding: 0.2rem;
+        }
+        &:nth-child(4) {
+          grid-area: Angry;
+          color: white;
+          background-color: rgb(208, 17, 17);
+          border: solid 0.1rem white;
+          border-radius: 0.3rem;
+          padding: 0.2rem;
+        }
+      }
+    }
+  }
+}

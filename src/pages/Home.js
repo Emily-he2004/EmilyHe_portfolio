@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
 import { useState, useEffect } from "react";
 import Loading from "../components/Loading";
+import MoodPicker from "../components/MoodPicker";
 
 function Home({ restBase }) {
   const HomeID = "8";
@@ -41,43 +41,26 @@ function Home({ restBase }) {
               <p>{restData.acf.home_page[0].eyebrow_greeting}</p>
               <h1>{restData.acf.home_page[0].my_name}</h1>
               <h3>{restData.acf.home_page[0].occupation}</h3>
-              <p>{restData.acf.home_page[0].in_depth_greeting}</p>
-            <div className="home-cta">
-              <NavLink
-                to="/projects"
-                onClick={handleNavLinkClick}
-                className="home-project-cta"
-              >
-                My Projects
-              </NavLink>
-              <NavLink
-                to="/about"
-                onClick={handleNavLinkClick}
-                className="home-about-cta"
-              >
-                About Me
-              </NavLink>
-            </div>
-            </div>
-            {/* MOOD PICKER for NAV name idea! */}
-            <div className="site-color-toggler">
-              <h3>Got A Mood to share?</h3>
-              <p>We'll feel the same!</p>
-              <p>Right now, I'm...</p>
-              <div className="color-toggle-nav">
-                <ul>
-                  <li>Angry</li>
-                  <li>Sad</li>
-                  <li>Tired</li>
-                  <li>Excited</li>
-                  {/* <li>Worried</li> */}
-                  {/* <li>Amused</li> */}
-                </ul>
+              <p className="in-depth-greet">{restData.acf.home_page[0].in_depth_greeting}</p>
+              <div className="home-cta">
+                <NavLink
+                  to="/projects"
+                  onClick={handleNavLinkClick}
+                  className="home-project-cta"
+                >
+                  My Projects
+                </NavLink>
+                <NavLink
+                  to="/about"
+                  onClick={handleNavLinkClick}
+                  className="home-about-cta"
+                >
+                  About Me
+                </NavLink>
               </div>
-              <p>
-                When you're feeling peckish, swing by to switch up another mood.
-              </p>
             </div>
+            {/* Site color toggler as "Mood Picker" */}
+            <MoodPicker />
           </section>
           <section className="featured-project-section">
             <div className="featured-project-intro">
