@@ -1,75 +1,106 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Loading from "../components/Loading";
+import { Link } from "react-router-dom";
 
 function Projects({ restBase }) {
-  const ProjectsID = "";
-  const restPath = `${restBase}pages/${ProjectsID}`;
-  const [restData, setData] = useState([]);
-  const [isLoaded, setLoadStatus] = useState(false);
+  const ProjectsID = "projects";
+  const restPath = `${restBase}${ProjectsID}`;
+  const [restData, setRestData] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(restPath);
-      if (response.ok) {
-        const data = await response.json();
-        setData(data);
-        setLoadStatus(true);
-      } else {
-        setLoadStatus(false);
+      try {
+        const response = await fetch(restPath);
+        if (response.ok) {
+          const data = await response.json();
+          setRestData(data);
+          setIsLoaded(true);
+        } else {
+          console.error("Error fetching data:", response.status);
+          setIsLoaded(false);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setIsLoaded(false);
       }
     };
+
     fetchData();
   }, [restPath]);
+
+  // Function to truncate project overview content to 50 characters
+  const truncateOverview = (overview) => {
+    if (overview && overview.length > 180) {
+      return overview.substring(0, 180) + "...";
+    } else if (overview) {
+      return overview;
+    } else {
+      return "";
+    }
+  };
 
   return (
     <>
       {isLoaded ? (
-        <div className="projects-page">
-          <p>PROJECTS PAGE HERE.</p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor,
-          eros a dapibus accumsan, tortor turpis molestie ex, at aliquet turpis
-          quam a mauris. Nulla vel sapien aliquet, tempus metus eget, cursus
-          mauris. Sed consequat, justo sit amet consequat scelerisque, felis
-          elit scelerisque neque, sit amet luctus nunc lorem ut libero. Sed
-          consequat id eros eu posuere. Ut ut pulvinar magna. Sed venenatis
-          vehicula diam, non consequat velit posuere quis. Vivamus vitae felis
-          consectetur, fermentum arcu et, ultrices nulla. Donec posuere urna id
-          dui gravida, id congue mauris tempor. Vestibulum sit amet eros quis
-          mauris tincidunt lacinia. Nulla nec odio at lectus iaculis laoreet.
-          Nulla facilisi. Nam fringilla scelerisque neque, sit amet consequat
-          nisi interdum id. Maecenas vel risus lectus. In hac habitasse platea
-          dictumst. Pellentesque auctor dui eu sapien auctor varius. Integer
-          feugiat eros eget tortor varius condimentum. Vivamus viverra, justo id
-          venenatis aliquet, libero magna convallis libero, id finibus urna sem
-          eget enim. Sed tincidunt consequat ligula, eget varius justo. Integer
-          at lorem nec nisl placerat pulvinar. Vivamus viverra, turpis at
-          consequat ultricies, nibh leo fermentum elit, at dictum nisi libero
-          eget justo. Sed quis neque quis mi vulputate efficitur. Vivamus
-          placerat condimentum elit eget mattis. Curabitur id lectus sit amet
-          diam malesuada posuere eu et velit.<br></br>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor,
-          eros a dapibus accumsan, tortor turpis molestie ex, at aliquet turpis
-          quam a mauris. Nulla vel sapien aliquet, tempus metus eget, cursus
-          mauris. Sed consequat, justo sit amet consequat scelerisque, felis
-          elit scelerisque neque, sit amet luctus nunc lorem ut libero. Sed
-          consequat id eros eu posuere. Ut ut pulvinar magna. Sed venenatis
-          vehicula diam, non consequat velit posuere quis. Vivamus vitae felis
-          consectetur, fermentum arcu et, ultrices nulla. Donec posuere urna id
-          dui gravida, id congue mauris tempor. Vestibulum sit amet eros quis
-          mauris tincidunt lacinia. Nulla nec odio at lectus iaculis laoreet.
-          Nulla facilisi. Nam fringilla scelerisque neque, sit amet consequat
-          nisi interdum id. Maecenas vel risus lectus. In hac habitasse platea
-          dictumst. Pellentesque auctor dui eu sapien auctor varius. Integer
-          feugiat eros eget tortor varius condimentum. Vivamus viverra, justo id
-          venenatis aliquet, libero magna convallis libero, id finibus urna sem
-          eget enim. Sed tincidunt consequat ligula, eget varius justo. Integer
-          at lorem nec nisl placerat pulvinar. Vivamus viverra, turpis at
-          consequat ultricies, nibh leo fermentum elit, at dictum nisi libero
-          eget justo. Sed quis neque quis mi vulputate efficitur. Vivamus
-          placerat condimentum elit eget mattis. Curabitur id lectus sit amet
-          diam malesuada posuere eu et velit.
-        </div>
+        <section className="projects-page">
+          <div className="debriefing">
+            <h1>All Projects</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              tempor, eros a dapibus accumsan, tortor turpis molestie ex, at
+              aliquet turpis quam a mauris. Sed consequat, justo sit amet
+              consequat scelerisque, felis elit scelerisque neque, sit amet
+              luctus nunc lorem ut libero. Sed consequat id eros eu posuere.
+            </p>
+          </div>
+
+          <section className="project-previews">
+            {restData &&
+              restData.map((project) => (
+                <div key={project.id} className="project-teaser">
+                  {/* Project's featured media */}
+                  {/* Assuming project.featured_media is the image URL */}
+                  <img src={project.featured_media} alt="Project Thumbnail" />
+
+                  <div className="teaser-content">
+                    <h2
+                      dangerouslySetInnerHTML={{
+                        __html: project.title.rendered,
+                      }}
+                    ></h2>
+                    <p>
+                      {truncateOverview(
+                        project.acf.projects_page[1]?.project_overview_content
+                      )}
+                    </p>
+
+                    <div className="project-main-cta">
+                      <a
+                        href={project.acf.projects_page[1].project_live_site}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Live Site
+                      </a>
+                      <Link
+                        to={`/projects/${project.id}`}
+                        className="read-more-cta"
+                      >
+                        Read More &#8594;
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="tech-stack">
+                    {project.acf.tech_stack &&
+                      project.acf.tech_stack.map((tech, index) => (
+                        <span key={index}>{tech}</span>
+                      ))}
+                  </div>
+                </div>
+              ))}
+          </section>
+        </section>
       ) : (
         <Loading />
       )}

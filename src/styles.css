@@ -89,10 +89,6 @@
   padding: 0 2rem 0.1rem 0;
   border-top: 0.1rem solid white;
   font-size: 0.85rem;
-  position: fixed;
-  bottom: 0vh;
-  width: 100%;
-  z-index: 99;
   position: sticky;
   z-index: 99;
   bottom: 0vh;
@@ -298,6 +294,33 @@
 .projects-page {
   margin: 0 1.5rem 2.5rem 1.5rem;
 }
+.projects-page .debriefing {
+  text-align: center;
+  margin: 0 0 3.5rem 0;
+}
+.projects-page .project-teaser {
+  border: solid 0.1rem white;
+  border-radius: 0.3rem;
+  margin: 1rem auto;
+  padding: 1rem;
+}
+.projects-page .project-teaser img {
+  position: relative;
+}
+.projects-page a {
+  font-weight: 550;
+  text-decoration: none;
+}
+.projects-page a.read-more-cta {
+  transition: transform 0.3s ease;
+  text-align: end;
+  color: white;
+  margin-right: 0.5rem;
+}
+.projects-page a.read-more-cta:hover, .projects-page a.read-more-cta:active {
+  transform: translateX(10px);
+  background-color: black;
+}
 
 .contact-page {
   margin: 0 0 2.5rem 0;
@@ -311,7 +334,7 @@
   border-radius: 0.3rem;
   border: white solid 0.08rem;
   padding: 1rem 2rem 4.5rem 2rem;
-  margin: 2rem 1rem;
+  margin: 2rem;
   text-align: center;
   display: flex;
   flex-direction: column;
