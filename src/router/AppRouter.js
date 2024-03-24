@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Projects from "../pages/Projects";
+import SingleProject from "../pages/SingleProject";
 import Contact from "../pages/Contact";
 
 function AppRouter() {
@@ -21,6 +22,7 @@ function AppRouter() {
           <Route path="/" element={<Home restBase={restBase} />} />
           <Route path="/about" element={<About restBase={restBase} />} />
           <Route path="/projects" element={<Projects restBase={restBase} />} />
+          <Route path="/project/:slug" element={<SingleProject restBase={restBase} />} />
           <Route path="/contact" element={<Contact restBase={restBase} />} />
         </Routes>
         <Footer />

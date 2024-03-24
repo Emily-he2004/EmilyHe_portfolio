@@ -18,7 +18,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    max-width: 900px;
+    max-width: 700px;
 
     .clipboard-decor {
       display: block;
@@ -28,18 +28,17 @@
       border-radius: 0.3rem;
       margin-top: 1rem;
     }
-
-}
-
-@media screen and (min-width: 800px) {
-  .clipboard-decor {
-    width: 30%;
   }
 
-  .contact-container {
-    margin: 2rem auto;
+  @media screen and (min-width: 800px) {
+    .clipboard-decor {
+      width: 25%;
+    }
+
+    .contact-container {
+      margin: 2rem auto;
+    }
   }
-}
   // ______CTAs & Links___________________________________________
 
   a {
@@ -51,9 +50,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    //   width: 25rem;
     align-items: center;
     margin: 0.5rem auto;
+    width: -webkit-fill-available;
+    max-width: 450px
   }
 
   .copy-email-btn {
@@ -69,13 +69,32 @@
   }
 
   .network-cta {
-    margin: 1.5rem 0 0 0;
-  }
-  .linkedin-cta {
-    @include lightToDark;
-  }
+    // margin: 1.5rem 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+    .linkedin-cta {
+      @include lightToDark;
+    }
+    
+    .github-cta {
+      @include darkToLight;
+    }
 
-  .github-cta {
-    @include darkToLight;
+    .linkedin-cta,
+    .github-cta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin: .8rem 1.5rem;
+      svg {
+        width: 1.3rem;
+        height: 1.3rem;
+        margin-left: 0.3rem;
+      }
+    }
   }
 }

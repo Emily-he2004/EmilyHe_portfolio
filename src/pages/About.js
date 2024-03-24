@@ -39,7 +39,11 @@ function About({ restBase }) {
               }}
             ></div>
             <h2>{restData.acf.about_page[0].interests_and_hobbies_title}</h2>
-            <p>{restData.acf.about_page[0].interests_and_hobbies_content}</p>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: restData.acf.about_page[0].interests_and_hobbies_content,
+              }}
+            ></div>
           </div>
 
           {restData.acf.about_page[1] && (

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Loading from "../components/Loading";
 import { FaCopy } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+
 
 function Contact({ restBase }) {
   const ContactID = "13";
@@ -60,13 +63,13 @@ function Contact({ restBase }) {
                 href={restData.acf.contact_page[0].contact_linkedin}
                 className="linkedin-cta"
               >
-                LinkedIn
+                LinkedIn <FaLinkedin />
               </a>
               <a
                 href={restData.acf.contact_page[0].contact_github}
                 className="github-cta"
               >
-                GitHub
+                GitHub <FaGithub />
               </a>
             </div>
           </div>

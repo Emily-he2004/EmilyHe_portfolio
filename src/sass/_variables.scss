@@ -4,6 +4,7 @@
   padding: 0.3rem 0.8rem;
   margin: 1rem;
   transition: background-color 0.3s, color 0.3s;
+  width: fit-content;
 
   &.home-project-cta,
   &.linkedin-cta {
@@ -23,7 +24,8 @@
 
   &.home-about-cta,
   &.github-cta,
-  &.copy-email-btn {
+  &.copy-email-btn,
+  &.live-site-cta {
     color: white;
     background-color: black;
 
@@ -31,6 +33,26 @@
     &:active {
       background-color: white;
       color: black;
+    }
+  }
+}
+
+@mixin slideRightCTA {
+  &.featured-projects-cta,
+  &.read-more-cta {
+    text-align: end;
+    color: white;
+    margin-right: 0.5rem;
+    animation: bounceRight 0.7s infinite alternate;
+    text-shadow: 0 10px 10px rgba(255, 255, 255, 0.5);
+  }
+
+  @keyframes bounceRight {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(10px);
     }
   }
 }

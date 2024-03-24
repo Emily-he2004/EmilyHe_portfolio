@@ -38,15 +38,16 @@
       }
     }
 
-    .visible {
-      display: flex;
-    }
-
-    .hidden {
-      display: none;
-    }
+  }
+  
+  .visible {
+    display: flex;
   }
 
+  .hidden {
+    display: none;
+  }
+  
   .left-nav {
     position: fixed;
     z-index: 999;

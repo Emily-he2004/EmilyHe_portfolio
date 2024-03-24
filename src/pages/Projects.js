@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Loading from "../components/Loading";
 import { Link } from "react-router-dom";
+import { HiExternalLink } from "react-icons/hi";
+
 
 function Projects({ restBase }) {
-  const ProjectsID = "projects";
-  const restPath = `${restBase}${ProjectsID}`;
+  const restPath = `${restBase}projects?`;
   const [restData, setRestData] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -29,7 +30,6 @@ function Projects({ restBase }) {
     fetchData();
   }, [restPath]);
 
-  // Function to truncate project overview content to 50 characters
   const truncateOverview = (overview) => {
     if (overview && overview.length > 180) {
       return overview.substring(0, 180) + "...";
@@ -58,17 +58,24 @@ function Projects({ restBase }) {
           <section className="project-previews">
             {restData &&
               restData.map((project) => (
-                <div key={project.id} className="project-teaser">
+                <div
+                  key={project.id}
+                  id={`project-${project.id}`}
+                  className="project-teaser"
+                >
                   {/* Project's featured media */}
                   {/* Assuming project.featured_media is the image URL */}
-                  <img src={project.featured_media} alt="Project Thumbnail" />
-
+                  <Link to={`/project/${project.slug}`}>
+                    <img src={project.featured_media} alt="Project Thumbnail" />
+                  </Link>
                   <div className="teaser-content">
-                    <h2
-                      dangerouslySetInnerHTML={{
-                        __html: project.title.rendered,
-                      }}
-                    ></h2>
+                    <Link to={`/project/${project.slug}`}>
+                      <h2
+                        dangerouslySetInnerHTML={{
+                          __html: project.title.rendered,
+                        }}
+                      ></h2>
+                    </Link>
                     <p>
                       {truncateOverview(
                         project.acf.projects_page[1]?.project_overview_content
@@ -80,11 +87,12 @@ function Projects({ restBase }) {
                         href={project.acf.projects_page[1].project_live_site}
                         target="_blank"
                         rel="noopener noreferrer"
+                        className="live-site-cta"
                       >
-                        Live Site
+                        Live Site <HiExternalLink />
                       </a>
                       <Link
-                        to={`/projects/${project.id}`}
+                        to={`/project/${project.slug}`}
                         className="read-more-cta"
                       >
                         Read More &#8594;

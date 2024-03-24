@@ -43,6 +43,7 @@
   a {
     font-weight: 550;
     text-decoration: none;
+    font-size: initial;
   }
 
   .home-project-cta {
@@ -54,15 +55,6 @@
   }
 
   .featured-projects-cta {
-    transition: transform 0.3s ease;
-    // width: fit-content;
-    text-align: end;
-    color: white;
-    margin-right: 0.5rem;
-    &:hover,
-    &:active {
-      transform: translateX(10px);
-      background-color: black;
-    }
+    @include slideRightCTA;
   }
 }

@@ -8,18 +8,18 @@ function Header() {
   const [prevScrollPos, setPrevScrollPos] = useState(
     window.scrollY || window.pageYOffset
   );
-  const [visible, setVisible] = useState(true);
+  const [headerVisible, setHeaderVisible] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY || window.pageYOffset;
-      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+      setHeaderVisible(prevScrollPos > currentScrollPos || currentScrollPos < 5);
       setPrevScrollPos(currentScrollPos);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollPos, visible]);
+  }, [prevScrollPos, headerVisible]);
 
   const handleNavLinkClick = () => {
     window.scrollTo({
@@ -32,7 +32,7 @@ function Header() {
     <div className="header-container">
       <LeftNav />
 
-      <nav className={`header-nav ${visible ? "visible" : "hidden"}`}>
+      <nav className={`header-nav ${headerVisible ? "visible" : "hidden"}`}>
         <ul className="home-menu">
           <li>
             <NavLink to="/" onClick={handleNavLinkClick}>
@@ -47,19 +47,19 @@ function Header() {
           <li>
             <NavLink to="/about" onClick={handleNavLinkClick}>
               <br />
-              About
+              <strong>About</strong>
             </NavLink>
           </li>
           <li>
             <NavLink to="/projects" onClick={handleNavLinkClick}>
               <br />
-              Projects
+              <strong>Projects</strong>
             </NavLink>
           </li>
           <li>
             <NavLink to="/contact" onClick={handleNavLinkClick}>
               <br />
-              Contact
+              <strong>Contact</strong>
             </NavLink>
           </li>
         </ul>

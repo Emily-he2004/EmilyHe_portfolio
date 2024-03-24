@@ -1,22 +1,27 @@
 .projects-page {
   margin: 0 1.5rem 2.5rem 1.5rem;
 
-  .debriefing{
+  .debriefing {
     text-align: center;
     margin: 0 0 3.5rem 0;
   }
 
-  .project-teaser{
-    border: solid .1rem white;
-    border-radius: .3rem;
+  .project-teaser {
+    border: solid 0.1rem white;
+    border-radius: 0.3rem;
     margin: 1rem auto;
     padding: 1rem;
 
-    img{
-        position: relative;
+    img {
+      position: relative;
     }
 
-
+    .teaser-content {
+      border: solid 0.1rem white;
+      border-radius: 0.3rem;
+      margin: 1rem auto;
+      padding: 0 1rem 2rem 1rem;
+    }
   }
 
   // ______CTAs & Links___________________________________________
@@ -24,18 +29,31 @@
   a {
     font-weight: 550;
     text-decoration: none;
+    font-size: initial;
   }
 
-  a.read-more-cta {
-    transition: transform 0.3s ease;
-    // width: fit-content;
-    text-align: end;
-    color: white;
-    margin-right: 0.5rem;
-    &:hover,
-    &:active {
-      transform: translateX(10px);
-      background-color: black;
+  .project-main-cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .live-site-cta {
+      @include darkToLight;
+
+      display: flex;
+      align-items: center;
+      justify-self: center;
+      padding: 0.5rem 0.4rem 0.5rem 0.6rem;
+
+      svg {
+        margin-left: 0.3rem;
+      }
+    }
+
+    .read-more-cta {
+      @include slideRightCTA;
+      margin: .5rem;
     }
   }
 }
