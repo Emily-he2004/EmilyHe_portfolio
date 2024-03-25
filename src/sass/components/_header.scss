@@ -37,9 +37,8 @@
         margin: 0 2rem;
       }
     }
-
   }
-  
+
   .visible {
     display: flex;
   }
@@ -47,7 +46,7 @@
   .hidden {
     display: none;
   }
-  
+
   .left-nav {
     position: fixed;
     z-index: 999;
@@ -96,6 +95,16 @@
       li {
         margin: 0 2rem;
       }
+    }
+  }
+
+  @media screen and (min-width: 1300px) {
+    .left-nav {
+      margin-left: 2rem;
+    }
+
+    .right-nav {
+      margin-right: 2rem;
     }
   }
 }

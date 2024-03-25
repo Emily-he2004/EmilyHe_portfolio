@@ -13,7 +13,9 @@ function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY || window.pageYOffset;
-      setHeaderVisible(prevScrollPos > currentScrollPos || currentScrollPos < 5);
+      setHeaderVisible(
+        prevScrollPos > currentScrollPos || currentScrollPos < 5
+      );
       setPrevScrollPos(currentScrollPos);
     };
 
@@ -36,30 +38,27 @@ function Header() {
         <ul className="home-menu">
           <li>
             <NavLink to="/" onClick={handleNavLinkClick}>
-              <h4>
+              <h3>
                 {/* <MdDeveloperMode /> */}
                 Emily.Dev
-              </h4>
+              </h3>
             </NavLink>
           </li>
         </ul>
         <ul className="nav-menu">
           <li>
             <NavLink to="/about" onClick={handleNavLinkClick}>
-              <br />
-              <strong>About</strong>
+              <h3>About</h3>
             </NavLink>
           </li>
           <li>
             <NavLink to="/projects" onClick={handleNavLinkClick}>
-              <br />
-              <strong>Projects</strong>
+              <h3>Projects</h3>
             </NavLink>
           </li>
           <li>
             <NavLink to="/contact" onClick={handleNavLinkClick}>
-              <br />
-              <strong>Contact</strong>
+              <h3>Contact</h3>
             </NavLink>
           </li>
         </ul>

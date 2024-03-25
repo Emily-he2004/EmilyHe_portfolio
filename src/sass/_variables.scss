@@ -2,11 +2,14 @@
   border-radius: 0.3rem;
   border: white solid 0.08rem;
   padding: 0.3rem 0.8rem;
-  margin: 1rem;
+  margin: 1rem 2rem 0 0;
   transition: background-color 0.3s, color 0.3s;
   width: fit-content;
 
   &.home-project-cta,
+  &.about-project-cta,
+  &.single-live-cta,
+  &.live-site-cta,
   &.linkedin-cta {
     background-color: white;
     color: black;
@@ -23,9 +26,9 @@
   @include lightToDark;
 
   &.home-about-cta,
-  &.github-cta,
-  &.copy-email-btn,
-  &.live-site-cta {
+  &.about-contact-cta,
+  &.single-github-cta,
+  &.copy-email-btn {
     color: white;
     background-color: black;
 
@@ -39,12 +42,13 @@
 
 @mixin slideRightCTA {
   &.featured-projects-cta,
+  &.single-github-cta,
   &.read-more-cta {
     text-align: end;
     color: white;
-    margin-right: 0.5rem;
+    // margin-right: 0.5rem;
     animation: bounceRight 0.7s infinite alternate;
-    text-shadow: 0 10px 10px rgba(255, 255, 255, 0.5);
+    // text-shadow: 0 10px 10px rgba(255, 255, 255, 0.5);
   }
 
   @keyframes bounceRight {

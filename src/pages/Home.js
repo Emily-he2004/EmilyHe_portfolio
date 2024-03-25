@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Loading from "../components/Loading";
 import MoodPicker from "../components/MoodPicker";
+import { HiExternalLink } from "react-icons/hi";
 
 function Home({ restBase }) {
   const HomeID = "8";
@@ -24,6 +25,35 @@ function Home({ restBase }) {
     fetchData();
   }, [restPath]);
 
+  // https://emilyhe.ca/portfolio/wp-json/wp/v2/projects?slug=cascadia-floral-boutique
+  const slug = "cascadia-floral-boutique";
+  const featurePath = `${restBase}/projects?slug=${slug}`;
+  const [featuredProject, setFeaturedProject] = useState({});
+
+  useEffect(() => {
+    const fetchFeaturedProject = async () => {
+      const response = await fetch(featurePath);
+      if (response.ok) {
+        const data = await response.json();
+        setFeaturedProject(data[0]);
+        setLoadStatus(true);
+      } else {
+        setLoadStatus(false);
+      }
+    };
+    fetchFeaturedProject();
+  }, [featurePath]);
+
+  const truncateOverview = (overview) => {
+    if (overview && overview.length > 180) {
+      return overview.substring(0, 180) + "...";
+    } else if (overview) {
+      return overview;
+    } else {
+      return "";
+    }
+  };
+
   const handleNavLinkClick = () => {
     window.scrollTo({
       top: 0,
@@ -35,13 +65,14 @@ function Home({ restBase }) {
     <>
       {isLoaded ? (
         <div className="home-page">
-          {/* <p>HOME PAGE HERE.</p> */}
           <section className="profile-section">
             <div className="profile-content">
               <p>{restData.acf.home_page[0].eyebrow_greeting}</p>
               <h1>{restData.acf.home_page[0].my_name}</h1>
               <h3>{restData.acf.home_page[0].occupation}</h3>
-              <p className="in-depth-greet">{restData.acf.home_page[0].in_depth_greeting}</p>
+              <p className="in-depth-greet">
+                {restData.acf.home_page[0].in_depth_greeting}
+              </p>
               <div className="home-cta">
                 <NavLink
                   to="/projects"
@@ -59,7 +90,6 @@ function Home({ restBase }) {
                 </NavLink>
               </div>
             </div>
-            {/* Site color toggler as "Mood Picker" */}
             <MoodPicker />
           </section>
           <section className="featured-project-section">
@@ -75,6 +105,55 @@ function Home({ restBase }) {
                 See All Projects &#8594;
               </NavLink>
             </div>
+            {/* ________Featured Project Below____________ */}
+            {/* <div className="project-teaser">
+              <NavLink to={`/project/${featuredProject.slug}`}>
+                <img
+                  src={featuredProject.featured_media}
+                  alt="Project Thumbnail"
+                />
+              </NavLink>
+              <div className="teaser-content">
+                <NavLink to={`/project/${featuredProject.slug}`}>
+                  <h2
+                    dangerouslySetInnerHTML={{
+                      __html: featuredProject.title.rendered,
+                    }}
+                  ></h2>
+                </NavLink>
+                <p>
+                  {truncateOverview(
+                    featuredProject.acf.projects_page[0]
+                      .project_overview_content
+                  )}
+                </p>
+                <div className="project-main-cta">
+                  <a
+                    href={
+                      featuredProject.acf.projects_page[0].project_live_site
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="live-site-cta"
+                  >
+                    Live Site <HiExternalLink />
+                  </a>
+                  <Link
+                    to={`/project/${featuredProject.slug}`}
+                    className="read-more-cta"
+                  >
+                    Read More &#8594;
+                  </Link>
+                </div>
+              </div>
+              <div className="tech-stack">
+                {featuredProject.acf.projects_page[0].tools_content
+                  .my_tech_stack &&
+                  featuredProject.acf.projects_page[0].tools_content.my_tech_stack.map(
+                    (tech, index) => <span key={index}>{tech}</span>
+                  )}
+              </div>
+            </div> */}
           </section>
         </div>
       ) : (

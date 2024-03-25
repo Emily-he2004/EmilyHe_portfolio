@@ -1,3 +1,30 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  position: relative;
+  min-height: 100vh;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  margin: 6.2rem 0 0 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body li {
+  list-style: none;
+}
+body a {
+  color: white;
+  text-decoration: none;
+  list-style: none;
+}
+
 .header-container {
   display: flex;
   align-items: center;
@@ -80,6 +107,14 @@
   }
   .header-container ul.nav-menu li {
     margin: 0 2rem;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .header-container .left-nav {
+    margin-left: 2rem;
+  }
+  .header-container .right-nav {
+    margin-right: 2rem;
   }
 }
 
@@ -234,57 +269,72 @@
   flex-direction: column;
   justify-content: space-between;
 }
+@media screen and (min-width: 600px) {
+  .home-page {
+    max-width: 900px;
+    margin: 0 3.8rem 2.5rem 3.8rem;
+    font-size: larger;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .home-page {
+    max-width: 1100px;
+    padding: 0 3.3rem;
+    margin: 0 auto 2.5rem auto;
+  }
+}
 .home-page a {
   font-weight: 550;
   text-decoration: none;
   font-size: initial;
 }
-.home-page .home-project-cta {
+.home-page .home-cta {
+  margin-top: 1rem;
+}
+.home-page .home-cta .home-project-cta {
   border-radius: 0.3rem;
   border: white solid 0.08rem;
   padding: 0.3rem 0.8rem;
-  margin: 1rem;
+  margin: 1rem 2rem 0 0;
   transition: background-color 0.3s, color 0.3s;
   width: fit-content;
 }
-.home-page .home-project-cta.home-project-cta, .home-page .home-project-cta.linkedin-cta {
+.home-page .home-cta .home-project-cta.home-project-cta, .home-page .home-cta .home-project-cta.about-project-cta, .home-page .home-cta .home-project-cta.single-live-cta, .home-page .home-cta .home-project-cta.live-site-cta, .home-page .home-cta .home-project-cta.linkedin-cta {
   background-color: white;
   color: black;
 }
-.home-page .home-project-cta.home-project-cta:hover, .home-page .home-project-cta.home-project-cta:active, .home-page .home-project-cta.linkedin-cta:hover, .home-page .home-project-cta.linkedin-cta:active {
+.home-page .home-cta .home-project-cta.home-project-cta:hover, .home-page .home-cta .home-project-cta.home-project-cta:active, .home-page .home-cta .home-project-cta.about-project-cta:hover, .home-page .home-cta .home-project-cta.about-project-cta:active, .home-page .home-cta .home-project-cta.single-live-cta:hover, .home-page .home-cta .home-project-cta.single-live-cta:active, .home-page .home-cta .home-project-cta.live-site-cta:hover, .home-page .home-cta .home-project-cta.live-site-cta:active, .home-page .home-cta .home-project-cta.linkedin-cta:hover, .home-page .home-cta .home-project-cta.linkedin-cta:active {
   background-color: black;
   color: white;
 }
-.home-page .home-about-cta {
+.home-page .home-cta .home-about-cta {
   border-radius: 0.3rem;
   border: white solid 0.08rem;
   padding: 0.3rem 0.8rem;
-  margin: 1rem;
+  margin: 1rem 2rem 0 0;
   transition: background-color 0.3s, color 0.3s;
   width: fit-content;
 }
-.home-page .home-about-cta.home-project-cta, .home-page .home-about-cta.linkedin-cta {
+.home-page .home-cta .home-about-cta.home-project-cta, .home-page .home-cta .home-about-cta.about-project-cta, .home-page .home-cta .home-about-cta.single-live-cta, .home-page .home-cta .home-about-cta.live-site-cta, .home-page .home-cta .home-about-cta.linkedin-cta {
   background-color: white;
   color: black;
 }
-.home-page .home-about-cta.home-project-cta:hover, .home-page .home-about-cta.home-project-cta:active, .home-page .home-about-cta.linkedin-cta:hover, .home-page .home-about-cta.linkedin-cta:active {
+.home-page .home-cta .home-about-cta.home-project-cta:hover, .home-page .home-cta .home-about-cta.home-project-cta:active, .home-page .home-cta .home-about-cta.about-project-cta:hover, .home-page .home-cta .home-about-cta.about-project-cta:active, .home-page .home-cta .home-about-cta.single-live-cta:hover, .home-page .home-cta .home-about-cta.single-live-cta:active, .home-page .home-cta .home-about-cta.live-site-cta:hover, .home-page .home-cta .home-about-cta.live-site-cta:active, .home-page .home-cta .home-about-cta.linkedin-cta:hover, .home-page .home-cta .home-about-cta.linkedin-cta:active {
   background-color: black;
   color: white;
 }
-.home-page .home-about-cta.home-about-cta, .home-page .home-about-cta.github-cta, .home-page .home-about-cta.copy-email-btn, .home-page .home-about-cta.live-site-cta {
+.home-page .home-cta .home-about-cta.home-about-cta, .home-page .home-cta .home-about-cta.about-contact-cta, .home-page .home-cta .home-about-cta.single-github-cta, .home-page .home-cta .home-about-cta.copy-email-btn {
   color: white;
   background-color: black;
 }
-.home-page .home-about-cta.home-about-cta:hover, .home-page .home-about-cta.home-about-cta:active, .home-page .home-about-cta.github-cta:hover, .home-page .home-about-cta.github-cta:active, .home-page .home-about-cta.copy-email-btn:hover, .home-page .home-about-cta.copy-email-btn:active, .home-page .home-about-cta.live-site-cta:hover, .home-page .home-about-cta.live-site-cta:active {
+.home-page .home-cta .home-about-cta.home-about-cta:hover, .home-page .home-cta .home-about-cta.home-about-cta:active, .home-page .home-cta .home-about-cta.about-contact-cta:hover, .home-page .home-cta .home-about-cta.about-contact-cta:active, .home-page .home-cta .home-about-cta.single-github-cta:hover, .home-page .home-cta .home-about-cta.single-github-cta:active, .home-page .home-cta .home-about-cta.copy-email-btn:hover, .home-page .home-cta .home-about-cta.copy-email-btn:active {
   background-color: white;
   color: black;
 }
-.home-page .featured-projects-cta.featured-projects-cta, .home-page .featured-projects-cta.read-more-cta {
+.home-page .featured-projects-cta.featured-projects-cta, .home-page .featured-projects-cta.single-github-cta, .home-page .featured-projects-cta.read-more-cta {
   text-align: end;
   color: white;
-  margin-right: 0.5rem;
   animation: bounceRight 0.7s infinite alternate;
-  text-shadow: 0 10px 10px rgba(255, 255, 255, 0.5);
 }
 @keyframes bounceRight {
   0% {
@@ -298,9 +348,165 @@
 .about-page {
   margin: 0 1.5rem 2.5rem 1.5rem;
 }
+.about-page h1,
+.about-page h2 {
+  text-align: center;
+}
+.about-page .about-me-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.about-page .about-me-section .profile-pic img {
+  width: 15rem;
+  height: auto;
+}
+.about-page .about-me-section blockquote {
+  margin: 1.5rem auto;
+}
+.about-page .about-me-section .basic-intro {
+  margin: 0.5rem 0 1.5rem 0;
+}
+@media screen and (min-width: 800px) {
+  .about-page .about-me-section {
+    display: grid;
+    grid-template-areas: "intro picture" "intro quote";
+  }
+  .about-page .about-me-section .profile-pic {
+    grid-area: picture;
+    align-self: center;
+    justify-self: self-end;
+  }
+  .about-page .about-me-section .basic-intro {
+    grid-area: intro;
+    margin: 0 2rem 0.5rem 0;
+    align-self: self-end;
+    justify-self: self-end;
+  }
+  .about-page .about-me-section .basic-intro h1 {
+    text-align: left;
+  }
+  .about-page .about-me-section blockquote {
+    grid-area: quote;
+    text-align: right;
+    justify-self: center;
+    align-self: flex-start;
+    margin: 0;
+  }
+}
+.about-page .interests-hobbies-section {
+  margin: 2rem 0 2rem 0;
+  padding: 1rem 0 0.5rem 0;
+  border-top: 0.1rem solid white;
+  text-align: center;
+}
+.about-page .tech-stack-section {
+  text-align: center;
+  margin: 2rem 0 2rem 0;
+  padding: 1rem 0 2rem 0;
+  border-top: 0.1rem solid white;
+  border-bottom: 0.1rem solid white;
+}
+.about-page .upcoming-section li {
+  list-style-type: circle;
+  line-height: 1.6rem;
+}
+.about-page .upcoming-section li a {
+  text-decoration: underline;
+}
+.about-page .upcoming-section ul {
+  margin-top: 1.5rem;
+}
+@media screen and (min-width: 600px) {
+  .about-page {
+    max-width: 900px;
+    margin: 0 3.5rem 2.5rem 3.5rem;
+    font-size: larger;
+  }
+  .about-page .interests-hobbies-section {
+    text-align: right;
+  }
+  .about-page .interests-hobbies-section h2 {
+    text-align: right;
+  }
+  .about-page .tech-stack-section {
+    text-align: left;
+  }
+  .about-page .tech-stack-section h2 {
+    text-align: left;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .about-page {
+    max-width: 1100px;
+    padding: 0 3.3rem;
+    margin: 0 auto 2.5rem auto;
+  }
+  .about-page .about-me-section .basic-intro {
+    margin: 0 1.5rem 2rem 0;
+  }
+}
+
+a {
+  font-weight: 550;
+  text-decoration: none;
+}
+
+.about-cta {
+  margin: 1.5rem 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.about-cta .about-project-cta {
+  border-radius: 0.3rem;
+  border: white solid 0.08rem;
+  padding: 0.3rem 0.8rem;
+  margin: 1rem 2rem 0 0;
+  transition: background-color 0.3s, color 0.3s;
+  width: fit-content;
+}
+.about-cta .about-project-cta.home-project-cta, .about-cta .about-project-cta.about-project-cta, .about-cta .about-project-cta.single-live-cta, .about-cta .about-project-cta.live-site-cta, .about-cta .about-project-cta.linkedin-cta {
+  background-color: white;
+  color: black;
+}
+.about-cta .about-project-cta.home-project-cta:hover, .about-cta .about-project-cta.home-project-cta:active, .about-cta .about-project-cta.about-project-cta:hover, .about-cta .about-project-cta.about-project-cta:active, .about-cta .about-project-cta.single-live-cta:hover, .about-cta .about-project-cta.single-live-cta:active, .about-cta .about-project-cta.live-site-cta:hover, .about-cta .about-project-cta.live-site-cta:active, .about-cta .about-project-cta.linkedin-cta:hover, .about-cta .about-project-cta.linkedin-cta:active {
+  background-color: black;
+  color: white;
+}
+.about-cta .about-contact-cta {
+  border-radius: 0.3rem;
+  border: white solid 0.08rem;
+  padding: 0.3rem 0.8rem;
+  margin: 1rem 2rem 0 0;
+  transition: background-color 0.3s, color 0.3s;
+  width: fit-content;
+}
+.about-cta .about-contact-cta.home-project-cta, .about-cta .about-contact-cta.about-project-cta, .about-cta .about-contact-cta.single-live-cta, .about-cta .about-contact-cta.live-site-cta, .about-cta .about-contact-cta.linkedin-cta {
+  background-color: white;
+  color: black;
+}
+.about-cta .about-contact-cta.home-project-cta:hover, .about-cta .about-contact-cta.home-project-cta:active, .about-cta .about-contact-cta.about-project-cta:hover, .about-cta .about-contact-cta.about-project-cta:active, .about-cta .about-contact-cta.single-live-cta:hover, .about-cta .about-contact-cta.single-live-cta:active, .about-cta .about-contact-cta.live-site-cta:hover, .about-cta .about-contact-cta.live-site-cta:active, .about-cta .about-contact-cta.linkedin-cta:hover, .about-cta .about-contact-cta.linkedin-cta:active {
+  background-color: black;
+  color: white;
+}
+.about-cta .about-contact-cta.home-about-cta, .about-cta .about-contact-cta.about-contact-cta, .about-cta .about-contact-cta.single-github-cta, .about-cta .about-contact-cta.copy-email-btn {
+  color: white;
+  background-color: black;
+}
+.about-cta .about-contact-cta.home-about-cta:hover, .about-cta .about-contact-cta.home-about-cta:active, .about-cta .about-contact-cta.about-contact-cta:hover, .about-cta .about-contact-cta.about-contact-cta:active, .about-cta .about-contact-cta.single-github-cta:hover, .about-cta .about-contact-cta.single-github-cta:active, .about-cta .about-contact-cta.copy-email-btn:hover, .about-cta .about-contact-cta.copy-email-btn:active {
+  background-color: white;
+  color: black;
+}
 
 .projects-page {
   margin: 0 1.5rem 2.5rem 1.5rem;
+}
+.projects-page h2 {
+  margin: 0 0 0 1rem;
+  width: fit-content;
 }
 .projects-page .debriefing {
   text-align: center;
@@ -318,8 +524,26 @@
 .projects-page .project-teaser .teaser-content {
   border: solid 0.1rem white;
   border-radius: 0.3rem;
-  margin: 1rem auto;
-  padding: 0 1rem 2rem 1rem;
+  margin: 1rem;
+  padding: 1rem 1rem 2rem 1rem;
+  max-width: 300px;
+}
+.projects-page .project-teaser .tech-stack {
+  margin: 0 0 0 1.2rem;
+}
+@media screen and (min-width: 600px) {
+  .projects-page {
+    max-width: 900px;
+    margin: 0 3.8rem 2.5rem 3.8rem;
+    font-size: larger;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .projects-page {
+    max-width: 1100px;
+    padding: 0 3.3rem;
+    margin: 0 auto 2.5rem auto;
+  }
 }
 .projects-page a {
   font-weight: 550;
@@ -336,42 +560,33 @@
   border-radius: 0.3rem;
   border: white solid 0.08rem;
   padding: 0.3rem 0.8rem;
-  margin: 1rem;
+  margin: 1rem 2rem 0 0;
   transition: background-color 0.3s, color 0.3s;
   width: fit-content;
   display: flex;
   align-items: center;
   justify-self: center;
-  padding: 0.5rem 0.4rem 0.5rem 0.6rem;
+  padding: 0.5rem auto 0.5rem auto;
+  margin-right: 0.5rem;
 }
-.projects-page .project-main-cta .live-site-cta.home-project-cta, .projects-page .project-main-cta .live-site-cta.linkedin-cta {
+.projects-page .project-main-cta .live-site-cta.home-project-cta, .projects-page .project-main-cta .live-site-cta.about-project-cta, .projects-page .project-main-cta .live-site-cta.single-live-cta, .projects-page .project-main-cta .live-site-cta.live-site-cta, .projects-page .project-main-cta .live-site-cta.linkedin-cta {
   background-color: white;
   color: black;
 }
-.projects-page .project-main-cta .live-site-cta.home-project-cta:hover, .projects-page .project-main-cta .live-site-cta.home-project-cta:active, .projects-page .project-main-cta .live-site-cta.linkedin-cta:hover, .projects-page .project-main-cta .live-site-cta.linkedin-cta:active {
+.projects-page .project-main-cta .live-site-cta.home-project-cta:hover, .projects-page .project-main-cta .live-site-cta.home-project-cta:active, .projects-page .project-main-cta .live-site-cta.about-project-cta:hover, .projects-page .project-main-cta .live-site-cta.about-project-cta:active, .projects-page .project-main-cta .live-site-cta.single-live-cta:hover, .projects-page .project-main-cta .live-site-cta.single-live-cta:active, .projects-page .project-main-cta .live-site-cta.live-site-cta:hover, .projects-page .project-main-cta .live-site-cta.live-site-cta:active, .projects-page .project-main-cta .live-site-cta.linkedin-cta:hover, .projects-page .project-main-cta .live-site-cta.linkedin-cta:active {
   background-color: black;
   color: white;
-}
-.projects-page .project-main-cta .live-site-cta.home-about-cta, .projects-page .project-main-cta .live-site-cta.github-cta, .projects-page .project-main-cta .live-site-cta.copy-email-btn, .projects-page .project-main-cta .live-site-cta.live-site-cta {
-  color: white;
-  background-color: black;
-}
-.projects-page .project-main-cta .live-site-cta.home-about-cta:hover, .projects-page .project-main-cta .live-site-cta.home-about-cta:active, .projects-page .project-main-cta .live-site-cta.github-cta:hover, .projects-page .project-main-cta .live-site-cta.github-cta:active, .projects-page .project-main-cta .live-site-cta.copy-email-btn:hover, .projects-page .project-main-cta .live-site-cta.copy-email-btn:active, .projects-page .project-main-cta .live-site-cta.live-site-cta:hover, .projects-page .project-main-cta .live-site-cta.live-site-cta:active {
-  background-color: white;
-  color: black;
 }
 .projects-page .project-main-cta .live-site-cta svg {
   margin-left: 0.3rem;
 }
 .projects-page .project-main-cta .read-more-cta {
-  margin: 0.5rem;
+  margin: 1rem 0.5rem 0 0;
 }
-.projects-page .project-main-cta .read-more-cta.featured-projects-cta, .projects-page .project-main-cta .read-more-cta.read-more-cta {
+.projects-page .project-main-cta .read-more-cta.featured-projects-cta, .projects-page .project-main-cta .read-more-cta.single-github-cta, .projects-page .project-main-cta .read-more-cta.read-more-cta {
   text-align: end;
   color: white;
-  margin-right: 0.5rem;
   animation: bounceRight 0.7s infinite alternate;
-  text-shadow: 0 10px 10px rgba(255, 255, 255, 0.5);
 }
 @keyframes bounceRight {
   0% {
@@ -380,6 +595,105 @@
   100% {
     transform: translateX(10px);
   }
+}
+
+.single-project-page {
+  margin: 0 1.5rem 2.5rem 1.5rem;
+}
+.single-project-page h1 {
+  font-size: 1.8rem;
+  margin: 1.5rem 0 0 0;
+  text-align: center;
+}
+.single-project-page .project-media {
+  position: relative;
+  width: 100%;
+}
+.single-project-page .project-media iframe {
+  position: sticky;
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+}
+@media screen and (min-width: 600px) {
+  .single-project-page {
+    max-width: 900px;
+    margin: 0 3.8rem 2.5rem 3.8rem;
+  }
+  .single-project-page h1 {
+    text-align: left;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .single-project-page {
+    max-width: 1100px;
+    padding: 0 3.3rem;
+    margin: 0 auto 2.5rem auto;
+  }
+}
+.single-project-page a {
+  font-weight: 550;
+  text-decoration: none;
+}
+.single-project-page .single-externals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+@media screen and (min-width: 600px) {
+  .single-project-page .single-externals {
+    justify-content: flex-end;
+  }
+}
+.single-project-page .single-externals .single-github-cta {
+  border-radius: 0.3rem;
+  border: white solid 0.08rem;
+  padding: 0.3rem 0.8rem;
+  margin: 1rem 2rem 0 0;
+  transition: background-color 0.3s, color 0.3s;
+  width: fit-content;
+}
+.single-project-page .single-externals .single-github-cta.home-project-cta, .single-project-page .single-externals .single-github-cta.about-project-cta, .single-project-page .single-externals .single-github-cta.single-live-cta, .single-project-page .single-externals .single-github-cta.live-site-cta, .single-project-page .single-externals .single-github-cta.linkedin-cta {
+  background-color: white;
+  color: black;
+}
+.single-project-page .single-externals .single-github-cta.home-project-cta:hover, .single-project-page .single-externals .single-github-cta.home-project-cta:active, .single-project-page .single-externals .single-github-cta.about-project-cta:hover, .single-project-page .single-externals .single-github-cta.about-project-cta:active, .single-project-page .single-externals .single-github-cta.single-live-cta:hover, .single-project-page .single-externals .single-github-cta.single-live-cta:active, .single-project-page .single-externals .single-github-cta.live-site-cta:hover, .single-project-page .single-externals .single-github-cta.live-site-cta:active, .single-project-page .single-externals .single-github-cta.linkedin-cta:hover, .single-project-page .single-externals .single-github-cta.linkedin-cta:active {
+  background-color: black;
+  color: white;
+}
+.single-project-page .single-externals .single-github-cta.home-about-cta, .single-project-page .single-externals .single-github-cta.about-contact-cta, .single-project-page .single-externals .single-github-cta.single-github-cta, .single-project-page .single-externals .single-github-cta.copy-email-btn {
+  color: white;
+  background-color: black;
+}
+.single-project-page .single-externals .single-github-cta.home-about-cta:hover, .single-project-page .single-externals .single-github-cta.home-about-cta:active, .single-project-page .single-externals .single-github-cta.about-contact-cta:hover, .single-project-page .single-externals .single-github-cta.about-contact-cta:active, .single-project-page .single-externals .single-github-cta.single-github-cta:hover, .single-project-page .single-externals .single-github-cta.single-github-cta:active, .single-project-page .single-externals .single-github-cta.copy-email-btn:hover, .single-project-page .single-externals .single-github-cta.copy-email-btn:active {
+  background-color: white;
+  color: black;
+}
+.single-project-page .single-externals .single-live-cta {
+  border-radius: 0.3rem;
+  border: white solid 0.08rem;
+  padding: 0.3rem 0.8rem;
+  margin: 1rem 2rem 0 0;
+  transition: background-color 0.3s, color 0.3s;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  flex-wrap: nowrap;
+  padding: 0.5rem auto 0.5rem auto;
+  margin-right: 0;
+}
+.single-project-page .single-externals .single-live-cta.home-project-cta, .single-project-page .single-externals .single-live-cta.about-project-cta, .single-project-page .single-externals .single-live-cta.single-live-cta, .single-project-page .single-externals .single-live-cta.live-site-cta, .single-project-page .single-externals .single-live-cta.linkedin-cta {
+  background-color: white;
+  color: black;
+}
+.single-project-page .single-externals .single-live-cta.home-project-cta:hover, .single-project-page .single-externals .single-live-cta.home-project-cta:active, .single-project-page .single-externals .single-live-cta.about-project-cta:hover, .single-project-page .single-externals .single-live-cta.about-project-cta:active, .single-project-page .single-externals .single-live-cta.single-live-cta:hover, .single-project-page .single-externals .single-live-cta.single-live-cta:active, .single-project-page .single-externals .single-live-cta.live-site-cta:hover, .single-project-page .single-externals .single-live-cta.live-site-cta:active, .single-project-page .single-externals .single-live-cta.linkedin-cta:hover, .single-project-page .single-externals .single-live-cta.linkedin-cta:active {
+  background-color: black;
+  color: white;
+}
+.single-project-page .single-externals .single-live-cta svg {
+  margin-left: 0.3rem;
 }
 
 .contact-page {
@@ -400,7 +714,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  max-width: 700px;
+  max-width: 900px;
 }
 .contact-page .contact-container .clipboard-decor {
   display: block;
@@ -411,6 +725,9 @@
   margin-top: 1rem;
 }
 @media screen and (min-width: 800px) {
+  .contact-page {
+    font-size: larger;
+  }
   .contact-page .clipboard-decor {
     width: 25%;
   }
@@ -435,23 +752,23 @@
   border-radius: 0.3rem;
   border: white solid 0.08rem;
   padding: 0.3rem 0.8rem;
-  margin: 1rem;
+  margin: 1rem 2rem 0 0;
   transition: background-color 0.3s, color 0.3s;
   width: fit-content;
 }
-.contact-page .copy-email-btn.home-project-cta, .contact-page .copy-email-btn.linkedin-cta {
+.contact-page .copy-email-btn.home-project-cta, .contact-page .copy-email-btn.about-project-cta, .contact-page .copy-email-btn.single-live-cta, .contact-page .copy-email-btn.live-site-cta, .contact-page .copy-email-btn.linkedin-cta {
   background-color: white;
   color: black;
 }
-.contact-page .copy-email-btn.home-project-cta:hover, .contact-page .copy-email-btn.home-project-cta:active, .contact-page .copy-email-btn.linkedin-cta:hover, .contact-page .copy-email-btn.linkedin-cta:active {
+.contact-page .copy-email-btn.home-project-cta:hover, .contact-page .copy-email-btn.home-project-cta:active, .contact-page .copy-email-btn.about-project-cta:hover, .contact-page .copy-email-btn.about-project-cta:active, .contact-page .copy-email-btn.single-live-cta:hover, .contact-page .copy-email-btn.single-live-cta:active, .contact-page .copy-email-btn.live-site-cta:hover, .contact-page .copy-email-btn.live-site-cta:active, .contact-page .copy-email-btn.linkedin-cta:hover, .contact-page .copy-email-btn.linkedin-cta:active {
   background-color: black;
   color: white;
 }
-.contact-page .copy-email-btn.home-about-cta, .contact-page .copy-email-btn.github-cta, .contact-page .copy-email-btn.copy-email-btn, .contact-page .copy-email-btn.live-site-cta {
+.contact-page .copy-email-btn.home-about-cta, .contact-page .copy-email-btn.about-contact-cta, .contact-page .copy-email-btn.single-github-cta, .contact-page .copy-email-btn.copy-email-btn {
   color: white;
   background-color: black;
 }
-.contact-page .copy-email-btn.home-about-cta:hover, .contact-page .copy-email-btn.home-about-cta:active, .contact-page .copy-email-btn.github-cta:hover, .contact-page .copy-email-btn.github-cta:active, .contact-page .copy-email-btn.copy-email-btn:hover, .contact-page .copy-email-btn.copy-email-btn:active, .contact-page .copy-email-btn.live-site-cta:hover, .contact-page .copy-email-btn.live-site-cta:active {
+.contact-page .copy-email-btn.home-about-cta:hover, .contact-page .copy-email-btn.home-about-cta:active, .contact-page .copy-email-btn.about-contact-cta:hover, .contact-page .copy-email-btn.about-contact-cta:active, .contact-page .copy-email-btn.single-github-cta:hover, .contact-page .copy-email-btn.single-github-cta:active, .contact-page .copy-email-btn.copy-email-btn:hover, .contact-page .copy-email-btn.copy-email-btn:active {
   background-color: white;
   color: black;
 }
@@ -471,15 +788,15 @@
   border-radius: 0.3rem;
   border: white solid 0.08rem;
   padding: 0.3rem 0.8rem;
-  margin: 1rem;
+  margin: 1rem 2rem 0 0;
   transition: background-color 0.3s, color 0.3s;
   width: fit-content;
 }
-.contact-page .network-cta .linkedin-cta.home-project-cta, .contact-page .network-cta .linkedin-cta.linkedin-cta {
+.contact-page .network-cta .linkedin-cta.home-project-cta, .contact-page .network-cta .linkedin-cta.about-project-cta, .contact-page .network-cta .linkedin-cta.single-live-cta, .contact-page .network-cta .linkedin-cta.live-site-cta, .contact-page .network-cta .linkedin-cta.linkedin-cta {
   background-color: white;
   color: black;
 }
-.contact-page .network-cta .linkedin-cta.home-project-cta:hover, .contact-page .network-cta .linkedin-cta.home-project-cta:active, .contact-page .network-cta .linkedin-cta.linkedin-cta:hover, .contact-page .network-cta .linkedin-cta.linkedin-cta:active {
+.contact-page .network-cta .linkedin-cta.home-project-cta:hover, .contact-page .network-cta .linkedin-cta.home-project-cta:active, .contact-page .network-cta .linkedin-cta.about-project-cta:hover, .contact-page .network-cta .linkedin-cta.about-project-cta:active, .contact-page .network-cta .linkedin-cta.single-live-cta:hover, .contact-page .network-cta .linkedin-cta.single-live-cta:active, .contact-page .network-cta .linkedin-cta.live-site-cta:hover, .contact-page .network-cta .linkedin-cta.live-site-cta:active, .contact-page .network-cta .linkedin-cta.linkedin-cta:hover, .contact-page .network-cta .linkedin-cta.linkedin-cta:active {
   background-color: black;
   color: white;
 }
@@ -487,23 +804,23 @@
   border-radius: 0.3rem;
   border: white solid 0.08rem;
   padding: 0.3rem 0.8rem;
-  margin: 1rem;
+  margin: 1rem 2rem 0 0;
   transition: background-color 0.3s, color 0.3s;
   width: fit-content;
 }
-.contact-page .network-cta .github-cta.home-project-cta, .contact-page .network-cta .github-cta.linkedin-cta {
+.contact-page .network-cta .github-cta.home-project-cta, .contact-page .network-cta .github-cta.about-project-cta, .contact-page .network-cta .github-cta.single-live-cta, .contact-page .network-cta .github-cta.live-site-cta, .contact-page .network-cta .github-cta.linkedin-cta {
   background-color: white;
   color: black;
 }
-.contact-page .network-cta .github-cta.home-project-cta:hover, .contact-page .network-cta .github-cta.home-project-cta:active, .contact-page .network-cta .github-cta.linkedin-cta:hover, .contact-page .network-cta .github-cta.linkedin-cta:active {
+.contact-page .network-cta .github-cta.home-project-cta:hover, .contact-page .network-cta .github-cta.home-project-cta:active, .contact-page .network-cta .github-cta.about-project-cta:hover, .contact-page .network-cta .github-cta.about-project-cta:active, .contact-page .network-cta .github-cta.single-live-cta:hover, .contact-page .network-cta .github-cta.single-live-cta:active, .contact-page .network-cta .github-cta.live-site-cta:hover, .contact-page .network-cta .github-cta.live-site-cta:active, .contact-page .network-cta .github-cta.linkedin-cta:hover, .contact-page .network-cta .github-cta.linkedin-cta:active {
   background-color: black;
   color: white;
 }
-.contact-page .network-cta .github-cta.home-about-cta, .contact-page .network-cta .github-cta.github-cta, .contact-page .network-cta .github-cta.copy-email-btn, .contact-page .network-cta .github-cta.live-site-cta {
+.contact-page .network-cta .github-cta.home-about-cta, .contact-page .network-cta .github-cta.about-contact-cta, .contact-page .network-cta .github-cta.single-github-cta, .contact-page .network-cta .github-cta.copy-email-btn {
   color: white;
   background-color: black;
 }
-.contact-page .network-cta .github-cta.home-about-cta:hover, .contact-page .network-cta .github-cta.home-about-cta:active, .contact-page .network-cta .github-cta.github-cta:hover, .contact-page .network-cta .github-cta.github-cta:active, .contact-page .network-cta .github-cta.copy-email-btn:hover, .contact-page .network-cta .github-cta.copy-email-btn:active, .contact-page .network-cta .github-cta.live-site-cta:hover, .contact-page .network-cta .github-cta.live-site-cta:active {
+.contact-page .network-cta .github-cta.home-about-cta:hover, .contact-page .network-cta .github-cta.home-about-cta:active, .contact-page .network-cta .github-cta.about-contact-cta:hover, .contact-page .network-cta .github-cta.about-contact-cta:active, .contact-page .network-cta .github-cta.single-github-cta:hover, .contact-page .network-cta .github-cta.single-github-cta:active, .contact-page .network-cta .github-cta.copy-email-btn:hover, .contact-page .network-cta .github-cta.copy-email-btn:active {
   background-color: white;
   color: black;
 }
@@ -520,33 +837,6 @@
   width: 1.3rem;
   height: 1.3rem;
   margin-left: 0.3rem;
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-
-html {
-  scroll-behavior: smooth;
-  position: relative;
-  min-height: 100vh;
-}
-
-body {
-  background-color: black;
-  color: white;
-  font-size: 1rem;
-  margin: 6.2rem 0 0 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body li {
-  list-style: none;
-}
-body a {
-  color: white;
-  text-decoration: none;
-  list-style: none;
 }
 
 /*# sourceMappingURL=styles.css.map */

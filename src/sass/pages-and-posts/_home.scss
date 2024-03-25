@@ -13,7 +13,7 @@
       grid-area: profile;
       margin: 1rem auto;
 
-      .in-depth-greet{
+      .in-depth-greet {
         margin: 0 1rem 0 0;
       }
     }
@@ -23,8 +23,6 @@
       justify-content: flex-start;
       grid-area: CTA;
     }
-
-   
   }
 
   // _______Featured Project Section_______________________________
@@ -38,6 +36,21 @@
     justify-content: space-between;
   }
 
+  // ________Universal + Specific Media Queries___________________________________________
+
+  @media screen and (min-width: 600px) {
+    max-width: 900px;
+    margin: 0 3.8rem 2.5rem 3.8rem;
+  font-size: larger;
+
+  }
+
+  @media screen and (min-width: 1000px) {
+    max-width: 1100px;
+    padding: 0 3.3rem;
+    margin: 0 auto 2.5rem auto;
+  }
+
   // ______CTAs & Links___________________________________________
 
   a {
@@ -46,12 +59,16 @@
     font-size: initial;
   }
 
-  .home-project-cta {
-    @include lightToDark;
-  }
+  .home-cta {
+    margin-top: 1rem;
 
-  .home-about-cta {
-    @include darkToLight;
+    .home-project-cta {
+      @include lightToDark;
+    }
+
+    .home-about-cta {
+      @include darkToLight;
+    }
   }
 
   .featured-projects-cta {

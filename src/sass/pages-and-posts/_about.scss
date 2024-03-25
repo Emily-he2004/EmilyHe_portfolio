@@ -1,3 +1,148 @@
-.about-page{
-    margin: 0 1.5rem 2.5rem 1.5rem;
+.about-page {
+  margin: 0 1.5rem 2.5rem 1.5rem;
+
+  h1,
+  h2 {
+    text-align: center;
+  }
+
+  .about-me-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .profile-pic {
+      img {
+        width: 15rem;
+        height: auto;
+      }
+    }
+
+    blockquote {
+      margin: 1.5rem auto;
+    }
+
+    .basic-intro {
+      margin: 0.5rem 0 1.5rem 0;
+    }
+
+    @media screen and (min-width: 800px) {
+      display: grid;
+      grid-template-areas:
+        "intro picture"
+        "intro quote";
+
+      .profile-pic {
+        grid-area: picture;
+        align-self: center;
+        justify-self: self-end;
+        // margin: 2rem 0 0 0;
+      }
+
+      .basic-intro {
+        grid-area: intro;
+        margin: 0 2rem 0.5rem 0;
+        align-self: self-end;
+        justify-self: self-end;
+
+        h1 {
+          text-align: left;
+        }
+      }
+
+      blockquote {
+        grid-area: quote;
+        text-align: right;
+        justify-self: center;
+        align-self: flex-start;
+        margin: 0;
+      }
+    }
+  }
+
+  .interests-hobbies-section {
+    margin: 2rem 0 2rem 0;
+    padding: 1rem 0 0.5rem 0;
+    border-top: 0.1rem solid white;
+    text-align: center;
+  }
+
+  .tech-stack-section {
+    text-align: center;
+    margin: 2rem 0 2rem 0;
+    padding: 1rem 0 2rem 0;
+    border-top: 0.1rem solid white;
+    border-bottom: 0.1rem solid white;
+  }
+
+  .upcoming-section {
+    li {
+      list-style-type: circle;
+      line-height: 1.6rem;
+
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    ul {
+      margin-top: 1.5rem;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    max-width: 900px;
+    margin: 0 3.5rem 2.5rem 3.5rem;
+    font-size: larger;
+
+    .interests-hobbies-section {
+      text-align: right;
+
+      h2 {
+        text-align: right;
+      }
+    }
+
+    .tech-stack-section {
+      text-align: left;
+
+      h2 {
+        text-align: left;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    max-width: 1100px;
+    padding: 0 3.3rem;
+    margin: 0 auto 2.5rem auto;
+
+    .about-me-section .basic-intro {
+      margin: 0 1.5rem 2rem 0;
+    }
+  }
+}
+
+// ______CTAs & Links___________________________________________
+
+a {
+  font-weight: 550;
+  text-decoration: none;
+}
+
+.about-cta {
+  margin: 1.5rem 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  .about-project-cta {
+    @include lightToDark;
+  }
+
+  .about-contact-cta {
+    @include darkToLight;
+  }
 }

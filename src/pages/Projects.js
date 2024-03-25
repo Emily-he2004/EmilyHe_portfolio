@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Loading from "../components/Loading";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { HiExternalLink } from "react-icons/hi";
 
 
@@ -65,43 +65,44 @@ function Projects({ restBase }) {
                 >
                   {/* Project's featured media */}
                   {/* Assuming project.featured_media is the image URL */}
-                  <Link to={`/project/${project.slug}`}>
+                  <NavLink to={`/project/${project.slug}`}>
                     <img src={project.featured_media} alt="Project Thumbnail" />
-                  </Link>
+                  </NavLink>
                   <div className="teaser-content">
-                    <Link to={`/project/${project.slug}`}>
+                    <NavLink to={`/project/${project.slug}`}>
                       <h2
                         dangerouslySetInnerHTML={{
                           __html: project.title.rendered,
                         }}
                       ></h2>
-                    </Link>
+                    </NavLink>
                     <p>
                       {truncateOverview(
-                        project.acf.projects_page[1]?.project_overview_content
+                        project.acf.projects_page[0]?.project_overview_content
                       )}
                     </p>
 
                     <div className="project-main-cta">
                       <a
-                        href={project.acf.projects_page[1].project_live_site}
+                        href={project.acf.projects_page[0].project_live_site}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="live-site-cta"
                       >
                         Live Site <HiExternalLink />
                       </a>
-                      <Link
+                      <NavLink
                         to={`/project/${project.slug}`}
                         className="read-more-cta"
                       >
                         Read More &#8594;
-                      </Link>
+                      </NavLink>
                     </div>
                   </div>
                   <div className="tech-stack">
-                    {project.acf.tech_stack &&
-                      project.acf.tech_stack.map((tech, index) => (
+                    Related Tech Stack supposed to be here...
+                    {project.acf.my_tech_stack &&
+                      project.acf.my_tech_stack.map((tech, index) => (
                         <span key={index}>{tech}</span>
                       ))}
                   </div>
