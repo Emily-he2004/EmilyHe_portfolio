@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Loading from "../components/Loading";
 import { useParams } from "react-router-dom";
 import { HiExternalLink } from "react-icons/hi";
-
+import { FaGithub } from "react-icons/fa";
 
 function SingleProject({ restBase }) {
   const { slug } = useParams();
@@ -30,22 +30,33 @@ function SingleProject({ restBase }) {
       {isLoaded ? (
         <section className="single-project-page">
           <section className="project-media">
-            <iframe
-              title="Project Demo"
-              width="100"
-              height="100"
-              src={restData.acf.projects_page[0].project_demo}
-              frameBorder="10"
-              allowFullScreen
-            ></iframe>
-            <div>{restData.acf.projects_page[0].project_gallery}</div>
-            {/* {restData.acf.projects_page[0].project_gallery.map((imageId) => (
-              <img
-                key={imageId}
-                src={`https://emilyhe.ca/portfolio/wp-json/wp/v2/media/${imageId}`}
-                alt="Project Image"
-              />
-            ))} */}
+            <div>
+              {restData.acf.projects_page[0].project_gallery.map(
+                (item, index) => {
+                  if (typeof item === "string" && item.endsWith(".mp4")) {
+                    return (
+                      <video key={index} controls>
+                        <source src={item} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    );
+                  } else if (
+                    typeof item === "string" &&
+                    item.endsWith(".jpg")
+                  ) {
+                    return (
+                      <img
+                        key={index}
+                        src={item}
+                        alt={`Project Image ${index + 1}`}
+                      />
+                    );
+                  } else {
+                    return null;
+                  }
+                }
+              )}
+            </div>
           </section>
 
           <section className="introduction">
@@ -58,7 +69,7 @@ function SingleProject({ restBase }) {
                   rel="noopener noreferrer"
                   className="single-github-cta"
                 >
-                  GitHub
+                  GitHub <FaGithub />
                 </a>
                 <a
                   href={restData.acf.projects_page[0].project_live_site}
@@ -81,7 +92,9 @@ function SingleProject({ restBase }) {
               </div>
               <div className="tools">
                 <h3>{restData.acf.projects_page[0].project_tools}</h3>
-                <p>{restData.acf.projects_page[0].tools_content.my_tech_stack}</p>
+                <p>
+                  {restData.acf.projects_page[0].tools_content.my_tech_stack}
+                </p>
                 {/* <div>
                   {restData.tech_stack.map((techId) => (
                     <span key={techId}>{techId}</span>

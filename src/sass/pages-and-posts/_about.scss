@@ -1,5 +1,5 @@
 .about-page {
-  margin: 0 1.5rem 2.5rem 1.5rem;
+  @include pagesMargins;
 
   h1,
   h2 {
@@ -91,10 +91,10 @@
     }
   }
 
-  @media screen and (min-width: 600px) {
-    max-width: 900px;
-    margin: 0 3.5rem 2.5rem 3.5rem;
-    font-size: larger;
+  // ________Universal + Specific Media Queries___________________________________________
+
+  @media screen and (min-width: 800px) {
+    @include min-width800;
 
     .interests-hobbies-section {
       text-align: right;
@@ -111,12 +111,15 @@
         text-align: left;
       }
     }
+
+.about-cta {
+    justify-content: flex-start;
+
+}
   }
 
   @media screen and (min-width: 1000px) {
-    max-width: 1100px;
-    padding: 0 3.3rem;
-    margin: 0 auto 2.5rem auto;
+    @include min-width1000;
 
     .about-me-section .basic-intro {
       margin: 0 1.5rem 2rem 0;
@@ -126,16 +129,11 @@
 
 // ______CTAs & Links___________________________________________
 
-a {
-  font-weight: 550;
-  text-decoration: none;
-}
-
 .about-cta {
   margin: 1.5rem 0 0 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
 
   .about-project-cta {

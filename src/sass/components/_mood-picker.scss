@@ -10,12 +10,12 @@
     max-width: 300px;
   }
 
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 800px) {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
+
     margin: 1rem auto;
     text-align: center;
     border: solid 0.1rem white;
@@ -78,5 +78,9 @@
         }
       }
     }
+  }
+
+  @media screen and (min-width: 1000px) {
+    font-size: large;
   }
 }

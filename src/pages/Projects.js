@@ -3,7 +3,6 @@ import Loading from "../components/Loading";
 import { NavLink } from "react-router-dom";
 import { HiExternalLink } from "react-icons/hi";
 
-
 function Projects({ restBase }) {
   const restPath = `${restBase}projects?`;
   const [restData, setRestData] = useState([]);
@@ -100,11 +99,11 @@ function Projects({ restBase }) {
                     </div>
                   </div>
                   <div className="tech-stack">
-                    Related Tech Stack supposed to be here...
-                    {project.acf.my_tech_stack &&
-                      project.acf.my_tech_stack.map((tech, index) => (
-                        <span key={index}>{tech}</span>
-                      ))}
+                    {/* Related Tech Stack supposed to be here... */}
+                    {project.acf.projects_page[0].tools_content.my_tech_stack &&
+                      project.acf.projects_page[0].tools_content.my_tech_stack.map(
+                        (tech, index) => <span key={index}>{tech}</span>
+                      )}
                   </div>
                 </div>
               ))}

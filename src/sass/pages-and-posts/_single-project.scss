@@ -1,5 +1,5 @@
 .single-project-page {
-  margin: 0 1.5rem 2.5rem 1.5rem;
+  @include pagesMargins;
 
   h1 {
     font-size: 1.8rem;
@@ -11,37 +11,30 @@
     position: relative;
     width: 100%;
 
-    iframe {
-      position: sticky;
-      width: 100%;
-      height: 100%;
-      max-height: 500px;
-    }
+    // iframe {
+    //   position: sticky;
+    //   width: 100%;
+    //   height: 100%;
+    //   max-height: 500px;
+    // }
   }
 
   // ________Universal + Specific Media Queries___________________________________________
-
+  
   @media screen and (min-width: 600px) {
-    max-width: 900px;
-    margin: 0 3.8rem 2.5rem 3.8rem;
-
     h1 {
       text-align: left;
     }
   }
+  @media screen and (min-width: 800px) {
+    @include min-width800;
+  }
 
   @media screen and (min-width: 1000px) {
-    max-width: 1100px;
-    padding: 0 3.3rem;
-    margin: 0 auto 2.5rem auto;
+    @include min-width1000;
   }
 
   // ______CTAs & Links___________________________________________
-
-  a {
-    font-weight: 550;
-    text-decoration: none;
-  }
 
   .single-externals {
     display: flex;
@@ -53,22 +46,26 @@
       justify-content: flex-end;
     }
 
+    .single-github-cta,
+    .single-live-cta {
+      display: flex;
+      align-items: center;
+      justify-self: center;
+      flex-wrap: nowrap;
+      padding: 0.5rem auto 0.5rem auto;
+
+      svg {
+        margin-left: 0.3rem;
+      }
+    }
+
     .single-github-cta {
       @include darkToLight;
     }
 
     .single-live-cta {
       @include lightToDark;
-      display: flex;
-      align-items: center;
-      justify-self: center;
-      flex-wrap: nowrap;
-      padding: 0.5rem auto 0.5rem auto;
       margin-right: 0;
-
-      svg {
-        margin-left: 0.3rem;
-      }
     }
   }
 }

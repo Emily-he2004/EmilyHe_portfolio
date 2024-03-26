@@ -50,27 +50,71 @@
   .left-nav {
     position: fixed;
     z-index: 999;
-    bottom: 3vh;
+    bottom: 2vh;
     left: 0;
-    margin: 0 0.8rem;
+    margin: 0 1rem 0 1rem;
 
     writing-mode: vertical-lr;
     text-orientation: upright;
-    color: black;
-    background-color: whitesmoke;
+    background-color: transparent;
+
+    .left-ctas {
+      margin-bottom: 8.2rem;
+
+      .linkedin-cta {
+        padding-bottom: 1rem;
+      }
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    .line-left {
+      width: 1px; 
+      height: 100px;
+      background-color: white;
+      position: absolute;
+      bottom: 0vh;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   .right-nav {
     position: fixed;
     z-index: 999;
-    bottom: 3vh;
+    bottom: 2vh;
     right: 0;
-    margin: 0 0.8rem;
-
-    writing-mode: vertical-lr;
+    margin: 0 1.8rem 0 1rem;
     text-orientation: upright;
-    color: black;
-    background-color: whitesmoke;
+    background-color: transparent;
+
+    button {
+      background-color: transparent;
+      border: none;
+
+      a {
+        transform: rotate(90deg);
+        display: inline-block;
+        white-space: nowrap;
+        transform-origin: bottom right;
+
+        .copy-icon{
+          margin-right: 1rem;
+        }
+
+        .line-right {
+          display: inline-block;
+          width: 100px; 
+          height: 1px; 
+          background-color: white; 
+          margin-left: 4px;
+          
+        }
+      }
+    }
   }
 
   .left-nav,
@@ -79,7 +123,7 @@
     display: none;
   }
 
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 800px) {
     margin-bottom: 1rem;
 
     .left-nav,

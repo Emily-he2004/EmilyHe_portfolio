@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import LeftNav from "../components/LeftNav";
 import RightNav from "../components/RightNav";
 import { MdDeveloperMode } from "react-icons/md";
 
 function Header() {
+  const location = useLocation();
+  const isContactPage = location.pathname === "/contact";
+
   const [prevScrollPos, setPrevScrollPos] = useState(
     window.scrollY || window.pageYOffset
   );
@@ -32,7 +35,7 @@ function Header() {
 
   return (
     <div className="header-container">
-      <LeftNav />
+      {!isContactPage && <LeftNav />}
 
       <nav className={`header-nav ${headerVisible ? "visible" : "hidden"}`}>
         <ul className="home-menu">
@@ -64,7 +67,7 @@ function Header() {
         </ul>
       </nav>
 
-      <RightNav />
+      {!isContactPage && <RightNav />}
     </div>
   );
 }

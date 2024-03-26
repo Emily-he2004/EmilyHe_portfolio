@@ -7,42 +7,34 @@ import { HiExternalLink } from "react-icons/hi";
 
 function Home({ restBase }) {
   const HomeID = "8";
-  const restPath = `${restBase}pages/${HomeID}`;
+  const slug = "cascadia-floral-boutique";
+
+  const restPathHome = `${restBase}pages/${HomeID}`;
+  const featurePath = `${restBase}projects?slug=${slug}`;
+
   const [restData, setData] = useState([]);
+  const [featuredProject, setFeaturedProject] = useState({});
   const [isLoaded, setLoadStatus] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(restPath);
-      if (response.ok) {
-        const data = await response.json();
-        setData(data);
+      const response_home = await fetch(restPathHome);
+      const response_featured = await fetch(featurePath);
+
+      if (response_home.ok && response_featured.ok) {
+        const dataHome = await response_home.json();
+        const dataFeature = await response_featured.json();
+        setData(dataHome);
+        setFeaturedProject(dataFeature[0]);
         setLoadStatus(true);
       } else {
         setLoadStatus(false);
       }
     };
     fetchData();
-  }, [restPath]);
+  }, [restPathHome, featurePath]);
 
-  // https://emilyhe.ca/portfolio/wp-json/wp/v2/projects?slug=cascadia-floral-boutique
-  const slug = "cascadia-floral-boutique";
-  const featurePath = `${restBase}/projects?slug=${slug}`;
-  const [featuredProject, setFeaturedProject] = useState({});
-
-  useEffect(() => {
-    const fetchFeaturedProject = async () => {
-      const response = await fetch(featurePath);
-      if (response.ok) {
-        const data = await response.json();
-        setFeaturedProject(data[0]);
-        setLoadStatus(true);
-      } else {
-        setLoadStatus(false);
-      }
-    };
-    fetchFeaturedProject();
-  }, [featurePath]);
+  console.log(restData, featuredProject);
 
   const truncateOverview = (overview) => {
     if (overview && overview.length > 180) {
@@ -105,8 +97,9 @@ function Home({ restBase }) {
                 See All Projects &#8594;
               </NavLink>
             </div>
+
             {/* ________Featured Project Below____________ */}
-            {/* <div className="project-teaser">
+            <div className="project-teaser">
               <NavLink to={`/project/${featuredProject.slug}`}>
                 <img
                   src={featuredProject.featured_media}
@@ -138,12 +131,12 @@ function Home({ restBase }) {
                   >
                     Live Site <HiExternalLink />
                   </a>
-                  <Link
+                  <NavLink
                     to={`/project/${featuredProject.slug}`}
                     className="read-more-cta"
                   >
                     Read More &#8594;
-                  </Link>
+                  </NavLink>
                 </div>
               </div>
               <div className="tech-stack">
@@ -153,7 +146,7 @@ function Home({ restBase }) {
                     (tech, index) => <span key={index}>{tech}</span>
                   )}
               </div>
-            </div> */}
+            </div>
           </section>
         </div>
       ) : (
