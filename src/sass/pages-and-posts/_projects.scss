@@ -2,7 +2,7 @@
     @include pagesMargins;
 
   h2 {
-    margin: 0 0 0 1rem;
+    // margin: 0 0 0 1rem;
     width: fit-content;
   }
 
@@ -11,68 +11,70 @@
     margin: 0 0 3.5rem 0;
   }
 
-  .project-teaser {
-    border: solid 0.1rem white;
-    border-radius: 0.3rem;
-    margin: 1rem auto;
-    padding: 1rem;
-
-    img {
-      position: relative;
-    }
-
-    .teaser-content {
-      border: solid 0.1rem white;
-      border-radius: 0.3rem;
-      margin: 1rem;
-      padding: 1rem 1rem 2rem 1rem;
-      max-width: 300px;
-    }
-
-    .tech-stack {
-      margin: 0 0 0 1.2rem;
-    }
-  }
-
+  
   // ________Universal + Specific Media Queries___________________________________________
-
+  
   @media screen and (min-width: 800px) {
     @include min-width800;
   }
 
   @media screen and (min-width: 1000px) {
-    @include min-width1000;
-  }
+      @include min-width1000;
+    }
 
   // ______CTAs & Links___________________________________________
-
+  
   a {
     font-size: initial;
   }
 
-  .project-main-cta {
+}
+
+.project-main-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+
+  .live-site-cta {
+    @include lightToDark;
+
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;
-
-    .live-site-cta {
-      @include lightToDark;
-
-      display: flex;
-      align-items: center;
-      justify-self: center;
-      padding: 0.5rem auto 0.5rem auto;
-      margin-right: 0.5rem;
-
-      svg {
-        margin-left: 0.3rem;
-      }
+    justify-self: center;
+    padding: 0.5rem auto 0.5rem auto;
+    margin-right: 0.5rem;
+    
+    svg {
+      margin-left: 0.3rem;
     }
+  }
 
-    .read-more-cta {
+  .read-more-cta {
       @include slideRightCTA;
       margin: 1rem 0.5rem 0 0;
     }
+}
+
+.project-teaser {
+  border: solid 0.1rem white;
+  border-radius: 0.3rem;
+  margin: 1rem auto;
+  padding: 1rem;
+
+  img {
+    position: relative;
+  }
+
+  .teaser-content {
+    border: solid 0.1rem white;
+    border-radius: 0.3rem;
+    margin: 1rem;
+    padding: 1rem 1rem 2rem 1rem;
+    max-width: 300px;
+  }
+
+  .tech-stack {
+    margin: 0 0 0 1.2rem;
   }
 }

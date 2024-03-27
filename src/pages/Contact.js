@@ -47,7 +47,7 @@ function Contact({ restBase }) {
           <div className="contact-container">
             <span className="clipboard-decor"></span>
             <h1>{restData.acf.contact_page[0].contact_me_title}</h1>
-            <p>{restData.acf.contact_page[0].contact_message}</p>
+            <p className="message">{restData.acf.contact_page[0].contact_message}</p>
             <p className="email-cta">
               Email:
               <a href={`mailto:${restData.acf.contact_page[0].contact_email}`}>

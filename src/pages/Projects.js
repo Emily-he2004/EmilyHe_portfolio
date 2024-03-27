@@ -42,7 +42,7 @@ function Projects({ restBase }) {
   return (
     <>
       {isLoaded ? (
-        <section className="projects-page">
+        <section id="projects-page" className="projects-page">
           <div className="debriefing">
             <h1>All Projects</h1>
             <p>
@@ -63,7 +63,6 @@ function Projects({ restBase }) {
                   className="project-teaser"
                 >
                   {/* Project's featured media */}
-                  {/* Assuming project.featured_media is the image URL */}
                   <NavLink to={`/project/${project.slug}`}>
                     <img src={project.featured_media} alt="Project Thumbnail" />
                   </NavLink>
@@ -80,7 +79,6 @@ function Projects({ restBase }) {
                         project.acf.projects_page[0]?.project_overview_content
                       )}
                     </p>
-
                     <div className="project-main-cta">
                       <a
                         href={project.acf.projects_page[0].project_live_site}

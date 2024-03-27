@@ -3,13 +3,16 @@
 
   h1 {
     font-size: 1.8rem;
-    margin: 1.5rem 0 0 0;
+    margin: 1.5rem 0 1rem 0;
     text-align: center;
   }
 
   .project-media {
     position: relative;
     width: 100%;
+    height: auto;
+    border: 0.1rem white solid;
+    min-height: 18rem;
 
     // iframe {
     //   position: sticky;
@@ -19,11 +22,96 @@
     // }
   }
 
+  .specifications {
+    text-align: center;
+    margin: 2.5rem 0;
+    border-top: 0.1rem white solid;
+
+    .roles {
+      margin: 1.5rem 0;
+    }
+
+    .tools {
+      margin: 2rem 0;
+    }
+  }
+
+  .in-depth-info {
+    .tab-container {
+      display: flex;
+      flex-direction: row;
+      margin: 3rem 0;
+      position: relative;
+    }
+
+    .tab-section {
+      cursor: pointer;
+      padding: 0.3rem 0.5rem;
+      border: 0.1rem white solid;
+      background-color: black;
+      display: flex;
+      flex-direction: column; 
+      margin-right: 10px;
+    }
+
+    .tab-togglers {
+      flex: 1;
+    }
+
+    .tab-content {
+      display: none;
+      position: relative;
+      z-index: 80;
+    }
+
+    .tab-section.active .tab-content {
+      display: block;
+      background-color: white;
+      color: black;
+      position: sticky;
+      top: 0;
+      z-index: 90;
+    }
+  }
+
   // ________Universal + Specific Media Queries___________________________________________
-  
+
   @media screen and (min-width: 600px) {
     h1 {
       text-align: left;
+    }
+
+    .introduction {
+      .brief-info {
+        display: grid;
+        grid-template-areas:
+          "overview"
+          "specifications";
+
+        .overview {
+          grid-area: overview;
+        }
+
+        .specifications {
+          grid-area: specifications;
+          display: flex;
+          flex-wrap: nowrap;
+          justify-content: space-evenly;
+          align-items: center;
+          border-top: none;
+          margin: 0;
+
+          .roles {
+            justify-self: center;
+          }
+
+          .tools {
+            border-left: 0.1rem white solid;
+            padding-left: 8rem;
+            justify-self: start;
+          }
+        }
+      }
     }
   }
   @media screen and (min-width: 800px) {

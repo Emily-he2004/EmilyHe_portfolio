@@ -56,7 +56,7 @@ function Home({ restBase }) {
   return (
     <>
       {isLoaded ? (
-        <div className="home-page">
+        <div id="home-page" className="home-page">
           <section className="profile-section">
             <div className="profile-content">
               <p>{restData.acf.home_page[0].eyebrow_greeting}</p>

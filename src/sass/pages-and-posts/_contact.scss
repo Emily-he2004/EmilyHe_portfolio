@@ -10,7 +10,7 @@
   .contact-container {
     border-radius: 0.3rem;
     border: white solid 0.08rem;
-    padding: 1rem 2rem 4.5rem 2rem;
+    padding: 1rem 2rem 4rem 2rem;
     margin: 2rem;
     text-align: center;
 
@@ -26,6 +26,10 @@
       width: 40%;
       border-radius: 0.3rem;
       margin-top: 1rem;
+    }
+
+    .message{
+      max-width: 800px;
     }
   }
 
@@ -62,9 +66,17 @@
 
   .copy-email-btn {
     @include darkToLight;
+    margin: 1rem 0 0 0;
 
     svg {
       margin-left: 0.5rem;
+    }
+
+    @media screen and (min-width: 490px) {
+      margin: 0;
+    }
+    @media screen and (min-width: 800px) {
+      font-size: smaller;
     }
   }
 
@@ -73,7 +85,7 @@
   }
 
   .network-cta {
-    // margin: 1.5rem 0 0 0;
+    margin: 1.5rem 0 0 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
