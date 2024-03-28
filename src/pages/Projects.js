@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { HiExternalLink } from "react-icons/hi";
 
 function Projects({ restBase }) {
-  const restPath = `${restBase}projects?`;
+  const restPath = `${restBase}projects?_embed`;
   const [restData, setRestData] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -62,18 +62,28 @@ function Projects({ restBase }) {
                   id={`project-${project.id}`}
                   className="project-teaser"
                 >
-                  {/* Project's featured media */}
                   <NavLink to={`/project/${project.slug}`}>
-                    <img src={project.featured_media} alt="Project Thumbnail" />
+                    {project._embedded &&
+                      project._embedded["wp:featuredmedia"] && (
+                        <img
+                          className="featured-image"
+                          src={
+                            project._embedded["wp:featuredmedia"][0].source_url
+                          }
+                          alt={
+                            project._embedded["wp:featuredmedia"][0].alt_text
+                          }
+                        />
+                      )}
+                  </NavLink>
+                  <NavLink to={`/project/${project.slug}`}>
+                    <h2
+                      dangerouslySetInnerHTML={{
+                        __html: project.title.rendered,
+                      }}
+                    ></h2>
                   </NavLink>
                   <div className="teaser-content">
-                    <NavLink to={`/project/${project.slug}`}>
-                      <h2
-                        dangerouslySetInnerHTML={{
-                          __html: project.title.rendered,
-                        }}
-                      ></h2>
-                    </NavLink>
                     <p>
                       {truncateOverview(
                         project.acf.projects_page[0]?.project_overview_content
@@ -97,7 +107,6 @@ function Projects({ restBase }) {
                     </div>
                   </div>
                   <div className="tech-stack">
-                    {/* Related Tech Stack supposed to be here... */}
                     {project.acf.projects_page[0].tools_content.my_tech_stack &&
                       project.acf.projects_page[0].tools_content.my_tech_stack.map(
                         (tech, index) => <span key={index}>{tech}</span>

@@ -105,7 +105,7 @@ body a {
   z-index: 999;
   bottom: 1.3vh;
   right: 0;
-  margin: 1rem 2.3rem 0 1rem;
+  margin: 1rem 2.5rem 0 1rem;
   text-orientation: upright;
   background-color: transparent;
   transform: rotate(90deg);
@@ -183,7 +183,7 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
 .thumb-nav-container ul.nav-menu {
   display: flex;
   justify-content: center;
-  margin: 0.5rem 0;
+  margin: 0.5rem 0 0 0;
   padding-inline-start: 0;
   padding: 0.2rem 0 0 0;
 }
@@ -397,11 +397,11 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
     font-size: large;
   }
 }
-.home-page .home-cta .home-about-cta.home-about-cta, .home-page .home-cta .home-about-cta.about-contact-cta, .home-page .home-cta .home-about-cta.single-github-cta, .home-page .home-cta .home-about-cta.github-cta, .home-page .home-cta .home-about-cta.copy-email-btn {
+.home-page .home-cta .home-about-cta.home-about-cta, .home-page .home-cta .home-about-cta.about-contact-cta, .home-page .home-cta .home-about-cta.single-github-cta, .home-page .home-cta .home-about-cta.github-cta, .home-page .home-cta .home-about-cta.slick-slider .slick-dots li button, .home-page .home-cta .home-about-cta.copy-email-btn {
   color: white;
   background-color: black;
 }
-.home-page .home-cta .home-about-cta.home-about-cta:hover, .home-page .home-cta .home-about-cta.home-about-cta:active, .home-page .home-cta .home-about-cta.about-contact-cta:hover, .home-page .home-cta .home-about-cta.about-contact-cta:active, .home-page .home-cta .home-about-cta.single-github-cta:hover, .home-page .home-cta .home-about-cta.single-github-cta:active, .home-page .home-cta .home-about-cta.github-cta:hover, .home-page .home-cta .home-about-cta.github-cta:active, .home-page .home-cta .home-about-cta.copy-email-btn:hover, .home-page .home-cta .home-about-cta.copy-email-btn:active {
+.home-page .home-cta .home-about-cta.home-about-cta:hover, .home-page .home-cta .home-about-cta.home-about-cta:active, .home-page .home-cta .home-about-cta.about-contact-cta:hover, .home-page .home-cta .home-about-cta.about-contact-cta:active, .home-page .home-cta .home-about-cta.single-github-cta:hover, .home-page .home-cta .home-about-cta.single-github-cta:active, .home-page .home-cta .home-about-cta.github-cta:hover, .home-page .home-cta .home-about-cta.github-cta:active, .home-page .home-cta .home-about-cta.slick-slider .slick-dots li button:hover, .home-page .home-cta .home-about-cta.slick-slider .slick-dots li button:active, .home-page .home-cta .home-about-cta.copy-email-btn:hover, .home-page .home-cta .home-about-cta.copy-email-btn:active {
   background-color: white;
   color: black;
 }
@@ -587,11 +587,11 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
     font-size: large;
   }
 }
-.about-cta .about-contact-cta.home-about-cta, .about-cta .about-contact-cta.about-contact-cta, .about-cta .about-contact-cta.single-github-cta, .about-cta .about-contact-cta.github-cta, .about-cta .about-contact-cta.copy-email-btn {
+.about-cta .about-contact-cta.home-about-cta, .about-cta .about-contact-cta.about-contact-cta, .about-cta .about-contact-cta.single-github-cta, .about-cta .about-contact-cta.github-cta, .about-cta .about-contact-cta.slick-slider .slick-dots li button, .about-cta .about-contact-cta.copy-email-btn {
   color: white;
   background-color: black;
 }
-.about-cta .about-contact-cta.home-about-cta:hover, .about-cta .about-contact-cta.home-about-cta:active, .about-cta .about-contact-cta.about-contact-cta:hover, .about-cta .about-contact-cta.about-contact-cta:active, .about-cta .about-contact-cta.single-github-cta:hover, .about-cta .about-contact-cta.single-github-cta:active, .about-cta .about-contact-cta.github-cta:hover, .about-cta .about-contact-cta.github-cta:active, .about-cta .about-contact-cta.copy-email-btn:hover, .about-cta .about-contact-cta.copy-email-btn:active {
+.about-cta .about-contact-cta.home-about-cta:hover, .about-cta .about-contact-cta.home-about-cta:active, .about-cta .about-contact-cta.about-contact-cta:hover, .about-cta .about-contact-cta.about-contact-cta:active, .about-cta .about-contact-cta.single-github-cta:hover, .about-cta .about-contact-cta.single-github-cta:active, .about-cta .about-contact-cta.github-cta:hover, .about-cta .about-contact-cta.github-cta:active, .about-cta .about-contact-cta.slick-slider .slick-dots li button:hover, .about-cta .about-contact-cta.slick-slider .slick-dots li button:active, .about-cta .about-contact-cta.copy-email-btn:hover, .about-cta .about-contact-cta.copy-email-btn:active {
   background-color: white;
   color: black;
 }
@@ -689,23 +689,71 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
 }
 
 .project-teaser {
-  border: solid 0.1rem white;
   border-radius: 0.3rem;
   margin: 1rem auto;
-  padding: 1rem;
-}
-.project-teaser img {
+  padding: 1rem 0;
+  background-color: rgba(255, 255, 255, 0.579);
   position: relative;
+}
+.project-teaser .featured-image {
+  width: 20rem;
+  height: 20rem;
+  position: absolute;
+  z-index: 1;
+}
+.project-teaser h2 {
+  position: sticky;
+  z-index: 2;
 }
 .project-teaser .teaser-content {
   border: solid 0.1rem white;
   border-radius: 0.3rem;
-  margin: 1rem;
+  background-color: black;
+  margin: 0;
   padding: 1rem 1rem 2rem 1rem;
   max-width: 300px;
+  position: sticky;
+  z-index: 99;
 }
 .project-teaser .tech-stack {
-  margin: 0 0 0 1.2rem;
+  color: black;
+  font-weight: bolder;
+  position: sticky;
+  z-index: 99;
+}
+.project-teaser:nth-child(even) .featured-image {
+  left: 0;
+}
+.project-teaser:nth-child(even) h2 {
+  right: 0;
+  left: 100%;
+  margin: 1rem 0.8rem 1rem 0;
+}
+.project-teaser:nth-child(even) .teaser-content {
+  right: 0;
+  left: 100%;
+}
+.project-teaser:nth-child(even) .tech-stack {
+  margin: 1rem 1.2rem 0 0;
+  right: 0;
+  left: 100%;
+}
+.project-teaser:nth-child(odd) .featured-image {
+  right: 0;
+}
+.project-teaser:nth-child(odd) h2 {
+  left: 0;
+  right: 100%;
+  margin: 1rem 0 1rem 0.8rem;
+}
+.project-teaser:nth-child(odd) .teaser-content {
+  left: 0;
+  right: 100%;
+}
+.project-teaser:nth-child(odd) .tech-stack {
+  margin: 1rem 0 0 1.2rem;
+  left: 0;
+  right: 100%;
 }
 
 .single-project-page {
@@ -717,16 +765,129 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
   text-align: center;
 }
 .single-project-page .project-media {
+  margin-bottom: 5rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.single-project-page .project-media .slick-slider {
   position: relative;
+  text-align: center;
+  width: 16rem;
+  height: -webkit-fill-available;
+}
+.single-project-page .project-media .slick-slider .slick-list {
+  overflow: hidden;
+}
+.single-project-page .project-media .slick-slider .slick-list .slick-track {
+  display: flex;
+  align-items: center;
+}
+.single-project-page .project-media .slick-slider .slick-list .slick-track .slick-slide {
+  outline: none;
   width: 100%;
+}
+.single-project-page .project-media .slick-slider .slick-list .slick-track .slick-slide img {
+  width: 15rem;
   height: auto;
-  border: 0.1rem white solid;
-  min-height: 18rem;
+  object-fit: cover;
+}
+.single-project-page .project-media .slick-slider .slick-list .slick-track .slick-slide video {
+  width: 15rem;
+  height: auto;
+  object-fit: cover;
+}
+.single-project-page .project-media .slick-slider button {
+  cursor: pointer;
+  outline: none;
+  position: absolute;
+  bottom: -1.5rem;
+}
+.single-project-page .project-media .slick-slider .slick-prev {
+  border-radius: 0.3rem;
+  border: white solid 0.08rem;
+  padding: 0.3rem 0.8rem;
+  margin: 1rem 2rem 0 0;
+  transition: background-color 0.3s, color 0.3s;
+  width: fit-content;
+  font-weight: 550;
+  left: 0;
+  z-index: 1;
+  margin: 0;
+}
+.single-project-page .project-media .slick-slider .slick-prev.home-project-cta, .single-project-page .project-media .slick-slider .slick-prev.about-project-cta, .single-project-page .project-media .slick-slider .slick-prev.single-live-cta, .single-project-page .project-media .slick-slider .slick-prev.live-site-cta, .single-project-page .project-media .slick-slider .slick-prev.linkedin-cta {
+  background-color: white;
+  color: black;
+}
+.single-project-page .project-media .slick-slider .slick-prev.home-project-cta:hover, .single-project-page .project-media .slick-slider .slick-prev.home-project-cta:active, .single-project-page .project-media .slick-slider .slick-prev.about-project-cta:hover, .single-project-page .project-media .slick-slider .slick-prev.about-project-cta:active, .single-project-page .project-media .slick-slider .slick-prev.single-live-cta:hover, .single-project-page .project-media .slick-slider .slick-prev.single-live-cta:active, .single-project-page .project-media .slick-slider .slick-prev.live-site-cta:hover, .single-project-page .project-media .slick-slider .slick-prev.live-site-cta:active, .single-project-page .project-media .slick-slider .slick-prev.linkedin-cta:hover, .single-project-page .project-media .slick-slider .slick-prev.linkedin-cta:active {
+  background-color: black;
+  color: white;
+}
+@media screen and (min-width: 800px) {
+  .single-project-page .project-media .slick-slider .slick-prev {
+    font-size: large;
+  }
+}
+.single-project-page .project-media .slick-slider .slick-prev.home-about-cta, .single-project-page .project-media .slick-slider .slick-prev.about-contact-cta, .single-project-page .project-media .slick-slider .slick-prev.single-github-cta, .single-project-page .project-media .slick-slider .slick-prev.github-cta, .single-project-page .project-media .slick-slider .slick-prev.slick-slider .slick-dots li button, .single-project-page .project-media .slick-slider .slick-prev.copy-email-btn {
+  color: white;
+  background-color: black;
+}
+.single-project-page .project-media .slick-slider .slick-prev.home-about-cta:hover, .single-project-page .project-media .slick-slider .slick-prev.home-about-cta:active, .single-project-page .project-media .slick-slider .slick-prev.about-contact-cta:hover, .single-project-page .project-media .slick-slider .slick-prev.about-contact-cta:active, .single-project-page .project-media .slick-slider .slick-prev.single-github-cta:hover, .single-project-page .project-media .slick-slider .slick-prev.single-github-cta:active, .single-project-page .project-media .slick-slider .slick-prev.github-cta:hover, .single-project-page .project-media .slick-slider .slick-prev.github-cta:active, .single-project-page .project-media .slick-slider .slick-prev.slick-slider .slick-dots li button:hover, .single-project-page .project-media .slick-slider .slick-prev.slick-slider .slick-dots li button:active, .single-project-page .project-media .slick-slider .slick-prev.copy-email-btn:hover, .single-project-page .project-media .slick-slider .slick-prev.copy-email-btn:active {
+  background-color: white;
+  color: black;
+}
+@media screen and (min-width: 800px) {
+  .single-project-page .project-media .slick-slider .slick-prev {
+    font-size: large;
+  }
+}
+.single-project-page .project-media .slick-slider button.slick-arrow.slick-next {
+  border-radius: 0.3rem;
+  border: white solid 0.08rem;
+  padding: 0.3rem 0.8rem;
+  margin: 1rem 2rem 0 0;
+  transition: background-color 0.3s, color 0.3s;
+  width: fit-content;
+  font-weight: 550;
+  right: 0;
+  z-index: 1;
+  margin: 0;
+}
+.single-project-page .project-media .slick-slider button.slick-arrow.slick-next.home-project-cta, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.about-project-cta, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.single-live-cta, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.live-site-cta, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.linkedin-cta {
+  background-color: white;
+  color: black;
+}
+.single-project-page .project-media .slick-slider button.slick-arrow.slick-next.home-project-cta:hover, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.home-project-cta:active, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.about-project-cta:hover, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.about-project-cta:active, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.single-live-cta:hover, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.single-live-cta:active, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.live-site-cta:hover, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.live-site-cta:active, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.linkedin-cta:hover, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.linkedin-cta:active {
+  background-color: black;
+  color: white;
+}
+@media screen and (min-width: 800px) {
+  .single-project-page .project-media .slick-slider button.slick-arrow.slick-next {
+    font-size: large;
+  }
+}
+.single-project-page .project-media .slick-slider button.slick-arrow.slick-next.home-about-cta, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.about-contact-cta, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.single-github-cta, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.github-cta, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.slick-slider .slick-dots li button, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.copy-email-btn {
+  color: white;
+  background-color: black;
+}
+.single-project-page .project-media .slick-slider button.slick-arrow.slick-next.home-about-cta:hover, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.home-about-cta:active, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.about-contact-cta:hover, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.about-contact-cta:active, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.single-github-cta:hover, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.single-github-cta:active, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.github-cta:hover, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.github-cta:active, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.slick-slider .slick-dots li button:hover, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.slick-slider .slick-dots li button:active, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.copy-email-btn:hover, .single-project-page .project-media .slick-slider button.slick-arrow.slick-next.copy-email-btn:active {
+  background-color: white;
+  color: black;
+}
+@media screen and (min-width: 800px) {
+  .single-project-page .project-media .slick-slider button.slick-arrow.slick-next {
+    font-size: large;
+  }
+}
+.single-project-page .project-media .slick-slider .slick-dots {
+  display: none;
+}
+.single-project-page .project-media .slick-slider .slick-dots li {
+  display: none;
 }
 .single-project-page .specifications {
   text-align: center;
   margin: 2.5rem 0;
-  border-top: 0.1rem white solid;
 }
 .single-project-page .specifications .roles {
   margin: 1.5rem 0;
@@ -734,36 +895,60 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
 .single-project-page .specifications .tools {
   margin: 2rem 0;
 }
+.single-project-page .in-depth-info {
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 2.5rem 0;
+}
 .single-project-page .in-depth-info .tab-container {
-  display: flex;
-  flex-direction: row;
-  margin: 3rem 0;
   position: relative;
+  width: 100%;
 }
-.single-project-page .in-depth-info .tab-section {
-  cursor: pointer;
-  padding: 0.3rem 0.5rem;
-  border: 0.1rem white solid;
-  background-color: black;
+.single-project-page .in-depth-info .tab-container .tab-togglers {
   display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
   flex-direction: column;
-  margin-right: 10px;
+  text-align: center;
 }
-.single-project-page .in-depth-info .tab-togglers {
-  flex: 1;
+.single-project-page .in-depth-info .tab-container .tab-togglers h3 {
+  border: 0.1rem white solid;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin: 0 0 0.4rem 0;
+  padding: 0.5rem 2rem;
+  flex-grow: 1;
 }
-.single-project-page .in-depth-info .tab-content {
-  display: none;
-  position: relative;
-  z-index: 80;
-}
-.single-project-page .in-depth-info .tab-section.active .tab-content {
-  display: block;
+.single-project-page .in-depth-info .tab-container .tab-togglers h3.active {
   background-color: white;
   color: black;
-  position: sticky;
-  top: 0;
-  z-index: 90;
+}
+.single-project-page .in-depth-info .tab-container .tab-content {
+  position: relative;
+  overflow-y: auto;
+  height: 18rem;
+}
+.single-project-page .in-depth-info .tab-container .tab-content .tab-section {
+  display: none;
+}
+.single-project-page .in-depth-info .tab-container .tab-content .tab-section.active {
+  display: block;
+  z-index: 1;
+  background-color: white;
+  border-radius: 0.3rem;
+  color: black;
+  padding: 0.5rem 1rem;
+}
+.single-project-page .in-depth-info .tab-container .tab-content .tab-section.active a {
+  color: black;
+  text-decoration: underline;
+}
+.single-project-page .in-depth-info .tab-container .tab-content .tab-section.active ul {
+  padding-inline-start: 0.8rem;
+}
+.single-project-page .in-depth-info .tab-container .tab-content .tab-section.active ul li {
+  list-style-type: disc;
+  margin: 0.5rem 0;
 }
 @media screen and (min-width: 600px) {
   .single-project-page h1 {
@@ -787,11 +972,33 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
   }
   .single-project-page .introduction .brief-info .specifications .roles {
     justify-self: center;
+    padding-right: auto;
+  }
+  .single-project-page .introduction .brief-info .specifications .divider {
+    width: 1px;
+    height: 80%;
+    background-color: white;
   }
   .single-project-page .introduction .brief-info .specifications .tools {
-    border-left: 0.1rem white solid;
-    padding-left: 8rem;
     justify-self: start;
+  }
+  .single-project-page .in-depth-info .tab-container .tab-togglers {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    text-align: center;
+    margin: 0;
+  }
+  .single-project-page .in-depth-info .tab-container .tab-togglers h3 {
+    border: none;
+  }
+  .single-project-page .in-depth-info .tab-container .tab-togglers h3.active {
+    margin-bottom: 0;
+    border-radius: 0.3rem 0.3rem 0 0;
+  }
+  .single-project-page .in-depth-info .tab-container .tab-content .tab-section.active {
+    border-radius: 0 0 0.3rem 0.3rem;
   }
 }
 @media screen and (min-width: 800px) {
@@ -853,11 +1060,11 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
     font-size: large;
   }
 }
-.single-project-page .single-externals .single-github-cta.home-about-cta, .single-project-page .single-externals .single-github-cta.about-contact-cta, .single-project-page .single-externals .single-github-cta.single-github-cta, .single-project-page .single-externals .single-github-cta.github-cta, .single-project-page .single-externals .single-github-cta.copy-email-btn {
+.single-project-page .single-externals .single-github-cta.home-about-cta, .single-project-page .single-externals .single-github-cta.about-contact-cta, .single-project-page .single-externals .single-github-cta.single-github-cta, .single-project-page .single-externals .single-github-cta.github-cta, .single-project-page .single-externals .single-github-cta.slick-slider .slick-dots li button, .single-project-page .single-externals .single-github-cta.copy-email-btn {
   color: white;
   background-color: black;
 }
-.single-project-page .single-externals .single-github-cta.home-about-cta:hover, .single-project-page .single-externals .single-github-cta.home-about-cta:active, .single-project-page .single-externals .single-github-cta.about-contact-cta:hover, .single-project-page .single-externals .single-github-cta.about-contact-cta:active, .single-project-page .single-externals .single-github-cta.single-github-cta:hover, .single-project-page .single-externals .single-github-cta.single-github-cta:active, .single-project-page .single-externals .single-github-cta.github-cta:hover, .single-project-page .single-externals .single-github-cta.github-cta:active, .single-project-page .single-externals .single-github-cta.copy-email-btn:hover, .single-project-page .single-externals .single-github-cta.copy-email-btn:active {
+.single-project-page .single-externals .single-github-cta.home-about-cta:hover, .single-project-page .single-externals .single-github-cta.home-about-cta:active, .single-project-page .single-externals .single-github-cta.about-contact-cta:hover, .single-project-page .single-externals .single-github-cta.about-contact-cta:active, .single-project-page .single-externals .single-github-cta.single-github-cta:hover, .single-project-page .single-externals .single-github-cta.single-github-cta:active, .single-project-page .single-externals .single-github-cta.github-cta:hover, .single-project-page .single-externals .single-github-cta.github-cta:active, .single-project-page .single-externals .single-github-cta.slick-slider .slick-dots li button:hover, .single-project-page .single-externals .single-github-cta.slick-slider .slick-dots li button:active, .single-project-page .single-externals .single-github-cta.copy-email-btn:hover, .single-project-page .single-externals .single-github-cta.copy-email-btn:active {
   background-color: white;
   color: black;
 }
@@ -969,11 +1176,11 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
     font-size: large;
   }
 }
-.contact-page .copy-email-btn.home-about-cta, .contact-page .copy-email-btn.about-contact-cta, .contact-page .copy-email-btn.single-github-cta, .contact-page .copy-email-btn.github-cta, .contact-page .copy-email-btn.copy-email-btn {
+.contact-page .copy-email-btn.home-about-cta, .contact-page .copy-email-btn.about-contact-cta, .contact-page .copy-email-btn.single-github-cta, .contact-page .copy-email-btn.github-cta, .contact-page .copy-email-btn.slick-slider .slick-dots li button, .contact-page .copy-email-btn.copy-email-btn {
   color: white;
   background-color: black;
 }
-.contact-page .copy-email-btn.home-about-cta:hover, .contact-page .copy-email-btn.home-about-cta:active, .contact-page .copy-email-btn.about-contact-cta:hover, .contact-page .copy-email-btn.about-contact-cta:active, .contact-page .copy-email-btn.single-github-cta:hover, .contact-page .copy-email-btn.single-github-cta:active, .contact-page .copy-email-btn.github-cta:hover, .contact-page .copy-email-btn.github-cta:active, .contact-page .copy-email-btn.copy-email-btn:hover, .contact-page .copy-email-btn.copy-email-btn:active {
+.contact-page .copy-email-btn.home-about-cta:hover, .contact-page .copy-email-btn.home-about-cta:active, .contact-page .copy-email-btn.about-contact-cta:hover, .contact-page .copy-email-btn.about-contact-cta:active, .contact-page .copy-email-btn.single-github-cta:hover, .contact-page .copy-email-btn.single-github-cta:active, .contact-page .copy-email-btn.github-cta:hover, .contact-page .copy-email-btn.github-cta:active, .contact-page .copy-email-btn.slick-slider .slick-dots li button:hover, .contact-page .copy-email-btn.slick-slider .slick-dots li button:active, .contact-page .copy-email-btn.copy-email-btn:hover, .contact-page .copy-email-btn.copy-email-btn:active {
   background-color: white;
   color: black;
 }
@@ -1049,11 +1256,11 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
     font-size: large;
   }
 }
-.contact-page .network-cta .github-cta.home-about-cta, .contact-page .network-cta .github-cta.about-contact-cta, .contact-page .network-cta .github-cta.single-github-cta, .contact-page .network-cta .github-cta.github-cta, .contact-page .network-cta .github-cta.copy-email-btn {
+.contact-page .network-cta .github-cta.home-about-cta, .contact-page .network-cta .github-cta.about-contact-cta, .contact-page .network-cta .github-cta.single-github-cta, .contact-page .network-cta .github-cta.github-cta, .contact-page .network-cta .github-cta.slick-slider .slick-dots li button, .contact-page .network-cta .github-cta.copy-email-btn {
   color: white;
   background-color: black;
 }
-.contact-page .network-cta .github-cta.home-about-cta:hover, .contact-page .network-cta .github-cta.home-about-cta:active, .contact-page .network-cta .github-cta.about-contact-cta:hover, .contact-page .network-cta .github-cta.about-contact-cta:active, .contact-page .network-cta .github-cta.single-github-cta:hover, .contact-page .network-cta .github-cta.single-github-cta:active, .contact-page .network-cta .github-cta.github-cta:hover, .contact-page .network-cta .github-cta.github-cta:active, .contact-page .network-cta .github-cta.copy-email-btn:hover, .contact-page .network-cta .github-cta.copy-email-btn:active {
+.contact-page .network-cta .github-cta.home-about-cta:hover, .contact-page .network-cta .github-cta.home-about-cta:active, .contact-page .network-cta .github-cta.about-contact-cta:hover, .contact-page .network-cta .github-cta.about-contact-cta:active, .contact-page .network-cta .github-cta.single-github-cta:hover, .contact-page .network-cta .github-cta.single-github-cta:active, .contact-page .network-cta .github-cta.github-cta:hover, .contact-page .network-cta .github-cta.github-cta:active, .contact-page .network-cta .github-cta.slick-slider .slick-dots li button:hover, .contact-page .network-cta .github-cta.slick-slider .slick-dots li button:active, .contact-page .network-cta .github-cta.copy-email-btn:hover, .contact-page .network-cta .github-cta.copy-email-btn:active {
   background-color: white;
   color: black;
 }

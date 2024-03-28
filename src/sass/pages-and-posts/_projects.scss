@@ -1,5 +1,5 @@
 .projects-page {
-    @include pagesMargins;
+  @include pagesMargins;
 
   h2 {
     // margin: 0 0 0 1rem;
@@ -11,23 +11,21 @@
     margin: 0 0 3.5rem 0;
   }
 
-  
   // ________Universal + Specific Media Queries___________________________________________
-  
+
   @media screen and (min-width: 800px) {
     @include min-width800;
   }
 
   @media screen and (min-width: 1000px) {
-      @include min-width1000;
-    }
+    @include min-width1000;
+  }
 
   // ______CTAs & Links___________________________________________
-  
+
   a {
     font-size: initial;
   }
-
 }
 
 .project-main-cta {
@@ -44,37 +42,101 @@
     justify-self: center;
     padding: 0.5rem auto 0.5rem auto;
     margin-right: 0.5rem;
-    
+
     svg {
       margin-left: 0.3rem;
     }
   }
 
   .read-more-cta {
-      @include slideRightCTA;
-      margin: 1rem 0.5rem 0 0;
-    }
+    @include slideRightCTA;
+    margin: 1rem 0.5rem 0 0;
+  }
 }
 
+//___Project Teasers "universal" for featured project________________
+
 .project-teaser {
-  border: solid 0.1rem white;
+  // border: solid 0.1rem white;
   border-radius: 0.3rem;
   margin: 1rem auto;
-  padding: 1rem;
+  padding: 1rem 0;
+  background-color: rgba(255, 255, 255, 0.579);
+  position: relative;
 
-  img {
-    position: relative;
+  .featured-image {
+    width: 20rem;
+    height: 20rem;
+    position: absolute;
+    z-index: 1;
+  }
+
+  h2 {
+    position: sticky;
+    z-index: 2;
   }
 
   .teaser-content {
     border: solid 0.1rem white;
     border-radius: 0.3rem;
-    margin: 1rem;
+    background-color: black;
+    margin: 0;
     padding: 1rem 1rem 2rem 1rem;
     max-width: 300px;
+    position: sticky;
+    z-index: 99;
   }
 
   .tech-stack {
-    margin: 0 0 0 1.2rem;
+    color: black;
+    font-weight: bolder;
+    position: sticky;
+    z-index: 99;
+  }
+
+  &:nth-child(even) {
+    .featured-image {
+      left: 0;
+    }
+
+    h2 {
+      right: 0;
+      left: 100%;
+      margin: 1rem 0.8rem 1rem 0;
+    }
+
+    .teaser-content {
+      right: 0;
+      left: 100%;
+    }
+
+    .tech-stack {
+      margin: 1rem 1.2rem 0 0;
+      right: 0;
+      left: 100%;
+    }
+  }
+
+  &:nth-child(odd) {
+    .featured-image {
+      right: 0;
+    }
+
+    h2 {
+      left: 0;
+      right: 100%;
+      margin: 1rem 0 1rem 0.8rem;
+    }
+
+    .teaser-content {
+      left: 0;
+      right: 100%;
+    }
+
+    .tech-stack {
+      margin: 1rem 0 0 1.2rem;
+      left: 0;
+      right: 100%;
+    }
   }
 }
