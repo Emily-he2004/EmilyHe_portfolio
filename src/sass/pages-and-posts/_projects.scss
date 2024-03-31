@@ -33,10 +33,10 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
-
+  
   .live-site-cta {
     @include lightToDark;
-
+    
     display: flex;
     align-items: center;
     justify-self: center;
@@ -47,7 +47,7 @@
       margin-left: 0.3rem;
     }
   }
-
+  
   .read-more-cta {
     @include slideRightCTA;
     margin: 1rem 0.5rem 0 0;
@@ -56,87 +56,92 @@
 
 //___Project Teasers "universal" for featured project________________
 
+@media screen and (min-width: 800px) {
+  
+  
+}
+
 .project-teaser {
-  // border: solid 0.1rem white;
   border-radius: 0.3rem;
   margin: 1rem auto;
   padding: 1rem 0;
-  background-color: rgba(255, 255, 255, 0.579);
-  position: relative;
+  position: relative; 
 
   .featured-image {
-    width: 20rem;
+    width: auto;
     height: 20rem;
     position: absolute;
     z-index: 1;
+    max-width: 100%; 
   }
 
   h2 {
-    position: sticky;
-    z-index: 2;
+    margin: 1rem 0;
   }
 
   .teaser-content {
     border: solid 0.1rem white;
     border-radius: 0.3rem;
     background-color: black;
-    margin: 0;
+    margin: 2% 0;
     padding: 1rem 1rem 2rem 1rem;
     max-width: 300px;
     position: sticky;
+    bottom: 50%;
     z-index: 99;
   }
 
   .tech-stack {
     color: black;
-    font-weight: bolder;
+    font-weight: thin;
     position: sticky;
     z-index: 99;
+    margin-top: 3rem;
+    display: flex;
+    max-width: 300px;
+    justify-content: space-around;
+    max-width: 300px;
+    flex-wrap: wrap;
+
+    span {
+      margin: .1rem 0.8rem .1rem 0;
+      color: white;
+    }
   }
 
   &:nth-child(even) {
     .featured-image {
-      left: 0;
-    }
-
-    h2 {
-      right: 0;
-      left: 100%;
-      margin: 1rem 0.8rem 1rem 0;
-    }
+      left: 10%;
+    } 
 
     .teaser-content {
-      right: 0;
-      left: 100%;
+      right: 10%;
+      left: 90%;
     }
 
     .tech-stack {
-      margin: 1rem 1.2rem 0 0;
+      margin: 1.5rem 1.2rem 0 0;
       right: 0;
       left: 100%;
+      justify-content: flex-end;
     }
   }
 
   &:nth-child(odd) {
     .featured-image {
-      right: 0;
-    }
-
-    h2 {
-      left: 0;
-      right: 100%;
-      margin: 1rem 0 1rem 0.8rem;
+      right: 10%;
     }
 
     .teaser-content {
-      left: 0;
-      right: 100%;
+      left: 10%;
+      right: 90%;
     }
 
     .tech-stack {
-      margin: 1rem 0 0 1.2rem;
+      margin: 1.5rem 0 0 2rem;
       left: 0;
       right: 100%;
+      justify-content: flex-start;
     }
   }
 }

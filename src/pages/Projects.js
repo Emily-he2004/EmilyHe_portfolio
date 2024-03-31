@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Loading from "../components/Loading";
 import { NavLink } from "react-router-dom";
 import { HiExternalLink } from "react-icons/hi";
+import { truncateOverview } from "../utilities/toolbelt";
 
 function Projects({ restBase }) {
   const restPath = `${restBase}projects?_embed`;
@@ -28,16 +29,6 @@ function Projects({ restBase }) {
 
     fetchData();
   }, [restPath]);
-
-  const truncateOverview = (overview) => {
-    if (overview && overview.length > 180) {
-      return overview.substring(0, 180) + "...";
-    } else if (overview) {
-      return overview;
-    } else {
-      return "";
-    }
-  };
 
   return (
     <>
@@ -76,6 +67,7 @@ function Projects({ restBase }) {
                         />
                       )}
                   </NavLink>
+                  <div className="teaser-content">
                   <NavLink to={`/project/${project.slug}`}>
                     <h2
                       dangerouslySetInnerHTML={{
@@ -83,7 +75,6 @@ function Projects({ restBase }) {
                       }}
                     ></h2>
                   </NavLink>
-                  <div className="teaser-content">
                     <p>
                       {truncateOverview(
                         project.acf.projects_page[0]?.project_overview_content
@@ -107,10 +98,12 @@ function Projects({ restBase }) {
                     </div>
                   </div>
                   <div className="tech-stack">
-                    {project.acf.projects_page[0].tools_content.my_tech_stack &&
-                      project.acf.projects_page[0].tools_content.my_tech_stack.map(
-                        (tech, index) => <span key={index}>{tech}</span>
-                      )}
+                    {project._embedded &&
+                      project._embedded["wp:term"] &&
+                      project._embedded["wp:term"][0] &&
+                      project._embedded["wp:term"][0].map((tech) => (
+                        <span key={tech.id}>{tech.name}</span>
+                      ))}
                   </div>
                 </div>
               ))}

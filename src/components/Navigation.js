@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { handleNavLinkClick } from "../utilities/toolbelt";
 import { PiPersonArmsSpreadFill } from "react-icons/pi";
 
 import { VscGitPullRequestCreate } from "react-icons/vsc";
@@ -14,21 +15,6 @@ import { BsPersonBadgeFill } from "react-icons/bs";
 function Navigation() {
   const location = useLocation();
   const [clicked, setClicked] = useState(false);
-
-  const handleNavLinkClick = (event) => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-
-    const lis = document.querySelectorAll(".nav-menu li");
-    lis.forEach((li) => {
-      li.classList.remove("clicked");
-    });
-
-    setClicked(true);
-    event.target.closest("li").classList.add("clicked");
-  };
 
   return (
     <div className="thumb-nav-container">

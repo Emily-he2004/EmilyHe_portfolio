@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Loading from "../components/Loading";
 import { NavLink } from "react-router-dom";
+import { handleNavLinkClick } from "../utilities/toolbelt";
 
 function About({ restBase }) {
   const AboutID = "11";
@@ -46,13 +47,6 @@ function About({ restBase }) {
     }
   };
 
-  const handleNavLinkClick = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <>
       {isLoaded ? (
@@ -93,28 +87,58 @@ function About({ restBase }) {
 
           <section className="interests-hobbies-section">
             <h2>{restData.acf.about_page[0].interests_and_hobbies_title}</h2>
-            {/* <div className="mapped-interests">
-                {restData.interests_and_hobbies.map((interest) => (
-                  <div key={interest}>{interest}</div>
+            <div>
+              {restData["interests-and-hobbies"].map((interest, index) => (
+                <span key={index}>{interest}</span>
                 ))}
-              </div> */}
-            <p>Placeholder Content</p>
+            </div>
+                {/* <div>
+                  {restData["interests-and-hobbies"].map((interestId, index) => {
+                    const fetchTaxonomyContent = async (taxonomyId) => {
+                      try {
+                        const response = await fetch(
+                          `${restBase}interests-and-hobbies/${taxonomyId}`
+                        );
+                        if (response.ok) {
+                          const data = await response.json();
+                          return data.name;
+                        } else {
+                          console.error(
+                            "Error fetching taxonomy data:",
+                            response.statusText
+                          );
+                          return "Error fetching taxonomy data";
+                        }
+                      } catch (error) {
+                        console.error("Error fetching taxonomy data:", error);
+                        return "Error fetching taxonomy data";
+                      }
+                    };
+    
+                    return (
+                      <div key={index}>
+                        <span>{fetchTaxonomyContent(interestId)}</span>
+                      </div>
+                    );
+                  })}
+                </div> */}
           </section>
 
           {restData.acf.about_page[1] && (
             <section className="tech-stack-section">
               <h2>{restData.acf.about_page[1].tech_stack_title}</h2>
-              {/* <div className="all-tech-stack">
-                {restData.tech_stack.map((tech) => (
-                  <p key={tech}>{tech}</p>
-                ))}
-              </div> */}
-              <p>Placeholder Content</p>
-              <div className="development-stack">
-                {/* <p>{restData.acf.about_page[1].all_development_stack_title}</p> */}
-              </div>
-              <div className="design-stack">
-                {/* <p>{restData.acf.about_page[1].all_design_stack_title}</p> */}
+              <div className="stack-container">
+                <div className="development-stack">
+                  <h3>
+                    {restData.acf.about_page[1].all_development_stack_title}
+                  </h3>
+                  {/* map all embedded development stack children here through spans */}
+                </div>
+
+                <div className="design-stack">
+                  <h3>{restData.acf.about_page[1].all_design_stack_title}</h3>
+                  {/* map all embedded design stack children here through spans */}
+                </div>
               </div>
             </section>
           )}

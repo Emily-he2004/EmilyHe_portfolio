@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import LeftNav from "../components/LeftNav";
 import RightNav from "../components/RightNav";
+import { handleNavLinkClick } from "../utilities/toolbelt";
+
 import { MdDeveloperMode } from "react-icons/md";
 
 function Header() {
@@ -12,6 +14,7 @@ function Header() {
   const [prevScrollPos, setPrevScrollPos] = useState(
     window.scrollY || window.pageYOffset
   );
+  
   const [headerVisible, setHeaderVisible] = useState(true);
 
   useEffect(() => {
@@ -27,20 +30,6 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos, headerVisible]);
 
-  const handleNavLinkClick = (event) => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-
-    const lis = document.querySelectorAll(".nav-menu li");
-    lis.forEach((li) => {
-      li.classList.remove("clicked");
-    });
-
-    setClicked(true);
-    event.target.closest("li").classList.add("clicked");
-  };
 
   return (
     <div className="header-container">

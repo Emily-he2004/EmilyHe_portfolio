@@ -132,15 +132,13 @@ function SingleProject({ restBase }) {
                 <span className="divider"></span>
                 <div className="tools">
                   <h3>{restData.acf.projects_page[0].project_tools}</h3>
-                  <p>
-                    {restData.acf.projects_page[0].tools_content.my_tech_stack}
-                  </p>
+                  {restData._embedded &&
+                    restData._embedded["wp:term"] &&
+                    restData._embedded["wp:term"][0] &&
+                    restData._embedded["wp:term"][0].map((tech) => (
+                      <span key={tech.id}>{tech.name}</span>
+                    ))}
                 </div>
-                {/* <div>
-                  {restData.tech_stack.map((techId) => (
-                    <span key={techId}>{techId}</span>
-                  ))}
-                </div> */}
               </div>
             </div>
           </section>

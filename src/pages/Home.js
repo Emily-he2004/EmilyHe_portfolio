@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { handleNavLinkClick, truncateOverview } from "../utilities/toolbelt";
 import Loading from "../components/Loading";
 import MoodPicker from "../components/MoodPicker";
 import { HiExternalLink } from "react-icons/hi";
@@ -10,7 +11,7 @@ function Home({ restBase }) {
   const slug = "cascadia-floral-boutique";
 
   const restPathHome = `${restBase}pages/${HomeID}`;
-  const featurePath = `${restBase}projects?slug=${slug}`;
+  const featurePath = `${restBase}projects?slug=${slug}&_embed`;
 
   const [restData, setData] = useState([]);
   const [featuredProject, setFeaturedProject] = useState({});
@@ -35,24 +36,7 @@ function Home({ restBase }) {
   }, [restPathHome, featurePath]);
 
   console.log(restData, featuredProject);
-
-  const truncateOverview = (overview) => {
-    if (overview && overview.length > 180) {
-      return overview.substring(0, 180) + "...";
-    } else if (overview) {
-      return overview;
-    } else {
-      return "";
-    }
-  };
-
-  const handleNavLinkClick = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
+  
   return (
     <>
       {isLoaded ? (
@@ -101,10 +85,13 @@ function Home({ restBase }) {
             {/* ________Featured Project Below____________ */}
             <div className="project-teaser">
               <NavLink to={`/project/${featuredProject.slug}`}>
-                <img
-                  src={featuredProject.featured_media}
-                  alt="Project Thumbnail"
-                />
+                {featuredProject._embedded && featuredProject._embedded["wp:featuredmedia"] && (
+                  <img
+                    className="featured-image"
+                    src={featuredProject._embedded["wp:featuredmedia"][0].source_url}
+                    alt={featuredProject._embedded["wp:featuredmedia"][0].alt_text}
+                  />
+                )}
               </NavLink>
               <div className="teaser-content">
                 <NavLink to={`/project/${featuredProject.slug}`}>
@@ -140,11 +127,12 @@ function Home({ restBase }) {
                 </div>
               </div>
               <div className="tech-stack">
-                {featuredProject.acf.projects_page[0].tools_content
-                  .my_tech_stack &&
-                  featuredProject.acf.projects_page[0].tools_content.my_tech_stack.map(
-                    (tech, index) => <span key={index}>{tech}</span>
-                  )}
+                {featuredProject._embedded &&
+                  featuredProject._embedded["wp:term"] &&
+                  featuredProject._embedded["wp:term"][0] &&
+                  featuredProject._embedded["wp:term"][0].map((tech) => (
+                    <span key={tech.id}>{tech.name}</span>
+                  ))}
               </div>
             </div>
           </section>
