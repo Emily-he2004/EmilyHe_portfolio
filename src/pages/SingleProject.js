@@ -1,10 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Loading from "../components/Loading";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import { HiExternalLink } from "react-icons/hi";
 import { FaGithub } from "react-icons/fa";
-// import Gallery from "react-grid-gallery";
 import Slider from "react-slick";
 
 function SingleProject({ restBase }) {
@@ -14,13 +13,14 @@ function SingleProject({ restBase }) {
   const [activeTab, setActiveTab] = useState(0);
   const [isLoaded, setLoadStatus] = useState(false);
   const [mediaURLs, setMediaURLs] = useState([]);
+  const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(restPath);
       if (response.ok) {
         const data = await response.json();
-        setData(data[0]); // Assuming there's only one project returned
+        setData(data[0]);
         setLoadStatus(true);
       } else {
         setLoadStatus(false);
@@ -62,18 +62,25 @@ function SingleProject({ restBase }) {
     setActiveTab(index);
   };
 
+  const handleNavLinkClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       {isLoaded ? (
         <section id="single-project-page" className="single-project-page">
           <section className="project-media">
-            {/* {restData._embedded && restData._embedded["wp:featuredmedia"] && (
-                <img
-                className="featured-media"
-                  src={restData._embedded["wp:featuredmedia"][0].source_url}
-                  alt={restData._embedded["wp:featuredmedia"][0].alt_text}
-                />
-            )} */}
+            {restData._embedded && restData._embedded["wp:featuredmedia"] && (
+              <img
+                className="single-featured-media"
+                src={restData._embedded["wp:featuredmedia"][0].source_url}
+                alt={restData._embedded["wp:featuredmedia"][0].alt_text}
+              />
+            )}
             <Slider {...sliderSettings}>
               {mediaURLs.map((url, index) => {
                 if (url.endsWith(".mp4")) {
@@ -129,15 +136,17 @@ function SingleProject({ restBase }) {
                   <h3>{restData.acf.projects_page[0].project_roles}</h3>
                   <p>{restData.acf.projects_page[0].project_roles_content}</p>
                 </div>
-                <span className="divider"></span>
+                {/* <span className="divider"></span> */}
                 <div className="tools">
                   <h3>{restData.acf.projects_page[0].project_tools}</h3>
-                  {restData._embedded &&
-                    restData._embedded["wp:term"] &&
-                    restData._embedded["wp:term"][0] &&
-                    restData._embedded["wp:term"][0].map((tech) => (
-                      <span key={tech.id}>{tech.name}</span>
-                    ))}
+                  <div className="tools-content">
+                    {restData._embedded &&
+                      restData._embedded["wp:term"] &&
+                      restData._embedded["wp:term"][0] &&
+                      restData._embedded["wp:term"][0].map((tech) => (
+                        <span key={tech.id}>{tech.name}</span>
+                      ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -220,11 +229,13 @@ function SingleProject({ restBase }) {
           </section>
 
           <section className="see-other-projects">
-            {restData.acf.projects_page[0].see_other_projects.map(
-              (projectId) => (
-                <div key={projectId}>Project ID: {projectId}</div>
-              )
-            )}
+            <NavLink
+              to="/projects"
+              onClick={handleNavLinkClick}
+              className="return-projects-cta"
+            >
+             &#8592; See Other Projects
+            </NavLink>
           </section>
         </section>
       ) : (

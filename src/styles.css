@@ -25,6 +25,13 @@ body a {
   text-decoration: none;
   list-style: none;
 }
+body .loading {
+  align-self: center;
+  margin: 10rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .header-container {
   display: flex;
@@ -112,11 +119,11 @@ body a {
   white-space: nowrap;
   transform-origin: bottom right;
 }
-.header-container .right-nav button {
+.header-container .right-nav button.email-btn {
   background-color: transparent;
   border: none;
 }
-.header-container .right-nav button .line-right {
+.header-container .right-nav button.email-btn .line-right {
   display: inline-block;
   width: 100px;
   height: 1px;
@@ -124,7 +131,7 @@ body a {
   margin-left: 2rem;
   margin-bottom: 0.2rem;
 }
-.header-container .right-nav button a:hover {
+.header-container .right-nav button.email-btn a .email-text:hover {
   transform: scale(1.1);
   transition: transform 0.3s ease;
 }
@@ -183,7 +190,6 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
 .thumb-nav-container ul.nav-menu {
   display: flex;
   justify-content: center;
-  margin: 0.5rem 0 0 0;
   padding-inline-start: 0;
   padding: 0.2rem 0 0 0;
 }
@@ -205,6 +211,7 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
 }
 .site-color-toggler {
   display: none;
+  padding: 0.5rem 0;
 }
 .site-color-toggler h3 {
   margin: 0.5rem 0 0 0;
@@ -341,7 +348,6 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
 }
 @media screen and (min-width: 1000px) {
   .home-page {
-    font-size: large;
     max-width: 1100px;
     padding: 0 3.3rem;
     margin: 0 auto 2.5rem auto;
@@ -456,6 +462,9 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
 .about-page .about-me-section .basic-intro {
   margin: 0.5rem 0 1.5rem 0;
 }
+.about-page .about-me-section .basic-intro p {
+  max-width: 700px;
+}
 @media screen and (min-width: 800px) {
   .about-page .about-me-section {
     display: grid;
@@ -484,9 +493,7 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
   }
 }
 .about-page .interests-hobbies-section {
-  margin: 2rem 0 2rem 0;
   padding: 1rem 0 0.5rem 0;
-  border-top: 0.1rem solid white;
   text-align: center;
 }
 .about-page .tech-stack-section {
@@ -495,6 +502,27 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
   padding: 1rem 0 2rem 0;
   border-top: 0.1rem solid white;
   border-bottom: 0.1rem solid white;
+}
+.about-page .span-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.about-page .span-container span {
+  padding: 0.3rem 0.5rem;
+  border: 0.08rem white solid;
+  border-radius: 0.3rem;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+}
+.about-page .interests-hobbies-section,
+.about-page .stack-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .about-page .upcoming-section li {
   list-style-type: circle;
@@ -513,15 +541,46 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
   }
   .about-page .interests-hobbies-section {
     text-align: right;
+    align-items: flex-end;
+    margin-right: 1.5rem;
   }
   .about-page .interests-hobbies-section h2 {
     text-align: right;
   }
+  .about-page .interests-hobbies-section .span-container.interests {
+    margin-left: 12rem;
+    justify-content: right;
+  }
   .about-page .tech-stack-section {
-    text-align: left;
+    text-align: center;
   }
   .about-page .tech-stack-section h2 {
+    text-align: center;
+  }
+  .about-page .tech-stack-section .stack-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: start;
+    flex-direction: row;
+    margin: 0 2rem 1.5rem 2rem;
+    gap: 2rem;
+  }
+  .about-page .tech-stack-section .stack-container .development-stack .span-container.tech.develop {
+    justify-content: left;
+    max-width: 400px;
+  }
+  .about-page .tech-stack-section .stack-container .development-stack h3 {
     text-align: left;
+    margin-bottom: 1rem;
+  }
+  .about-page .tech-stack-section .stack-container .design-stack .span-container.tech.design {
+    justify-content: right;
+    max-width: 400px;
+  }
+  .about-page .tech-stack-section .stack-container .design-stack h3 {
+    text-align: right;
+    margin-bottom: 1rem;
   }
   .about-page .about-cta {
     justify-content: flex-start;
@@ -529,7 +588,6 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
 }
 @media screen and (min-width: 1000px) {
   .about-page {
-    font-size: large;
     max-width: 1100px;
     padding: 0 3.3rem;
     margin: 0 auto 2.5rem auto;
@@ -614,18 +672,28 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
   text-align: center;
   margin: 0 0 3.5rem 0;
 }
+.projects-page .project-previews {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 @media screen and (min-width: 800px) {
   .projects-page {
     max-width: 900px;
     margin: 0 5rem 2.5rem 5rem;
   }
+  .projects-page .project-previews {
+    margin: 0;
+  }
 }
 @media screen and (min-width: 1000px) {
   .projects-page {
-    font-size: large;
     max-width: 1100px;
     padding: 0 3.3rem;
     margin: 0 auto 2.5rem auto;
+  }
+  .projects-page .project-previews {
+    margin: 0 7rem;
   }
 }
 .projects-page a {
@@ -693,16 +761,21 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
 
 .project-teaser {
   border-radius: 0.3rem;
-  margin: 1rem auto;
+  margin: 2rem auto;
   padding: 1rem 0;
   position: relative;
 }
 .project-teaser .featured-image {
-  width: auto;
+  border-radius: 0.3rem;
+  width: 100%;
   height: 20rem;
+  object-fit: cover;
   position: absolute;
   z-index: 1;
-  max-width: 100%;
+  margin: auto;
+  top: 42%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 4rem rgba(255, 255, 255, 0.5);
 }
 .project-teaser h2 {
   margin: 1rem 0;
@@ -710,73 +783,107 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
 .project-teaser .teaser-content {
   border: solid 0.1rem white;
   border-radius: 0.3rem;
-  background-color: black;
-  margin: 2% 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin: 5% 0;
   padding: 1rem 1rem 2rem 1rem;
   max-width: 300px;
   position: sticky;
-  bottom: 50%;
   z-index: 99;
 }
 .project-teaser .tech-stack {
   color: black;
-  font-weight: thin;
+  font-weight: bolder;
   position: sticky;
   z-index: 99;
-  margin-top: 3rem;
+  margin: 2rem auto 0 auto;
   display: flex;
   max-width: 300px;
   justify-content: space-around;
   max-width: 300px;
   flex-wrap: wrap;
+  text-align: center;
 }
 .project-teaser .tech-stack span {
   margin: 0.1rem 0.8rem 0.1rem 0;
   color: white;
 }
-.project-teaser:nth-child(even) .featured-image {
-  left: 10%;
+@media screen and (min-width: 550px) {
+  .project-teaser {
+    margin: 2rem 0;
+  }
+  .project-teaser .featured-image {
+    width: auto;
+    height: 20.2rem;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .project-teaser .teaser-content {
+    margin: 5% 0;
+    max-width: 400px;
+  }
+  .project-teaser .tech-stack {
+    margin-top: 2rem;
+  }
+  .project-teaser:nth-child(even) .featured-image {
+    left: 10%;
+    box-shadow: -1rem 0.5rem 2.5rem rgba(255, 255, 255, 0.5);
+  }
+  .project-teaser:nth-child(even) .teaser-content {
+    right: 10%;
+    left: 90%;
+  }
+  .project-teaser:nth-child(even) .tech-stack {
+    margin-right: 2.5rem;
+    right: 0;
+    left: 100%;
+    justify-content: flex-end;
+  }
+  .project-teaser:nth-child(odd) .featured-image {
+    right: 10%;
+    box-shadow: 1rem 0.5rem 2.5rem rgba(255, 255, 255, 0.5);
+  }
+  .project-teaser:nth-child(odd) .teaser-content {
+    left: 10%;
+    right: 90%;
+  }
+  .project-teaser:nth-child(odd) .tech-stack {
+    margin-left: 2.5rem;
+    left: 0;
+    right: 100%;
+    justify-content: flex-start;
+  }
 }
-.project-teaser:nth-child(even) .teaser-content {
-  right: 10%;
-  left: 90%;
-}
-.project-teaser:nth-child(even) .tech-stack {
-  margin: 1.5rem 1.2rem 0 0;
-  right: 0;
-  left: 100%;
-  justify-content: flex-end;
-}
-.project-teaser:nth-child(odd) .featured-image {
-  right: 10%;
-}
-.project-teaser:nth-child(odd) .teaser-content {
-  left: 10%;
-  right: 90%;
-}
-.project-teaser:nth-child(odd) .tech-stack {
-  margin: 1.5rem 0 0 2rem;
-  left: 0;
-  right: 100%;
-  justify-content: flex-start;
+@media screen and (min-width: 1000px) {
+  .project-teaser .teaser-content {
+    max-width: 450px;
+    margin: 1rem;
+  }
+  .project-teaser .tech-stack {
+    margin-top: 1rem;
+  }
 }
 
 .single-project-page {
   margin: 0 2rem 2.5rem 2rem;
 }
 .single-project-page h1 {
-  font-size: 1.8rem;
+  font-size: 2.5rem;
   margin: 1.5rem 0 1rem 0;
   text-align: center;
 }
 .single-project-page .project-media {
-  margin-bottom: 5rem;
+  margin: 0 0 5rem 0;
   display: flex;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+}
+.single-project-page .project-media .single-featured-media {
+  display: none;
 }
 .single-project-page .project-media .slick-slider {
   position: relative;
+  border: 0.1rem white solid;
   text-align: center;
   width: 16rem;
   height: -webkit-fill-available;
@@ -786,14 +893,13 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
 }
 .single-project-page .project-media .slick-slider .slick-list .slick-track {
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 .single-project-page .project-media .slick-slider .slick-list .slick-track .slick-slide {
-  outline: none;
   width: 100%;
 }
 .single-project-page .project-media .slick-slider .slick-list .slick-track .slick-slide img {
-  width: 15rem;
+  max-width: 15rem;
   height: auto;
   object-fit: cover;
 }
@@ -900,6 +1006,14 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
 .single-project-page .specifications .tools {
   margin: 2rem 0;
 }
+.single-project-page .specifications .tools .tools-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.single-project-page .specifications .tools .tools-content span {
+  margin: 0 0.5rem 0.3rem 0;
+}
 .single-project-page .in-depth-info {
   max-width: 100%;
   overflow-x: hidden;
@@ -942,7 +1056,7 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
   background-color: white;
   border-radius: 0.3rem;
   color: black;
-  padding: 0.5rem 1rem;
+  padding: 1.5rem 2rem 0.5rem 2rem;
 }
 .single-project-page .in-depth-info .tab-container .tab-content .tab-section.active a {
   color: black;
@@ -994,12 +1108,14 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
     flex-direction: row;
     text-align: center;
     margin: 0;
+    gap: 0.5rem;
   }
   .single-project-page .in-depth-info .tab-container .tab-togglers h3 {
-    border: none;
+    border: 0.08rem white solid;
   }
   .single-project-page .in-depth-info .tab-container .tab-togglers h3.active {
-    margin-bottom: 0;
+    margin: 0;
+    border: none;
     border-radius: 0.3rem 0.3rem 0 0;
   }
   .single-project-page .in-depth-info .tab-container .tab-content .tab-section.active {
@@ -1014,10 +1130,19 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
 }
 @media screen and (min-width: 1000px) {
   .single-project-page {
-    font-size: large;
     max-width: 1100px;
     padding: 0 3.3rem;
     margin: 0 auto 2.5rem auto;
+  }
+  .single-project-page .project-media {
+    margin: 0 2rem 5rem 2rem;
+  }
+  .single-project-page .project-media .single-featured-media {
+    display: block;
+    max-width: 35rem;
+    max-height: 32rem;
+    object-fit: contain;
+    margin: 0 1.5rem 0 0;
   }
 }
 .single-project-page .single-externals {
@@ -1101,6 +1226,25 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
     font-size: large;
   }
 }
+.single-project-page .return-projects-cta.return-projects-cta {
+  text-align: start;
+  color: white;
+  font-weight: 550;
+  animation: slideLeft 0.7s infinite alternate;
+}
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
+@media screen and (min-width: 800px) {
+  .single-project-page .return-projects-cta {
+    font-size: large;
+  }
+}
 
 .contact-page {
   margin: auto;
@@ -1109,6 +1253,14 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
 .contact-page .email-copy-message {
   position: sticky;
   z-index: 999;
+  text-align: center;
+  background-color: white;
+  color: black;
+  border-radius: 0.3rem;
+  font-weight: 500;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0.3rem 0.8rem;
 }
 .contact-page .contact-container {
   border-radius: 0.3rem;
@@ -1116,6 +1268,7 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
   padding: 1rem 2rem 4rem 2rem;
   margin: 2rem;
   text-align: center;
+  box-shadow: 0 0 1rem 0.5rem rgba(255, 255, 255, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;

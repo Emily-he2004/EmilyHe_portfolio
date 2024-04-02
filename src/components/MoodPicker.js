@@ -51,7 +51,7 @@ function MoodPicker() {
           Angry
         </button>
       </div>
-      <p className="comment">When you're feeling peckish, swing by to switch up another mood.</p>
+      <p className="comment">When you're feeling peckish, swing by for another mood.</p>
     </div>
   );
 }

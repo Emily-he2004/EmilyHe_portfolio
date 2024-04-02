@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import LeftNav from "../components/LeftNav";
 import RightNav from "../components/RightNav";
-import { handleNavLinkClick } from "../utilities/toolbelt";
 
 import { MdDeveloperMode } from "react-icons/md";
 
@@ -30,6 +29,22 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos, headerVisible]);
 
+  const handleNavLinkClick = (event) => {
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
+    const lis = document.querySelectorAll(".nav-menu li");
+    lis.forEach((li) => {
+      li.classList.remove("clicked");
+    });
+
+    setClicked(true);
+    event.target.closest("li").classList.add("clicked");
+  };
+
 
   return (
     <div className="header-container">
@@ -51,7 +66,9 @@ function Header() {
           </li>
         </ul>
         <ul className="nav-menu">
-          <li className={clicked ? "clicked" : ""}>
+          <li 
+          // className={clicked ? "clicked" : ""}
+          >
             <NavLink
               to="/about"
               onClick={handleNavLinkClick}
@@ -60,7 +77,9 @@ function Header() {
               <h3>About</h3>
             </NavLink>
           </li>
-          <li className={clicked ? "clicked" : ""}>
+          <li 
+          // className={clicked ? "clicked" : ""}
+          >
             <NavLink
               to="/projects"
               onClick={handleNavLinkClick}
@@ -69,7 +88,9 @@ function Header() {
               <h3>Projects</h3>
             </NavLink>
           </li>
-          <li className={clicked ? "clicked" : ""}>
+          <li 
+          // className={clicked ? "clicked" : ""}
+          >
             <NavLink
               to="/contact"
               onClick={handleNavLinkClick}

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Loading from "../components/Loading";
 import { NavLink } from "react-router-dom";
-import { handleNavLinkClick } from "../utilities/toolbelt";
 
 function About({ restBase }) {
   const AboutID = "11";
@@ -9,6 +8,10 @@ function About({ restBase }) {
   const [restData, setData] = useState({});
   const [isLoaded, setLoadStatus] = useState(false);
   const [profileImageUrl, setProfileImageUrl] = useState("");
+  const [clicked, setClicked] = useState(false);
+  const [interestsAndHobbies, setInterestsAndHobbies] = useState([]);
+  const [developmentStack, setDevelopmentStack] = useState([]);
+  const [designStack, setDesignStack] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +32,55 @@ function About({ restBase }) {
     };
     fetchData();
   }, [restPath]);
+
+  useEffect(() => {
+    const fetchInterestsAndHobbies = async () => {
+      try {
+        const responseInterests = await fetch(
+          `${restBase}interests-and-hobbies?per_page=50`
+        );
+        if (responseInterests.ok) {
+          const dataInterests = await responseInterests.json();
+          setInterestsAndHobbies(dataInterests.map((item) => item.name));
+        }
+      } catch (error) {
+        console.error("Error fetching interests and hobbies:", error);
+      }
+    };
+
+    const fetchTechStack = async () => {
+      try {
+        const responseDesign = await fetch(`${restBase}tech-stack?parent=4&per_page=30`);
+        const responseDevelop = await fetch(`${restBase}tech-stack?parent=3&per_page=30`);
+        if (responseDesign.ok && responseDevelop.ok) {
+          const dataDesign = await responseDesign.json();
+          const dataDevelop = await responseDevelop.json();
+          setDevelopmentStack(dataDesign.map((item) => item.name));
+          setDesignStack(dataDevelop.map((item) => item.name));
+        }
+      } catch (error) {
+        console.error("Error fetching tech stack:", error);
+      }
+    };
+
+    fetchInterestsAndHobbies();
+    fetchTechStack();
+  }, [restBase]);
+
+  const handleNavLinkClick = (event) => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
+    const lis = document.querySelectorAll(".nav-menu li");
+    lis.forEach((li) => {
+      li.classList.remove("clicked");
+    });
+
+    setClicked(true);
+    event.target.closest("li").classList.add("clicked");
+  };
 
   const fetchProfileImage = async (imageId) => {
     try {
@@ -60,11 +112,11 @@ function About({ restBase }) {
             </blockquote>
             <div className="basic-intro">
               <h1>{restData.title.rendered}</h1>
-              <div
+              <p
                 dangerouslySetInnerHTML={{
                   __html: restData.acf.about_page[0].about_me_content,
                 }}
-              ></div>
+              ></p>
 
               <div className="about-cta">
                 <NavLink
@@ -87,41 +139,12 @@ function About({ restBase }) {
 
           <section className="interests-hobbies-section">
             <h2>{restData.acf.about_page[0].interests_and_hobbies_title}</h2>
-            <div>
-              {restData["interests-and-hobbies"].map((interest, index) => (
-                <span key={index}>{interest}</span>
-                ))}
+            <div className="span-container interests">
+              {interestsAndHobbies.map((item, index) => (
+                <span key={index}>{item}</span>
+              ))}
+            <p>{restData.acf.about_page[0].interests_and_hobbies_message}</p>
             </div>
-                {/* <div>
-                  {restData["interests-and-hobbies"].map((interestId, index) => {
-                    const fetchTaxonomyContent = async (taxonomyId) => {
-                      try {
-                        const response = await fetch(
-                          `${restBase}interests-and-hobbies/${taxonomyId}`
-                        );
-                        if (response.ok) {
-                          const data = await response.json();
-                          return data.name;
-                        } else {
-                          console.error(
-                            "Error fetching taxonomy data:",
-                            response.statusText
-                          );
-                          return "Error fetching taxonomy data";
-                        }
-                      } catch (error) {
-                        console.error("Error fetching taxonomy data:", error);
-                        return "Error fetching taxonomy data";
-                      }
-                    };
-    
-                    return (
-                      <div key={index}>
-                        <span>{fetchTaxonomyContent(interestId)}</span>
-                      </div>
-                    );
-                  })}
-                </div> */}
           </section>
 
           {restData.acf.about_page[1] && (
@@ -132,12 +155,19 @@ function About({ restBase }) {
                   <h3>
                     {restData.acf.about_page[1].all_development_stack_title}
                   </h3>
-                  {/* map all embedded development stack children here through spans */}
+                  <div className="span-container tech develop">
+                    {designStack.map((item, index) => (
+                      <span key={index}>{item}</span>
+                    ))}
+                  </div>
                 </div>
-
                 <div className="design-stack">
                   <h3>{restData.acf.about_page[1].all_design_stack_title}</h3>
-                  {/* map all embedded design stack children here through spans */}
+                  <div className="span-container tech design">
+                    {developmentStack.map((item, index) => (
+                      <span key={index}>{item}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </section>

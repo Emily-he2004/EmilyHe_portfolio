@@ -26,6 +26,15 @@ body {
     text-decoration: none;
     list-style: none;
   }
+
+  .loading{
+    align-self: center;
+    margin: 10rem auto;
+    // width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+  }
 }
 
 @import "./variables";

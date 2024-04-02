@@ -12,7 +12,7 @@ function RightNav() {
   return (
     <div className="right-nav">
       <button
-        className="copy-email-btn"
+        className="email-btn"
         //   onClick={handleCopyEmail}
       >
         <a href={`mailto:emmyemmyhe@gmail.com`}>

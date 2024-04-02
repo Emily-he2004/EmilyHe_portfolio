@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { handleNavLinkClick, truncateOverview } from "../utilities/toolbelt";
+import { truncateOverview } from "../utilities/toolbelt";
 import Loading from "../components/Loading";
 import MoodPicker from "../components/MoodPicker";
 import { HiExternalLink } from "react-icons/hi";
@@ -16,6 +16,8 @@ function Home({ restBase }) {
   const [restData, setData] = useState([]);
   const [featuredProject, setFeaturedProject] = useState({});
   const [isLoaded, setLoadStatus] = useState(false);
+  const [clicked, setClicked] = useState(false);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,7 +38,23 @@ function Home({ restBase }) {
   }, [restPathHome, featurePath]);
 
   console.log(restData, featuredProject);
-  
+
+  const handleNavLinkClick = (event) => {
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
+    const lis = document.querySelectorAll(".nav-menu li");
+    lis.forEach((li) => {
+      li.classList.remove("clicked");
+    });
+
+    setClicked(true);
+    event.target.closest("li").classList.add("clicked");
+  };
+
   return (
     <>
       {isLoaded ? (
@@ -85,13 +103,20 @@ function Home({ restBase }) {
             {/* ________Featured Project Below____________ */}
             <div className="project-teaser">
               <NavLink to={`/project/${featuredProject.slug}`}>
-                {featuredProject._embedded && featuredProject._embedded["wp:featuredmedia"] && (
-                  <img
-                    className="featured-image"
-                    src={featuredProject._embedded["wp:featuredmedia"][0].source_url}
-                    alt={featuredProject._embedded["wp:featuredmedia"][0].alt_text}
-                  />
-                )}
+                {featuredProject._embedded &&
+                  featuredProject._embedded["wp:featuredmedia"] && (
+                    <img
+                      className="featured-image"
+                      src={
+                        featuredProject._embedded["wp:featuredmedia"][0]
+                          .source_url
+                      }
+                      alt={
+                        featuredProject._embedded["wp:featuredmedia"][0]
+                          .alt_text
+                      }
+                    />
+                  )}
               </NavLink>
               <div className="teaser-content">
                 <NavLink to={`/project/${featuredProject.slug}`}>

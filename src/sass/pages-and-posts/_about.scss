@@ -25,6 +25,10 @@
 
     .basic-intro {
       margin: 0.5rem 0 1.5rem 0;
+
+      p {
+        max-width: 700px;
+      }
     }
 
     @media screen and (min-width: 800px) {
@@ -62,9 +66,9 @@
   }
 
   .interests-hobbies-section {
-    margin: 2rem 0 2rem 0;
+    // margin: 2rem 0 2rem 0;
     padding: 1rem 0 0.5rem 0;
-    border-top: 0.1rem solid white;
+    // border-top: 0.1rem solid white;
     text-align: center;
   }
 
@@ -74,6 +78,31 @@
     padding: 1rem 0 2rem 0;
     border-top: 0.1rem solid white;
     border-bottom: 0.1rem solid white;
+  }
+
+  .span-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    span {
+      // margin: 0 0.5rem 0.5rem 0;
+      padding: 0.3rem 0.5rem;
+      border: 0.08rem white solid;
+      border-radius: 0.3rem;
+      background-color: white;
+      color: black;
+      font-weight: bold;
+    }
+  }
+
+  .interests-hobbies-section,
+  .stack-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .upcoming-section {
@@ -98,24 +127,64 @@
 
     .interests-hobbies-section {
       text-align: right;
+      align-items: flex-end;
+      margin-right: 1.5rem;
 
       h2 {
         text-align: right;
       }
-    }
 
-    .tech-stack-section {
-      text-align: left;
-
-      h2 {
-        text-align: left;
+      .span-container.interests {
+        margin-left: 12rem;
+        justify-content: right;
       }
     }
 
-.about-cta {
-    justify-content: flex-start;
+    .tech-stack-section {
+      text-align: center;
 
-}
+      h2 {
+        text-align: center;
+      }
+
+      .stack-container {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        align-items: start;
+        flex-direction: row;
+        margin: 0 2rem 1.5rem 2rem;
+        gap: 2rem;
+
+        .development-stack {
+          .span-container.tech.develop {
+            justify-content: left;
+            max-width: 400px;
+          }
+
+          h3 {
+            text-align: left;
+            margin-bottom: 1rem;
+          }
+        }
+
+        .design-stack {
+          .span-container.tech.design {
+            justify-content: right;
+            max-width: 400px;
+          }
+
+          h3 {
+            text-align: right;
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+
+    .about-cta {
+      justify-content: flex-start;
+    }
   }
 
   @media screen and (min-width: 1000px) {

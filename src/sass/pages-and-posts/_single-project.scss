@@ -2,19 +2,25 @@
   @include pagesMargins;
 
   h1 {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     margin: 1.5rem 0 1rem 0;
     text-align: center;
   }
 
   .project-media {
-    margin-bottom: 5rem;
+    margin: 0 0 5rem 0;
     display: flex;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+
+    .single-featured-media{
+      display: none;
+    }
+
     .slick-slider {
       position: relative;
-      // border: 0.1rem white solid;
+      border: 0.1rem white solid;
       text-align: center;
       width: 16rem;
       height: -webkit-fill-available;
@@ -24,14 +30,15 @@
 
         .slick-track {
           display: flex;
-          align-items: center;
+          // align-items: flex-start;
+          justify-content: center;
 
           .slick-slide {
-            outline: none;
+            // outline: none;
             width: 100%;
 
             img {
-              width: 15rem;
+              max-width: 15rem;
               height: auto;
               object-fit: cover;
             }
@@ -87,6 +94,15 @@
 
     .tools {
       margin: 2rem 0;
+
+      .tools-content{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        span{
+          margin: 0 .5rem .3rem 0;
+        }
+      }
     }
   }
 
@@ -134,7 +150,7 @@
             background-color: white;
             border-radius: 0.3rem;
             color: black;
-            padding: 0.5rem 1rem;
+            padding: 1.5rem 2rem 0.5rem 2rem;
 
             a {
               color: black;
@@ -157,8 +173,6 @@
 
   // ________Universal + Specific Media Queries___________________________________________
 
-  // @media screen and (min-width: 500px) {
-  // }
 
   @media screen and (min-width: 600px) {
     h1 {
@@ -188,7 +202,6 @@
           .roles {
             justify-self: center;
             padding-right: auto;
-            // border-right: 0.1rem white solid;
           }
           
           .divider{
@@ -196,14 +209,14 @@
             height: 80%;
             background-color: white;
           }
-
+          
           .tools {
             justify-self: start;
           }
         }
       }
     }
-
+    
     .in-depth-info {
       .tab-container {
         .tab-togglers {
@@ -213,13 +226,16 @@
           flex-direction: row;
           text-align: center;
           margin: 0;
+          gap: .5rem;
 
           h3 {
-            border: none;
+            border: 0.08rem white solid;
+            // margin: 0 .2rem .4rem .2rem;
           }
-
+          
           h3.active {
-            margin-bottom: 0;
+            margin: 0;
+            border: none;
             border-radius: 0.3rem 0.3rem 0 0;
           }
         }
@@ -241,6 +257,18 @@
 
   @media screen and (min-width: 1000px) {
     @include min-width1000;
+
+    .project-media{
+      margin: 0 2rem 5rem 2rem;
+
+      .single-featured-media{
+        display: block;
+        max-width: 35rem;
+        max-height: 32rem;
+        object-fit: contain;
+        margin: 0 1.5rem 0 0;
+      }
+    }
   }
 
   // ______CTAs & Links___________________________________________
@@ -276,5 +304,9 @@
       @include lightToDark;
       margin-right: 0;
     }
+  }
+
+  .return-projects-cta{
+    @include slideLeftCTA;
   }
 }
