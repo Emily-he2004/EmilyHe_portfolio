@@ -10,14 +10,6 @@ import About from "./About";
 import Contact from "./Contact";
 
 function Home({ restBase }) {
-  // siteMode, siteModeToggle, smoothScroll
-
-  const [siteMode, setSiteMode] = useState("pages");
-
-  const siteModeToggle = () => {
-    setSiteMode(siteMode === "pages" ? "scroll" : "pages");
-  };
-
   const HomeID = "8";
   const slug = "cascadia-floral-boutique";
 
@@ -76,11 +68,8 @@ function Home({ restBase }) {
                   My Projects
                 </NavLink>
                 <NavLink
-                  to={siteMode === "pages" ? "/about" : "#about-section"}
-                  onClick={() => {
-                    smoothScroll();
-                    siteModeToggle();
-                  }}
+                  to={"/about"}
+                  onClick={smoothScroll}
                   className="home-about-cta"
                 >
                   About Me
@@ -166,16 +155,6 @@ function Home({ restBase }) {
                   ))}
               </div>
             </div>
-          </section>
-
-          {/* < Projects  /> */}
-
-          {console.log("this is the one", siteMode)}
-          <section id="about-section" className={`about-parallax ${siteMode === "scroll" ? "show" : "hidden"}`}>
-            <About restBase={restBase} />
-          </section>
-          <section id="contact-section" className={`contact-parallax ${siteMode === "scroll" ? "show" : "hidden"}`}>
-            <Contact restBase={restBase} />
           </section>
         </div>
       ) : (

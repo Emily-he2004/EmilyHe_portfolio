@@ -5,15 +5,9 @@ import { FaCode } from "react-icons/fa6";
 import { BsPersonBadge } from "react-icons/bs";
 
 function Navigation() {
-  // siteMode, siteModeToggle, handleNavLinkClick
 
   const location = useLocation();
   const [clicked, setClicked] = useState(false);
-  const [siteMode, setSiteMode] = useState("pages");
-
-  const siteModeToggle = () => {
-    setSiteMode(siteMode === "pages" ? "scroll" : "pages");
-  };
 
   const handleNavLinkClick = (event) => {
     window.scrollTo({
@@ -38,7 +32,7 @@ function Navigation() {
           // className={clicked ? "clicked" : ""}
           >
             <NavLink
-              to={siteMode === "pages" ? "/about" : "#about-section"}
+              to={ "/about"}
               onClick={(event) => {
                 handleNavLinkClick(event);
             
@@ -67,7 +61,7 @@ function Navigation() {
           // className={clicked ? "clicked" : ""}
           >
             <NavLink
-              to={siteMode === "pages" ? "/contact" : "#contact-section"}
+              to="/contact"
               onClick={(event) => {
                 handleNavLinkClick(event);
                

@@ -4,27 +4,16 @@ import LeftNav from "../components/LeftNav";
 import RightNav from "../components/RightNav";
 
 import { MdDeveloperMode } from "react-icons/md";
-import { TbCodeCircle2 } from "react-icons/tb";
-import { TbCodeCircle } from "react-icons/tb";
 
 function Header() {
-  // siteMode, siteModeToggle, handleNavLinkClick
-
   const location = useLocation();
   const isContactPage = location.pathname === "/contact";
   const [clicked, setClicked] = useState(false);
-  const [siteMode, setSiteMode] = useState("pages");
-
-  const siteModeToggle = () => {
-    setSiteMode(siteMode === "pages" ? "scroll" : "pages");
-    console.log('clicked site mode', siteMode)
-    //reverse
-  };
 
   const [prevScrollPos, setPrevScrollPos] = useState(
     window.scrollY || window.pageYOffset
   );
-
+  
   const [headerVisible, setHeaderVisible] = useState(true);
 
   useEffect(() => {
@@ -41,6 +30,7 @@ function Header() {
   }, [prevScrollPos, headerVisible]);
 
   const handleNavLinkClick = (event) => {
+
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -55,6 +45,7 @@ function Header() {
     event.target.closest("li").classList.add("clicked");
   };
 
+
   return (
     <div className="header-container">
       {!isContactPage && <LeftNav />}
@@ -66,73 +57,44 @@ function Header() {
       >
         <ul className="home-menu">
           <li>
-            <NavLink
-              to={siteMode === "pages" ? "/" : "#home-page"}
-              onClick={(event) => {
-                handleNavLinkClick(event);
-                
-              }}
-            >
+            <NavLink to="/" onClick={handleNavLinkClick}>
               <h3>
                 {/* <MdDeveloperMode /> */}
-                {/* <TbCodeCircle /> */}
-                {/* <TbCodeCircle2 /> */}
                 Emily.Dev
               </h3>
             </NavLink>
           </li>
         </ul>
-
-        <div className="site-toggler-container">
-          Change to...<br></br>``
-          <NavLink
-            to={siteMode === "pages" ? "/" : "#home-page"}
-            onClick={
-              siteModeToggle
-            }
-          >
-            {siteMode === "pages" ? "Pages mode" : "Scroll mode"}
-          </NavLink>
-        </div>
-
+        
         <ul className="nav-menu">
-          <li
+          <li 
           // className={clicked ? "clicked" : ""}
           >
             <NavLink
-              to={siteMode === "pages" ? "/about" : "#about-section"}
-              onClick={(event) => {
-                handleNavLinkClick(event);
-               
-              }}
+              to="/about"
+              onClick={handleNavLinkClick}
               isActive={() => location.pathname === "/about"}
             >
               <h3>About</h3>
             </NavLink>
           </li>
-          <li
+          <li 
           // className={clicked ? "clicked" : ""}
           >
             <NavLink
               to="/projects"
-              onClick={(event) => {
-                handleNavLinkClick(event);
-               
-              }}
+              onClick={handleNavLinkClick}
               isActive={() => location.pathname === "/projects"}
             >
               <h3>Projects</h3>
             </NavLink>
           </li>
-          <li
+          <li 
           // className={clicked ? "clicked" : ""}
           >
             <NavLink
-              to={siteMode === "pages" ? "/contact" : "#contact-section"}
-              onClick={(event) => {
-                handleNavLinkClick(event);
-               
-              }}
+              to="/contact"
+              onClick={handleNavLinkClick}
               isActive={() => location.pathname === "/contact"}
             >
               <h3>Contact</h3>

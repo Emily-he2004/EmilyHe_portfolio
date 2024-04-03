@@ -7,8 +7,6 @@ import { FaGithub } from "react-icons/fa";
 import Slider from "react-slick";
 
 function SingleProject({ restBase }) {
-  // smoothScroll
-
   const { slug } = useParams();
   const restPath = `${restBase}projects?slug=${slug}&_embed`;
   const [restData, setData] = useState({});

@@ -3,8 +3,6 @@ import Loading from "../components/Loading";
 import { NavLink } from "react-router-dom";
 
 function About({ restBase }) {
-  // smoothScroll
-
   const AboutID = "11";
   const restPath = `${restBase}pages/${AboutID}`;
   const [restData, setData] = useState({});
