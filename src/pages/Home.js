@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { SiteModeProvider, ToggleSiteMode } from "../context/SiteMode";
+
 import { truncateOverview } from "../utilities/toolbelt";
 import Loading from "../components/Loading";
 import MoodPicker from "../components/MoodPicker";
@@ -12,11 +14,9 @@ import Contact from "./Contact";
 function Home({ restBase }) {
   // siteMode, siteModeToggle, smoothScroll
 
-  const [siteMode, setSiteMode] = useState("pages");
+  const { siteMode } = useContext(ToggleSiteMode);
 
-  const siteModeToggle = () => {
-    setSiteMode(siteMode === "pages" ? "scroll" : "pages");
-  };
+console.log(siteMode, "site mode in HOME PAGE from context")
 
   const HomeID = "8";
   const slug = "cascadia-floral-boutique";
@@ -77,10 +77,9 @@ function Home({ restBase }) {
                 </NavLink>
                 <NavLink
                   to={siteMode === "pages" ? "/about" : "#about-section"}
-                  onClick={() => {
-                    smoothScroll();
-                    siteModeToggle();
-                  }}
+                  onClick={
+                    smoothScroll
+                  }
                   className="home-about-cta"
                 >
                   About Me

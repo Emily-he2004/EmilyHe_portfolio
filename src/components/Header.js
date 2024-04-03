@@ -1,24 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import LeftNav from "../components/LeftNav";
 import RightNav from "../components/RightNav";
+import { SiteModeProvider, ToggleSiteMode } from "../context/SiteMode";
 
 import { MdDeveloperMode } from "react-icons/md";
 import { TbCodeCircle2 } from "react-icons/tb";
 import { TbCodeCircle } from "react-icons/tb";
 
 function Header() {
+ 
   // siteMode, siteModeToggle, handleNavLinkClick
+  const { siteMode, setSiteMode } = useContext(ToggleSiteMode);
+  console.log('SET SITE MODE CONTEXT' ,siteMode)
 
   const location = useLocation();
   const isContactPage = location.pathname === "/contact";
   const [clicked, setClicked] = useState(false);
-  const [siteMode, setSiteMode] = useState("pages");
 
   const siteModeToggle = () => {
     setSiteMode(siteMode === "pages" ? "scroll" : "pages");
-    console.log('clicked site mode', siteMode)
-    //reverse
   };
 
   const [prevScrollPos, setPrevScrollPos] = useState(
@@ -67,7 +68,7 @@ function Header() {
         <ul className="home-menu">
           <li>
             <NavLink
-              to={siteMode === "pages" ? "/" : "#home-page"}
+              to={siteMode === "pages" ? "/" : "/#home-page"}
               onClick={(event) => {
                 handleNavLinkClick(event);
                 
@@ -84,14 +85,14 @@ function Header() {
         </ul>
 
         <div className="site-toggler-container">
-          Change to...<br></br>``
+          Change to...<br></br>
           <NavLink
             to={siteMode === "pages" ? "/" : "#home-page"}
             onClick={
               siteModeToggle
             }
           >
-            {siteMode === "pages" ? "Pages mode" : "Scroll mode"}
+            {siteMode === "pages" ? "Scroll mode" : "Pages mode"}
           </NavLink>
         </div>
 
@@ -100,7 +101,7 @@ function Header() {
           // className={clicked ? "clicked" : ""}
           >
             <NavLink
-              to={siteMode === "pages" ? "/about" : "#about-section"}
+              to={siteMode === "pages" ? "/about" : "/#about-section"}
               onClick={(event) => {
                 handleNavLinkClick(event);
                
@@ -128,7 +129,7 @@ function Header() {
           // className={clicked ? "clicked" : ""}
           >
             <NavLink
-              to={siteMode === "pages" ? "/contact" : "#contact-section"}
+              to={siteMode === "pages" ? "/contact" : "/#contact-section"}
               onClick={(event) => {
                 handleNavLinkClick(event);
                

@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React, { useState } from "react";
+import { SiteModeProvider } from "../context/SiteMode";
 
 import Header from "../components/Header";
 import Navigation from "../components/Navigation";
@@ -44,52 +45,32 @@ function AppRouter() {
   // };
 
   return (
-    <BrowserRouter>
-      <div className="body-wrapper">
-        <Header
-          // siteMode={siteMode}
-          // siteModeToggle={siteModeToggle}
-          // handleNavLinkClick={handleNavLinkClick}
-        />
-        <Routes>
-          <Route
-            path="/"
-            element={
-            <Home restBase={restBase} 
-            />}
-            // siteMode={siteMode}
-            // siteModeToggle={siteModeToggle}
-            // smoothScroll={smoothScroll}
-          />
+    <SiteModeProvider>
+      <BrowserRouter>
+        <div className="body-wrapper">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home restBase={restBase} />} />
 
-          <Route
-            path="/about"
-            element={
-            <About restBase={restBase} 
-            />}
-            // smoothScroll={smoothScroll}
-          />
+            <Route path="/about" element={<About restBase={restBase} />} />
 
-          <Route path="/projects" element={<Projects restBase={restBase} />} />
-          
-          <Route
-            path="/project/:slug"
-            element={
-            <SingleProject restBase={restBase} 
-            />}
-            // smoothScroll={smoothScroll}
-          />
+            <Route
+              path="/projects"
+              element={<Projects restBase={restBase} />}
+            />
 
-          <Route path="/contact" element={<Contact restBase={restBase} />} />
-        </Routes>
-        <Footer />
-        <Navigation
-          // siteMode={siteMode}
-          // siteModeToggle={siteModeToggle}
-          // handleNavLinkClick={handleNavLinkClick}
-        />
-      </div>
-    </BrowserRouter>
+            <Route
+              path="/project/:slug"
+              element={<SingleProject restBase={restBase} />}
+            />
+
+            <Route path="/contact" element={<Contact restBase={restBase} />} />
+          </Routes>
+          <Footer />
+          <Navigation />
+        </div>
+      </BrowserRouter>
+    </SiteModeProvider>
   );
 }
 
