@@ -3,25 +3,25 @@
 
   .profile-section {
     display: grid;
-    margin: 0 1rem;
+    margin: 3rem 1rem 0 2rem;
     grid-template-areas:
       "profile    ."
       "CTA        .";
 
     .profile-content {
       grid-area: profile;
-      margin: 1rem auto;
+      margin: auto;
 
-      h1{
+      h1 {
         font-size: 2.3rem;
         margin: 0;
       }
 
-      h3{
+      h3 {
         margin-top: 0.8rem;
       }
 
-      p{
+      p {
         margin-bottom: 0.6rem;
       }
 
@@ -40,24 +40,36 @@
   // _______Featured Project Section_______________________________
 
   .featured-project-section {
-    margin: 2rem;
+    margin: 8rem 2rem 2rem 2rem;
+
+    .project-teaser{
+      margin: 0 auto;
+    }
   }
+
   .featured-project-intro {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
+    h2{
+      text-align: center;
+    }
   }
 
   // ________Universal + Specific Media Queries___________________________________________
 
   @media screen and (min-width: 800px) {
     @include min-width800;
+
+    .profile-section {
+      margin: 2rem;
+      font-size: large;
+    }
   }
 
   @media screen and (min-width: 1000px) {
     @include min-width1000;
-
   }
 
   // ______CTAs & Links___________________________________________
@@ -82,4 +94,50 @@
     @include slideRightCTA;
     margin-right: 1rem;
   }
+
+
+// ______PARALLAX SECTIONS' STYLING BELOW_____________________________
+
+// About section
+
+.about-parallax.hidden{
+  display: none;
+}
+
+.about-parallax.show{
+  display: block;
+}
+
+.about-parallax{
+  display: block;
+  margin-top: 10rem;
+
+  .about-page{
+
+    h1{
+      font-size: 1.5rem;
+    }
+    margin: 0;
+    padding: 0 2rem;
+    .about-cta{
+      display: none;
+    }
+  }
+}
+
+// Contact Section
+
+.contact-parallax.hidden{
+  display: none;
+}
+
+.contact-parallax.show{
+  display: block;
+}
+
+.contact-parallax{
+  display: block;
+  margin: 13rem auto 8rem auto;
+}
+
 }

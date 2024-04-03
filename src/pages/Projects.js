@@ -36,13 +36,6 @@ function Projects({ restBase }) {
         <section id="projects-page" className="projects-page">
           <div className="debriefing">
             <h1>All Projects</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              tempor, eros a dapibus accumsan, tortor turpis molestie ex, at
-              aliquet turpis quam a mauris. Sed consequat, justo sit amet
-              consequat scelerisque, felis elit scelerisque neque, sit amet
-              luctus nunc lorem ut libero. Sed consequat id eros eu posuere.
-            </p>
           </div>
 
           <section className="project-previews">

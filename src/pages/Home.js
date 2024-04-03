@@ -5,8 +5,19 @@ import { truncateOverview } from "../utilities/toolbelt";
 import Loading from "../components/Loading";
 import MoodPicker from "../components/MoodPicker";
 import { HiExternalLink } from "react-icons/hi";
+import Projects from "./Projects";
+import About from "./About";
+import Contact from "./Contact";
 
 function Home({ restBase }) {
+  // siteMode, siteModeToggle, smoothScroll
+
+  const [siteMode, setSiteMode] = useState("pages");
+
+  const siteModeToggle = () => {
+    setSiteMode(siteMode === "pages" ? "scroll" : "pages");
+  };
+
   const HomeID = "8";
   const slug = "cascadia-floral-boutique";
 
@@ -16,8 +27,6 @@ function Home({ restBase }) {
   const [restData, setData] = useState([]);
   const [featuredProject, setFeaturedProject] = useState({});
   const [isLoaded, setLoadStatus] = useState(false);
-  const [clicked, setClicked] = useState(false);
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,20 +48,11 @@ function Home({ restBase }) {
 
   console.log(restData, featuredProject);
 
-  const handleNavLinkClick = (event) => {
-
+  const smoothScroll = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-
-    const lis = document.querySelectorAll(".nav-menu li");
-    lis.forEach((li) => {
-      li.classList.remove("clicked");
-    });
-
-    setClicked(true);
-    event.target.closest("li").classList.add("clicked");
   };
 
   return (
@@ -70,14 +70,17 @@ function Home({ restBase }) {
               <div className="home-cta">
                 <NavLink
                   to="/projects"
-                  onClick={handleNavLinkClick}
+                  onClick={smoothScroll}
                   className="home-project-cta"
                 >
                   My Projects
                 </NavLink>
                 <NavLink
-                  to="/about"
-                  onClick={handleNavLinkClick}
+                  to={siteMode === "pages" ? "/about" : "#about-section"}
+                  onClick={() => {
+                    smoothScroll();
+                    siteModeToggle();
+                  }}
                   className="home-about-cta"
                 >
                   About Me
@@ -86,21 +89,24 @@ function Home({ restBase }) {
             </div>
             <MoodPicker />
           </section>
-          <section className="featured-project-section">
+
+          <section
+            id="featured-project-section"
+            className="featured-project-section"
+          >
             <div className="featured-project-intro">
               <h2>
                 {restData.acf.home_page[1].featured_project_section_title}
               </h2>
               <NavLink
                 to="/projects"
-                onClick={handleNavLinkClick}
+                onClick={smoothScroll}
                 className="featured-projects-cta"
               >
                 See All Projects &#8594;
               </NavLink>
             </div>
 
-            {/* ________Featured Project Below____________ */}
             <div className="project-teaser">
               <NavLink to={`/project/${featuredProject.slug}`}>
                 {featuredProject._embedded &&
@@ -160,6 +166,16 @@ function Home({ restBase }) {
                   ))}
               </div>
             </div>
+          </section>
+
+          {/* < Projects  /> */}
+
+          {console.log("this is the one", siteMode)}
+          <section id="about-section" className={`about-parallax ${siteMode === "scroll" ? "show" : "hidden"}`}>
+            <About restBase={restBase} />
+          </section>
+          <section id="contact-section" className={`contact-parallax ${siteMode === "scroll" ? "show" : "hidden"}`}>
+            <Contact restBase={restBase} />
           </section>
         </div>
       ) : (

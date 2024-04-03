@@ -3,6 +3,8 @@ import Loading from "../components/Loading";
 import { NavLink } from "react-router-dom";
 
 function About({ restBase }) {
+  // smoothScroll
+
   const AboutID = "11";
   const restPath = `${restBase}pages/${AboutID}`;
   const [restData, setData] = useState({});
@@ -67,21 +69,6 @@ function About({ restBase }) {
     fetchTechStack();
   }, [restBase]);
 
-  const handleNavLinkClick = (event) => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-
-    const lis = document.querySelectorAll(".nav-menu li");
-    lis.forEach((li) => {
-      li.classList.remove("clicked");
-    });
-
-    setClicked(true);
-    event.target.closest("li").classList.add("clicked");
-  };
-
   const fetchProfileImage = async (imageId) => {
     try {
       const response = await fetch(`${restBase}media/${imageId}`);
@@ -97,6 +84,13 @@ function About({ restBase }) {
     } catch (error) {
       console.error("Error fetching profile image data:", error);
     }
+  };
+
+  const smoothScroll = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -121,14 +115,14 @@ function About({ restBase }) {
               <div className="about-cta">
                 <NavLink
                   to="/projects"
-                  onClick={handleNavLinkClick}
+                  onClick={smoothScroll}
                   className="about-project-cta"
                 >
                   See My Projects
                 </NavLink>
                 <NavLink
                   to="/contact"
-                  onClick={handleNavLinkClick}
+                  onClick={smoothScroll}
                   className="about-contact-cta"
                 >
                   Contact Me

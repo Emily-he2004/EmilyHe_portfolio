@@ -18,8 +18,8 @@ function MoodPicker() {
 
   return (
     <div className="site-color-toggler">
-      <h3>Got A Mood To Share?</h3>
-      <p><em>We'll feel the same!</em><br></br>Right now, I'm...</p>
+      <h3>Mood Picker</h3>
+      <p><em>Got A Mood To Share?</em><br></br>We'll feel the same!</p>
       <div className="color-toggle-nav">
         <button
           className={`mood-button ${selectedTheme === "happy" ? "active" : ""}`}

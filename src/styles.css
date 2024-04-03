@@ -163,8 +163,23 @@ body .loading {
     margin-left: 2rem;
   }
   .header-container .right-nav {
-    margin-right: 2rem;
+    margin-right: 3rem;
   }
+}
+.header-container .site-toggler-container {
+  margin: auto;
+  font-size: small;
+  text-align: center;
+  background-color: white;
+  color: black;
+  border-radius: 0.3rem;
+  padding: 0.3rem 0.8rem;
+}
+.header-container .site-toggler-container a {
+  font-size: 1rem;
+  background-color: black;
+  border-radius: 0.3rem;
+  padding: 0 0.5rem 0.5rem 0.5rem;
 }
 
 ul.nav-menu li {
@@ -212,13 +227,15 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
 .site-color-toggler {
   display: none;
   padding: 0.5rem 0;
+  box-shadow: 0 0 2.5rem 0.8rem rgba(255, 255, 255, 0.5);
 }
 .site-color-toggler h3 {
   margin: 0.5rem 0 0 0;
 }
 .site-color-toggler .comment {
-  margin: 0.5rem 1rem;
+  margin: 0.8rem 1rem;
   max-width: 300px;
+  font-size: smaller;
 }
 @media screen and (min-width: 800px) {
   .site-color-toggler {
@@ -226,7 +243,7 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 1rem auto;
+    margin: 1rem auto 1rem 2rem;
     text-align: center;
     border: solid 0.1rem white;
     border-radius: 0.5rem;
@@ -251,38 +268,26 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
     justify-content: center;
     width: 60px;
     margin: 0.3rem;
+    color: white;
+    border: solid 0.1rem white;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
   }
   .site-color-toggler .color-toggle-nav .mood-button:nth-child(1) {
     grid-area: Happy;
-    color: white;
     background-color: rgb(204, 173, 36);
-    border: solid 0.1rem white;
-    border-radius: 0.3rem;
-    padding: 0.2rem;
   }
   .site-color-toggler .color-toggle-nav .mood-button:nth-child(2) {
     grid-area: Rich;
-    color: white;
     background-color: rgb(0, 141, 42);
-    border: solid 0.1rem white;
-    border-radius: 0.3rem;
-    padding: 0.2rem;
   }
   .site-color-toggler .color-toggle-nav .mood-button:nth-child(3) {
     grid-area: Sad;
-    color: white;
     background-color: rgb(33, 50, 236);
-    border: solid 0.1rem white;
-    border-radius: 0.3rem;
-    padding: 0.2rem;
   }
   .site-color-toggler .color-toggle-nav .mood-button:nth-child(4) {
     grid-area: Angry;
-    color: white;
     background-color: rgb(208, 17, 17);
-    border: solid 0.1rem white;
-    border-radius: 0.3rem;
-    padding: 0.2rem;
   }
 }
 @media screen and (min-width: 1000px) {
@@ -306,12 +311,12 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
 
 .home-page .profile-section {
   display: grid;
-  margin: 0 1rem;
+  margin: 3rem 1rem 0 2rem;
   grid-template-areas: "profile    ." "CTA        .";
 }
 .home-page .profile-section .profile-content {
   grid-area: profile;
-  margin: 1rem auto;
+  margin: auto;
 }
 .home-page .profile-section .profile-content h1 {
   font-size: 2.3rem;
@@ -332,18 +337,28 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
   grid-area: CTA;
 }
 .home-page .featured-project-section {
-  margin: 2rem;
+  margin: 8rem 2rem 2rem 2rem;
+}
+.home-page .featured-project-section .project-teaser {
+  margin: 0 auto;
 }
 .home-page .featured-project-intro {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
+}
+.home-page .featured-project-intro h2 {
+  text-align: center;
 }
 @media screen and (min-width: 800px) {
   .home-page {
     max-width: 900px;
     margin: 0 5rem 2.5rem 5rem;
+  }
+  .home-page .profile-section {
+    margin: 2rem;
+    font-size: large;
   }
 }
 @media screen and (min-width: 1000px) {
@@ -437,6 +452,36 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
   .home-page .featured-projects-cta {
     font-size: large;
   }
+}
+.home-page .about-parallax.hidden {
+  display: none;
+}
+.home-page .about-parallax.show {
+  display: block;
+}
+.home-page .about-parallax {
+  display: block;
+  margin-top: 10rem;
+}
+.home-page .about-parallax .about-page {
+  margin: 0;
+  padding: 0 2rem;
+}
+.home-page .about-parallax .about-page h1 {
+  font-size: 1.5rem;
+}
+.home-page .about-parallax .about-page .about-cta {
+  display: none;
+}
+.home-page .contact-parallax.hidden {
+  display: none;
+}
+.home-page .contact-parallax.show {
+  display: block;
+}
+.home-page .contact-parallax {
+  display: block;
+  margin: 13rem auto 8rem auto;
 }
 
 .about-page {
@@ -761,7 +806,7 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
 
 .project-teaser {
   border-radius: 0.3rem;
-  margin: 2rem auto;
+  margin: 2rem 0;
   padding: 1rem 0;
   position: relative;
 }
@@ -784,7 +829,7 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
   border: solid 0.1rem white;
   border-radius: 0.3rem;
   background-color: rgba(0, 0, 0, 0.8);
-  margin: 5% 0;
+  margin: 5% auto;
   padding: 1rem 1rem 2rem 1rem;
   max-width: 300px;
   position: sticky;
@@ -822,10 +867,10 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
     max-width: 400px;
   }
   .project-teaser .tech-stack {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
   }
   .project-teaser:nth-child(even) .featured-image {
-    left: 10%;
+    left: 2%;
     box-shadow: -1rem 0.5rem 2.5rem rgba(255, 255, 255, 0.5);
   }
   .project-teaser:nth-child(even) .teaser-content {
@@ -833,13 +878,12 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
     left: 90%;
   }
   .project-teaser:nth-child(even) .tech-stack {
-    margin-right: 2.5rem;
     right: 0;
     left: 100%;
     justify-content: flex-end;
   }
   .project-teaser:nth-child(odd) .featured-image {
-    right: 10%;
+    right: 2%;
     box-shadow: 1rem 0.5rem 2.5rem rgba(255, 255, 255, 0.5);
   }
   .project-teaser:nth-child(odd) .teaser-content {
@@ -883,7 +927,6 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
 }
 .single-project-page .project-media .slick-slider {
   position: relative;
-  border: 0.1rem white solid;
   text-align: center;
   width: 16rem;
   height: -webkit-fill-available;
@@ -1310,6 +1353,9 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
   margin: 0.5rem auto;
   width: -webkit-fill-available;
   max-width: 450px;
+}
+.contact-page .email-cta a {
+  text-decoration: underline;
 }
 .contact-page .copy-email-btn {
   border-radius: 0.3rem;

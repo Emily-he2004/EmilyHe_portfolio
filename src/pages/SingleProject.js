@@ -7,6 +7,8 @@ import { FaGithub } from "react-icons/fa";
 import Slider from "react-slick";
 
 function SingleProject({ restBase }) {
+  // smoothScroll
+
   const { slug } = useParams();
   const restPath = `${restBase}projects?slug=${slug}&_embed`;
   const [restData, setData] = useState({});
@@ -62,7 +64,7 @@ function SingleProject({ restBase }) {
     setActiveTab(index);
   };
 
-  const handleNavLinkClick = () => {
+  const smoothScroll = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -231,7 +233,7 @@ function SingleProject({ restBase }) {
           <section className="see-other-projects">
             <NavLink
               to="/projects"
-              onClick={handleNavLinkClick}
+              onClick={smoothScroll}
               className="return-projects-cta"
             >
              &#8592; See Other Projects

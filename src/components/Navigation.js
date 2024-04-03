@@ -1,22 +1,21 @@
 import React, { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { PiPersonArmsSpreadFill } from "react-icons/pi";
-
-import { VscGitPullRequestCreate } from "react-icons/vsc";
 import { FaCode } from "react-icons/fa6";
-import { FaLaptopCode } from "react-icons/fa6";
-
-import { AiFillMessage } from "react-icons/ai";
-import { LuContact2 } from "react-icons/lu";
 import { BsPersonBadge } from "react-icons/bs";
-import { BsPersonBadgeFill } from "react-icons/bs";
 
 function Navigation() {
+  // siteMode, siteModeToggle, handleNavLinkClick
+
   const location = useLocation();
   const [clicked, setClicked] = useState(false);
+  const [siteMode, setSiteMode] = useState("pages");
+
+  const siteModeToggle = () => {
+    setSiteMode(siteMode === "pages" ? "scroll" : "pages");
+  };
 
   const handleNavLinkClick = (event) => {
-
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -31,17 +30,19 @@ function Navigation() {
     event.target.closest("li").classList.add("clicked");
   };
 
-
   return (
     <div className="thumb-nav-container">
       <nav className="thumb-nav">
         <ul className="nav-menu">
-          <li 
+          <li
           // className={clicked ? "clicked" : ""}
           >
             <NavLink
-              to="/about"
-              onClick={handleNavLinkClick}
+              to={siteMode === "pages" ? "/about" : "#about-section"}
+              onClick={(event) => {
+                handleNavLinkClick(event);
+            
+              }}
               isActive={() => location.pathname === "/about"}
             >
               <PiPersonArmsSpreadFill />
@@ -49,7 +50,7 @@ function Navigation() {
               About
             </NavLink>
           </li>
-          <li 
+          <li
           // className={clicked ? "clicked" : ""}
           >
             <NavLink
@@ -62,12 +63,15 @@ function Navigation() {
               Projects
             </NavLink>
           </li>
-          <li 
+          <li
           // className={clicked ? "clicked" : ""}
           >
             <NavLink
-              to="/contact"
-              onClick={handleNavLinkClick}
+              to={siteMode === "pages" ? "/contact" : "#contact-section"}
+              onClick={(event) => {
+                handleNavLinkClick(event);
+               
+              }}
               isActive={() => location.pathname === "/contact"}
             >
               <BsPersonBadge />
