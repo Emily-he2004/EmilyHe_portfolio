@@ -367,6 +367,9 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
     padding: 0 3.3rem;
     margin: 0 auto 2.5rem auto;
   }
+  .home-page .featured-project-section .project-teaser {
+    margin: 0 5rem;
+  }
 }
 .home-page a {
   font-size: initial;
@@ -839,7 +842,7 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
   font-weight: bolder;
   position: sticky;
   z-index: 99;
-  margin: 2rem auto 0 auto;
+  margin: 3rem auto 0 auto;
   display: flex;
   max-width: 300px;
   justify-content: space-around;
@@ -902,7 +905,7 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
     margin: 1rem;
   }
   .project-teaser .tech-stack {
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
 }
 

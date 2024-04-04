@@ -70,6 +70,13 @@
 
   @media screen and (min-width: 1000px) {
     @include min-width1000;
+
+      .featured-project-section {
+
+    .project-teaser {
+      margin: 0 5rem;
+    }
+  }
   }
 
   // ______CTAs & Links___________________________________________
