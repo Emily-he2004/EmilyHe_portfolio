@@ -129,9 +129,7 @@ function Home({ restBase }) {
                 </p>
                 <div className="project-main-cta">
                   <a
-                    href={
-                      featuredProject.acf.projects_page[0].project_live_site
-                    }
+                    href={featuredProject.acf.projects_page[0].project_live_site}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="live-site-cta"

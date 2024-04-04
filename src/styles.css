@@ -197,7 +197,7 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
   font-size: 0.85rem;
   position: sticky;
   z-index: 99;
-  bottom: 0vh;
+  bottom: 0;
 }
 .thumb-nav-container a {
   color: white;
@@ -761,8 +761,7 @@ ul.nav-menu li:hover, ul.nav-menu li:after, ul.nav-menu li.active, ul.nav-menu l
   font-weight: 550;
   display: flex;
   align-items: center;
-  justify-self: center;
-  padding: 0.5rem auto 0.5rem auto;
+  justify-content: center;
   margin-right: 0.5rem;
 }
 .project-main-cta .live-site-cta.home-project-cta, .project-main-cta .live-site-cta.about-project-cta, .project-main-cta .live-site-cta.single-live-cta, .project-main-cta .live-site-cta.live-site-cta, .project-main-cta .live-site-cta.linkedin-cta {
