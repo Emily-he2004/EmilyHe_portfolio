@@ -18,6 +18,7 @@ function MoodPicker() {
 
   return (
     <div className="site-color-toggler">
+      <h3>! This Feature Is Under Development. !</h3>
       <h3>Mood Picker</h3>
       <p><em>Got A Mood To Share?</em><br></br>We'll feel the same!</p>
       <div className="color-toggle-nav">
